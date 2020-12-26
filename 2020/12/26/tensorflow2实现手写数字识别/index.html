@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
+  <title>tensorflow2实现手写数字识别 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <meta name="description" content="tensorflow2实现手写数字识别 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="1.导入依赖包将tensorflow和numpy导入 123from tensorflow import kerasfrom tensorflow.keras.layers import Flatten, Denseimport numpy as np 2.加载数据集使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签 1(train_images,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="aa">
-<meta property="og:url" content="http://example.com/2020/12/26/aa/index.html">
+<meta property="og:title" content="tensorflow2实现手写数字识别">
+<meta property="og:url" content="http://example.com/2020/12/26/tensorflow2%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.导入依赖包将tensorflow和numpy导入 123from tensorflow import kerasfrom tensorflow.keras.layers import Flatten, Denseimport numpy as np 2.加载数据集使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签 1(train_images,">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-26T12:41:46.000Z">
-<meta property="article:modified_time" content="2020-12-26T12:46:17.220Z">
+<meta property="article:published_time" content="2020-12-26T12:51:33.000Z">
+<meta property="article:modified_time" content="2020-12-26T12:53:13.952Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -211,7 +211,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="All">All<small>(8)</small></div></li>
+    <li><div class="all active" data-rel="All">All<small>(1)</small></div></li>
     
 </ul>
 <div class="left-bottom">
@@ -223,7 +223,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">About</a><a style="width: 50%"  class="friends">Friends</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="8">
+<input type="hidden" id="yelog_site_posts_number" value="1">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -277,67 +277,11 @@
     <nav id="title-list-nav">
         
         <a  class="All "
-           href="/2020/12/26/aa/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="aa">aa</span>
-            <span class="post-date" title="2020-12-26 20:41:46">2020/12/26</span>
-        </a>
-        
-        <a  class="All "
-           href="/2020/12/26/%E7%94%A8python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87_%E5%88%86%E7%B1%BB/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-12-26 19:54:17">2020/12/26</span>
-        </a>
-        
-        <a  class="All "
-           href="/2020/12/26/%E7%94%A8python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87_%E9%A6%96%E9%A1%B5/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-12-26 19:54:17">2020/12/26</span>
-        </a>
-        
-        <a  class="All "
-           href="/2020/12/26/tensorflow2%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-12-26 19:53:55">2020/12/26</span>
-        </a>
-        
-        <a  class="All "
-           href="/2020/12/26/tensorflow2%E5%AE%9E%E7%8E%B0%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-12-26 19:53:55">2020/12/26</span>
-        </a>
-        
-        <a  class="All "
            href="/2020/12/26/tensorflow2%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-12-26 19:21:56">2020/12/26</span>
-        </a>
-        
-        <a  class="All "
-           href="/2020/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-12-25 19:39:10">2020/12/25</span>
-        </a>
-        
-        <a  class="All "
-           href="/2020/12/25/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2020-12-25 19:32:38">2020/12/25</span>
+            <span class="post-title" title="tensorflow2实现手写数字识别">tensorflow2实现手写数字识别</span>
+            <span class="post-date" title="2020-12-26 20:51:33">2020/12/26</span>
         </a>
         
         <div id="no-item-tips">
@@ -359,6 +303,8 @@
     <div class="pjax">
         <article id="post-tensorflow2实现手写数字识别" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">tensorflow2实现手写数字识别</h1>
+    
     <div class="article-meta">
         
         
@@ -367,7 +313,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-11-28 08:53:33'>2020-12-26 19:21</time>
+            Created At : <time class="date" title='Updated At: 2020-12-26 20:53:13'>2020-12-26 20:51</time>
         
     </div>
     <div class="article-meta">
