@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -347,12 +347,41 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-tensorflow2面向对象实现数字识别" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-11-26 19:41:45'>2020-12-26 19:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9B%BE%E7%89%87%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.图片归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.创建模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%87%BD%E6%95%B0%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化函数、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%B0%E5%BD%95%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4"><span class="toc-text">6.记录模型开始训练时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E8%AE%B0%E5%BD%95%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4"><span class="toc-text">8.记录模型训练完成时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E7%94%A8%E6%B5%8B%E8%AF%95%E9%9B%86%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><span class="toc-text">9.用测试集验证模型效果</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -365,37 +394,70 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阁主（杨玉杰）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Flatten, Dense</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> time</span><br></pre></td></tr></table></figure>
+<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(train_x, train_y), (test_x, test_y) = keras.datasets.mnist.load_data()</span><br></pre></td></tr></table></figure>
+<h3 id="3-图片归一化"><a href="#3-图片归一化" class="headerlink" title="3.图片归一化"></a>3.图片归一化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_x, test_x = train_x / <span class="number">255.0</span>, test_x / <span class="number">255.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-创建模型"><a href="#4-创建模型" class="headerlink" title="4.创建模型"></a>4.创建模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mnist</span>(<span class="params">tf.keras.Model</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Mnist, self).__init__()</span><br><span class="line">        self.dense1 = Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>))</span><br><span class="line">        self.dense2 = Dense(<span class="number">100</span>, activation=<span class="string">&#x27;relu&#x27;</span>)</span><br><span class="line">        self.dense3 = Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">call</span>(<span class="params">self, inputs</span>):</span></span><br><span class="line">        x = self.dense1(inputs)</span><br><span class="line">        x = self.dense2(x)</span><br><span class="line">        x = self.dense3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">model = Mnist()</span><br></pre></td></tr></table></figure>
+<h3 id="5-指定优化函数、损失函数、评价指标"><a href="#5-指定优化函数、损失函数、评价指标" class="headerlink" title="5.指定优化函数、损失函数、评价指标"></a>5.指定优化函数、损失函数、评价指标</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=tf.keras.losses.SparseCategoricalCrossentropy(),</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="6-记录模型开始训练时间"><a href="#6-记录模型开始训练时间" class="headerlink" title="6.记录模型开始训练时间"></a>6.记录模型开始训练时间</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start_time = time.time()</span><br></pre></td></tr></table></figure>
+<h3 id="7-训练模型"><a href="#7-训练模型" class="headerlink" title="7.训练模型"></a>7.训练模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.fit(train_x, train_y, batch_size=<span class="number">64</span>, epochs=<span class="number">10</span>, verbose=<span class="number">1</span>, validation_freq=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Epoch 1/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.3128 - accuracy: 0.9122
+Epoch 2/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.1456 - accuracy: 0.9573
+Epoch 3/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.1049 - accuracy: 0.9693
+Epoch 4/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0809 - accuracy: 0.9767
+Epoch 5/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0646 - accuracy: 0.9808
+Epoch 6/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0529 - accuracy: 0.9841
+Epoch 7/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0445 - accuracy: 0.9871
+Epoch 8/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0377 - accuracy: 0.9889
+Epoch 9/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0314 - accuracy: 0.9908
+Epoch 10/10
+938/938 [==============================] - 2s 2ms/step - loss: 0.0263 - accuracy: 0.9926
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+
+
+
+
+&lt;tensorflow.python.keras.callbacks.History at 0x21981ca9400&gt;</code></pre>
+<h3 id="8-记录模型训练完成时间"><a href="#8-记录模型训练完成时间" class="headerlink" title="8.记录模型训练完成时间"></a>8.记录模型训练完成时间</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">end_time = time.time()</span><br></pre></td></tr></table></figure>
+<h3 id="9-用测试集验证模型效果"><a href="#9-用测试集验证模型效果" class="headerlink" title="9.用测试集验证模型效果"></a>9.用测试集验证模型效果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test_loss, test_acc = model.evaluate(test_x, test_y, verbose=<span class="number">1</span>)</span><br><span class="line">predict = model.predict(test_x)</span><br><span class="line">print(<span class="string">&#x27;time:&#x27;</span>, end_time - start_time)</span><br><span class="line">print(test_acc)</span><br><span class="line">print(<span class="string">&#x27;预测值：&#x27;</span>, np.argmax(predict[<span class="number">0</span>]))</span><br><span class="line">print(<span class="string">&#x27;真实值：&#x27;</span>, test_y[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>313/313 [==============================] - 1s 2ms/step - loss: 0.0698 - accuracy: 0.9797
+time: 19.72472095489502
+0.9797000288963318
+预测值： 7
+真实值： 7</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -404,11 +466,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
