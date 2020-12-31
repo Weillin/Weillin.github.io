@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>tensorflow2实现手写数字识别 | Weillin</title>
+  <title>VGG16算法实现 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="tensorflow2实现手写数字识别 | Weillin">
+  <meta name="description" content="VGG16算法实现 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="resnet算法实现1.导入依赖包from tensorflow import keras import tensorflow as tf import numpy as np import pandas as pd import os import matplotlib.pyplot as plt from sklearn.model_selection import train_test_sp">
 <meta property="og:type" content="article">
@@ -469,9 +469,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-tensorflow2实现手写数字识别" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-VGG16算法实现" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">tensorflow2实现手写数字识别</h1>
+        <h1 class="article-title">VGG16算法实现</h1>
     
     <div class="article-meta">
         
@@ -489,7 +489,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 19:36:50'>2020-12-26 20:51</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:01:46'>2020-12-31 19:51</time>
         
     </div>
     <div class="article-meta">
@@ -511,7 +511,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化器、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">6.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%94%A8%E6%B5%8B%E8%AF%95%E9%9B%86%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><span class="toc-text">7.用测试集验证模型效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%B0%86%E5%9B%BE%E7%89%87%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%BF%94%E5%9B%9E%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">8.将图片输入模型，返回预测结果</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VGG16%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">VGG16算法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">2.导入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">3.数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.建立模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.定义优化器、损失函数和评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%96%AD%E7%82%B9%E7%BB%AD%E8%AE%AD"><span class="toc-text">6.断点续训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.训练模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">8.预测结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%8D%9F%E5%A4%B1%E5%92%8C%E5%87%86%E7%A1%AE%E7%8E%87%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">9.损失和准确率可视化</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -527,63 +527,131 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><p>将tensorflow和numpy导入</p>
-<pre><code class="python">from tensorflow import keras
-from tensorflow.keras.layers import Flatten, Dense
-import numpy as np</code></pre>
-<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><p>使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签</p>
-<pre><code class="python">(train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()</code></pre>
-<h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><p>图片每个像素的数值都是在[0, 255]之间，所以归一化要除以255，数据要是浮点数，所以要添加一个小数点</p>
-<pre><code class="python">train_images, test_images = train_images / 255.0, test_images / 255.0</code></pre>
-<h3 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h3><p>搭建一个顺序模型，第一层先将数据展平，原始图片是28x28的灰度图，所以输入尺寸是（28，28），第二层节点数可以自己选择一个合适值，这里用128个节点，激活函数用relu，第三层有多少个种类就写多少，[0, 9]一共有10个数字,所以必须写10，激活函数用softmax</p>
-<pre><code class="python">model = keras.Sequential([
-    Flatten(input_shape=(28, 28)),
-    Dense(128, activation=&#39;relu&#39;),
-    Dense(10, activation=&#39;softmax&#39;)
+        <h1 id="VGG16算法实现"><a href="#VGG16算法实现" class="headerlink" title="VGG16算法实现"></a>VGG16算法实现</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">from tensorflow import keras
+import tensorflow as tf
+import numpy as np
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Dense, Flatten, Dropout, MaxPool2D</code></pre>
+<h2 id="2-导入数据"><a href="#2-导入数据" class="headerlink" title="2.导入数据"></a>2.导入数据</h2><pre><code class="python">train = pd.read_csv(&#39;./data/fashion_train.csv&#39;)
+test = pd.read_csv(&#39;./data/fashion_test.csv&#39;)
+print(train.shape, test.shape)</code></pre>
+<h2 id="3-数据预处理"><a href="#3-数据预处理" class="headerlink" title="3.数据预处理"></a>3.数据预处理</h2><pre><code class="python">input_shape = (28, 28, 1)
+x = np.array(train.iloc[:, 1:])
+y = keras.utils.to_categorical(np.array(train.iloc[:, 0]))
+x_train, x_val, y_train, y_val = train_test_split(x, y, test_size=0.2)
+print(x_train.shape, y_train.shape)
+
+x_test = np.array(test.iloc[:, 0:])
+x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+x_val = x_val.reshape(x_val.shape[0], 28, 28, 1)
+x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+print(x_train.shape, y_train.shape)
+
+x_train = x_train.astype(&#39;float32&#39;)
+x_val = x_val.astype(&#39;float32&#39;)
+x_test = x_test.astype(&#39;float32&#39;)
+x_train /= 255
+x_val /= 255
+x_test /= 255
+
+batch_size = 64
+classes = 10
+epochs = 5</code></pre>
+<h2 id="4-建立模型"><a href="#4-建立模型" class="headerlink" title="4.建立模型"></a>4.建立模型</h2><pre><code class="python">model = keras.models.Sequential([
+    Conv2D(filters=64, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=64, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , MaxPool2D(pool_size=(2, 2), strides=2, padding=&#39;same&#39;)
+    , Dropout(0.2)
+
+    , Conv2D(filters=128, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=128, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , MaxPool2D(pool_size=(2, 2), strides=2, padding=&#39;same&#39;)
+    , Dropout(0.2)
+
+    , Conv2D(filters=256, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=256, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=256, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , MaxPool2D(pool_size=(2, 2), strides=2, padding=&#39;same&#39;)
+    , Dropout(0.2)
+
+    , Conv2D(filters=512, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=512, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=512, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , MaxPool2D(pool_size=(2, 2), strides=2, padding=&#39;same&#39;)
+    , Dropout(0.2)
+
+    , Conv2D(filters=512, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=512, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , Conv2D(filters=512, kernel_size=(3, 3), padding=&#39;same&#39;)
+    , BatchNormalization()
+    , Activation(&#39;relu&#39;)
+    , MaxPool2D(pool_size=(2, 2), strides=2, padding=&#39;same&#39;)
+    , Dropout(0.2)
+
+    , Flatten()
+    , Dense(512, activation=&#39;relu&#39;)
+    , Dropout(0.2)
+    , Dense(512, activation=&#39;relu&#39;)
+    , Dropout(0.2)
+    , Dense(classes, activation=&#39;softmax&#39;)
 ])</code></pre>
-<h3 id="5-指定优化器、损失函数、评价指标"><a href="#5-指定优化器、损失函数、评价指标" class="headerlink" title="5.指定优化器、损失函数、评价指标"></a>5.指定优化器、损失函数、评价指标</h3><p>优化器使用adam，损失函数使用交叉熵损失函数，评价指标用精确率</p>
-<pre><code class="python">model.compile(optimizer=&#39;adam&#39;,
-              loss=&#39;sparse_categorical_crossentropy&#39;,
-              metrics=[&#39;acc&#39;])</code></pre>
-<h3 id="6-训练模型"><a href="#6-训练模型" class="headerlink" title="6.训练模型"></a>6.训练模型</h3><p>将训练集输入模型进行训练，一共训练10次</p>
-<pre><code class="python">model.fit(train_images, train_labels, epochs=10)</code></pre>
-<pre><code>Epoch 1/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.2566 - acc: 0.9264
-Epoch 2/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.1124 - acc: 0.9669
-Epoch 3/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0773 - acc: 0.9762
-Epoch 4/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0582 - acc: 0.9819
-Epoch 5/10
-1875/1875 [==============================] - 4s 2ms/step - loss: 0.0441 - acc: 0.9862
-Epoch 6/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0354 - acc: 0.9889
-Epoch 7/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0274 - acc: 0.9912
-Epoch 8/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0228 - acc: 0.9929
-Epoch 9/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0181 - acc: 0.9944
-Epoch 10/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0157 - acc: 0.9952
+<h2 id="5-定义优化器、损失函数和评价指标"><a href="#5-定义优化器、损失函数和评价指标" class="headerlink" title="5.定义优化器、损失函数和评价指标"></a>5.定义优化器、损失函数和评价指标</h2><pre><code class="python">model.compile(optimizer=&#39;adam&#39;
+              , loss=&#39;categorical_crossentropy&#39;
+              , metrics=[&#39;accuracy&#39;])</code></pre>
+<h2 id="6-断点续训"><a href="#6-断点续训" class="headerlink" title="6.断点续训"></a>6.断点续训</h2><pre><code class="python">save_path = &#39;./checkpoint/VGG16.ckpt&#39;
+if os.path.exists(save_path + &#39;.index&#39;):
+    print(&#39;model loading&#39;)
+    model.load_weights(save_path)
+cp_callback = keras.callbacks.ModelCheckpoint(filepath=save_path
+                                              , save_weights_only=True
+                                              , save_best_only=True)</code></pre>
+<h2 id="7-训练模型"><a href="#7-训练模型" class="headerlink" title="7.训练模型"></a>7.训练模型</h2><pre><code class="python">history = model.fit(x_train, y_train
+                    , batch_size=batch_size
+                    , epochs=epochs
+                    , verbose=1
+                    , validation_data=(x_val, y_val)
+                    , callbacks=[cp_callback])</code></pre>
+<h2 id="8-预测结果"><a href="#8-预测结果" class="headerlink" title="8.预测结果"></a>8.预测结果</h2><pre><code class="python">result = model.predict(x_test)
+pred = tf.argmax(result, axis=1)
+df = pd.DataFrame(pred, columns=[&#39;label&#39;])
+df.to_csv(path_or_buf=&#39;Submission.csv&#39;, index_label=&#39;image_id&#39;)</code></pre>
+<h2 id="9-损失和准确率可视化"><a href="#9-损失和准确率可视化" class="headerlink" title="9.损失和准确率可视化"></a>9.损失和准确率可视化</h2><pre><code class="python">print(history.history.keys())
+plt.plot(history.epoch, history.history.get(&#39;loss&#39;), label=&#39;loss&#39;)
+plt.plot(history.epoch, history.history.get(&#39;val_loss&#39;), label=&#39;val_loss&#39;)
+plt.legend()
+plt.show()
 
-
-
-
-
-&lt;tensorflow.python.keras.callbacks.History at 0x14f4196e7c0&gt;</code></pre>
-<h3 id="7-用测试集验证模型效果"><a href="#7-用测试集验证模型效果" class="headerlink" title="7.用测试集验证模型效果"></a>7.用测试集验证模型效果</h3><p>用测试集去验证训练好的模型，日志等级设置为2</p>
-<pre><code class="python">test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
-print(&#39;Test acc:&#39;, test_acc)</code></pre>
-<pre><code>313/313 - 0s - loss: 0.0885 - acc: 0.9779
-Test acc: 0.9779000282287598</code></pre>
-<h3 id="8-将图片输入模型，返回预测结果"><a href="#8-将图片输入模型，返回预测结果" class="headerlink" title="8.将图片输入模型，返回预测结果"></a>8.将图片输入模型，返回预测结果</h3><p>将测试集中的第一张图片输入模型，看是哪个数字的概率最大，并输出真实值</p>
-<pre><code class="python">predictions = model.predict(test_images)
-print(&#39;预测值:&#39;, np.argmax(predictions[0]))
-print(&#39;真实值:&#39;, test_labels[0])</code></pre>
-<pre><code>预测值: 7
-真实值: 7</code></pre>
+plt.plot(history.epoch, history.history.get(&#39;accuracy&#39;), label=&#39;acc&#39;)
+plt.plot(history.epoch, history.history.get(&#39;val_accuracy&#39;), label=&#39;val_acc&#39;)
+plt.legend()
+plt.show()</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>

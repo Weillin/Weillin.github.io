@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>tensorflow2实现手写数字识别 | Weillin</title>
+  <title>自行车使用量预测 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="tensorflow2实现手写数字识别 | Weillin">
+  <meta name="description" content="自行车使用量预测 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="resnet算法实现1.导入依赖包from tensorflow import keras import tensorflow as tf import numpy as np import pandas as pd import os import matplotlib.pyplot as plt from sklearn.model_selection import train_test_sp">
 <meta property="og:type" content="article">
@@ -469,9 +469,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-tensorflow2实现手写数字识别" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-自行车使用量预测" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">tensorflow2实现手写数字识别</h1>
+        <h1 class="article-title">自行车使用量预测</h1>
     
     <div class="article-meta">
         
@@ -489,7 +489,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 19:36:50'>2020-12-26 20:51</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:00:57'>2020-12-31 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -511,7 +511,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化器、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">6.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%94%A8%E6%B5%8B%E8%AF%95%E9%9B%86%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><span class="toc-text">7.用测试集验证模型效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%B0%86%E5%9B%BE%E7%89%87%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%BF%94%E5%9B%9E%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">8.将图片输入模型，返回预测结果</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E8%A1%8C%E8%BD%A6%E4%BD%BF%E7%94%A8%E9%87%8F%E9%A2%84%E6%B5%8B"><span class="toc-text">自行车使用量预测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">3.数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BC%BA%E5%A4%B1%E5%80%BC%E6%95%B0%E7%9B%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.1查看数据的缺失值数目和数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E5%B0%86%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BADataFrame%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.2将数据转化为DataFrame类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">3.3重新定义数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E6%9F%A5%E7%9C%8B%E5%90%84%E5%AD%97%E6%AE%B5%E6%95%B0%E6%8D%AE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="toc-text">3.4查看各字段数据的相关性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E6%9F%A5%E7%9C%8B%E5%90%84%E6%95%B0%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">3.5查看各数目出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E6%9F%A5%E7%9C%8B%E6%95%B0%E7%9B%AE%E7%9A%84%E5%8F%98%E5%8C%96%E6%83%85%E5%86%B5"><span class="toc-text">3.6查看数目的变化情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BB%9F%E8%AE%A1%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.7查看数据的统计性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8%E5%88%A0%E9%99%A4datetime%E8%BF%99%E4%B8%80%E5%88%97"><span class="toc-text">3.8删除datetime这一列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">切分训练集和测试集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">数据归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%92%8C%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.数据可视化和训练模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B0%86%E7%BB%93%E6%9E%9C%E5%86%99%E5%85%A5%E9%A2%84%E6%B5%8B%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">6.将结果写入预测文件中</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -527,63 +527,157 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><p>将tensorflow和numpy导入</p>
-<pre><code class="python">from tensorflow import keras
-from tensorflow.keras.layers import Flatten, Dense
-import numpy as np</code></pre>
-<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><p>使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签</p>
-<pre><code class="python">(train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()</code></pre>
-<h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><p>图片每个像素的数值都是在[0, 255]之间，所以归一化要除以255，数据要是浮点数，所以要添加一个小数点</p>
-<pre><code class="python">train_images, test_images = train_images / 255.0, test_images / 255.0</code></pre>
-<h3 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h3><p>搭建一个顺序模型，第一层先将数据展平，原始图片是28x28的灰度图，所以输入尺寸是（28，28），第二层节点数可以自己选择一个合适值，这里用128个节点，激活函数用relu，第三层有多少个种类就写多少，[0, 9]一共有10个数字,所以必须写10，激活函数用softmax</p>
-<pre><code class="python">model = keras.Sequential([
-    Flatten(input_shape=(28, 28)),
-    Dense(128, activation=&#39;relu&#39;),
-    Dense(10, activation=&#39;softmax&#39;)
-])</code></pre>
-<h3 id="5-指定优化器、损失函数、评价指标"><a href="#5-指定优化器、损失函数、评价指标" class="headerlink" title="5.指定优化器、损失函数、评价指标"></a>5.指定优化器、损失函数、评价指标</h3><p>优化器使用adam，损失函数使用交叉熵损失函数，评价指标用精确率</p>
-<pre><code class="python">model.compile(optimizer=&#39;adam&#39;,
-              loss=&#39;sparse_categorical_crossentropy&#39;,
-              metrics=[&#39;acc&#39;])</code></pre>
-<h3 id="6-训练模型"><a href="#6-训练模型" class="headerlink" title="6.训练模型"></a>6.训练模型</h3><p>将训练集输入模型进行训练，一共训练10次</p>
-<pre><code class="python">model.fit(train_images, train_labels, epochs=10)</code></pre>
-<pre><code>Epoch 1/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.2566 - acc: 0.9264
-Epoch 2/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.1124 - acc: 0.9669
-Epoch 3/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0773 - acc: 0.9762
-Epoch 4/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0582 - acc: 0.9819
-Epoch 5/10
-1875/1875 [==============================] - 4s 2ms/step - loss: 0.0441 - acc: 0.9862
-Epoch 6/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0354 - acc: 0.9889
-Epoch 7/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0274 - acc: 0.9912
-Epoch 8/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0228 - acc: 0.9929
-Epoch 9/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0181 - acc: 0.9944
-Epoch 10/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0157 - acc: 0.9952
+        <h1 id="自行车使用量预测"><a href="#自行车使用量预测" class="headerlink" title="自行车使用量预测"></a>自行车使用量预测</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn import metrics
+from sklearn.tree import DecisionTreeRegressor</code></pre>
+<h2 id="2-导入数据集"><a href="#2-导入数据集" class="headerlink" title="2.导入数据集"></a>2.导入数据集</h2><pre><code class="python">train = pd.read_csv(&#39;./data/bike_train.csv&#39;)
+test = pd.read_csv(&#39;./data/bike_test.csv&#39;)</code></pre>
+<h2 id="3-数据预处理"><a href="#3-数据预处理" class="headerlink" title="3.数据预处理"></a>3.数据预处理</h2><h3 id="3-1查看数据的缺失值数目和数据类型"><a href="#3-1查看数据的缺失值数目和数据类型" class="headerlink" title="3.1查看数据的缺失值数目和数据类型"></a>3.1查看数据的缺失值数目和数据类型</h3><pre><code class="python">print(train.isnull().sum().sort_values(ascending=False))
+print(test.isnull().sum().sort_values(ascending=False))
+print(train.info())
+print(test.info())</code></pre>
+<h3 id="3-2将数据转化为DataFrame类型"><a href="#3-2将数据转化为DataFrame类型" class="headerlink" title="3.2将数据转化为DataFrame类型"></a>3.2将数据转化为DataFrame类型</h3><pre><code class="python">train.datetime = pd.to_datetime(train.datetime)
+test.datetime = pd.to_datetime(test.datetime)
+print(train.info())
+print(test.info())</code></pre>
+<h3 id="3-3重新定义数据集"><a href="#3-3重新定义数据集" class="headerlink" title="3.3重新定义数据集"></a>3.3重新定义数据集</h3><pre><code class="python">train[&#39;year&#39;] = train[&#39;datetime&#39;].dt.year
+train[&#39;month&#39;] = train[&#39;datetime&#39;].dt.month
+train[&#39;day&#39;] = train[&#39;datetime&#39;].dt.day
+train[&#39;hour&#39;] = train[&#39;datetime&#39;].dt.hour
+train[&#39;week&#39;] = train[&#39;datetime&#39;].dt.week
+
+test[&#39;year&#39;] = test[&#39;datetime&#39;].dt.year
+test[&#39;month&#39;] = test[&#39;datetime&#39;].dt.month
+test[&#39;day&#39;] = test[&#39;datetime&#39;].dt.day
+test[&#39;hour&#39;] = test[&#39;datetime&#39;].dt.hour
+test[&#39;week&#39;] = test[&#39;datetime&#39;].dt.week
+
+print(train.tail(3))
+print(test.tail(3))</code></pre>
+<h3 id="3-4查看各字段数据的相关性"><a href="#3-4查看各字段数据的相关性" class="headerlink" title="3.4查看各字段数据的相关性"></a>3.4查看各字段数据的相关性</h3><pre><code class="python">plt.figure(figsize=(16, 8))
+sns.heatmap(train.corr(), annot=True)
+plt.show()</code></pre>
+<h3 id="3-5查看各数目出现的次数"><a href="#3-5查看各数目出现的次数" class="headerlink" title="3.5查看各数目出现的次数"></a>3.5查看各数目出现的次数</h3><pre><code class="python">plt.figure(figsize=(16, 8))
+sns.distplot(train[&#39;count&#39;])
+plt.show()</code></pre>
+<h3 id="3-6查看数目的变化情况"><a href="#3-6查看数目的变化情况" class="headerlink" title="3.6查看数目的变化情况"></a>3.6查看数目的变化情况</h3><pre><code class="python">plt.figure(figsize=(16, 8))
+plt.plot(train[&#39;datetime&#39;][0:500], train[&#39;count&#39;][0:500])
+plt.show()</code></pre>
+<h3 id="3-7查看数据的统计性描述"><a href="#3-7查看数据的统计性描述" class="headerlink" title="3.7查看数据的统计性描述"></a>3.7查看数据的统计性描述</h3><pre><code class="python">plt.hist(x=&#39;workingday&#39;, data=train)
+
+plt.figure(figsize=(16, 8))
+sns.boxplot(x=&#39;season&#39;, y=&#39;count&#39;, data=train)
+
+plt.figure(figsize=(16, 8))
+sns.boxplot(x=&#39;week&#39;, y=&#39;count&#39;, data=train)
+
+plt.figure(figsize=(16, 8))
+sns.boxplot(x=&#39;hour&#39;, y=&#39;count&#39;, data=train)
+
+plt.figure(figsize=(16, 8))
+sns.boxplot(x=&#39;year&#39;, y=&#39;count&#39;, data=train)
+
+plt.figure(figsize=(16, 8))
+plt.hist(train[&#39;count&#39;][train[&#39;year&#39;] == 2011], alpha=0.5, label=&#39;2011&#39;)
+plt.hist(train[&#39;count&#39;][train[&#39;year&#39;] == 2012], alpha=0.5, label=&#39;2012&#39;, color=&#39;red&#39;)
+plt.scatter(train[&#39;hour&#39;], train[&#39;count&#39;])
+print(train.head(3))</code></pre>
+<h3 id="3-8删除datetime这一列"><a href="#3-8删除datetime这一列" class="headerlink" title="3.8删除datetime这一列"></a>3.8删除datetime这一列</h3><pre><code class="python">del train[&#39;datetime&#39;]</code></pre>
+<pre><code class="python">Q1 = train.quantile(0.25)
+Q3 = train.quantile(0.75)
+IQR = Q3 - Q1
+print(IQR)</code></pre>
+<pre><code class="python">train_wind = train[~((train &lt; (Q1 - 1.5 * IQR)) | (train &gt; (Q3 + 1.5 * IQR))).any(axis=1)]
+train_wind.dropna(inplace=True)
+
+print(train.info())
+print(train_wind.info())
+print(train_wind.head(3))</code></pre>
+<pre><code class="python">plt.figure(figsize=(12, 7))
+sns.boxplot(x=&#39;season&#39;, y=&#39;windspeed&#39;, data=train_wind, palette=&#39;winter&#39;)</code></pre>
+<pre><code class="python">def wind(cols):
+    windspeed = cols[0]
+    season = cols[1]
+    if windspeed == 0:
+        if season == 1:
+            return 14
+        elif season == 2:
+            return 14
+        else:
+            return 13
+    else:
+        return windspeed
 
 
+train_wind[&#39;wind&#39;] = train_wind[[&#39;windspeed&#39;, &#39;season&#39;]].apply(wind, axis=1)
+test[&#39;wind&#39;] = test[[&#39;windspeed&#39;, &#39;season&#39;]].apply(wind, axis=1)
 
+print(test.head(3))
+print(train_wind.head(3))</code></pre>
+<pre><code class="python">train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;
+    , &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]] = train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;
+    , &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]].astype(&#39;category&#39;)
+test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;
+    , &#39;hour&#39;, &#39;week&#39;]] = test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;
+    , &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]].astype(&#39;category&#39;)
+print(train_wind.info())</code></pre>
+<pre><code class="python">X = train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;
+    , &#39;atemp&#39;, &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]]
+y = train_wind[&#39;count&#39;]</code></pre>
+<h3 id="切分训练集和测试集"><a href="#切分训练集和测试集" class="headerlink" title="切分训练集和测试集"></a>切分训练集和测试集</h3><pre><code class="python">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</code></pre>
+<h3 id="数据归一化"><a href="#数据归一化" class="headerlink" title="数据归一化"></a>数据归一化</h3><pre><code class="python">y_train = y_train.values.reshape(-1, 1)
+y_test = y_test.values.reshape(-1, 1)
 
+sc_X = MinMaxScaler()
+sc_y = MinMaxScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.fit_transform(X_test)
+y_train = sc_X.fit_transform(y_train)
+y_test = sc_y.fit_transform(y_test)</code></pre>
+<pre><code class="python">sc_X = MinMaxScaler()
+sc_X.fit(X_train)
+X_train = sc_X.transform(X_train)
+X_test = sc_X.transform(X_test)</code></pre>
+<pre><code class="python">sc_y = MinMaxScaler()
+sc_y.fit(y_train)
+y_train = sc_y.transform(y_train)
+y_test = sc_y.transform(y_test)</code></pre>
+<h3 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h3><pre><code class="python">rf = RandomForestRegressor(n_estimators=100)
+rf.fit(X_train, y_train)
+rf_prediction = rf.predict(X_test)
+print(&#39;MSE:&#39;, metrics.mean_squared_error(y_test, rf_prediction))</code></pre>
+<h3 id="5-数据可视化和训练模型"><a href="#5-数据可视化和训练模型" class="headerlink" title="5.数据可视化和训练模型"></a>5.数据可视化和训练模型</h3><pre><code class="python">plt.scatter(y_test, rf_prediction)
 
-&lt;tensorflow.python.keras.callbacks.History at 0x14f4196e7c0&gt;</code></pre>
-<h3 id="7-用测试集验证模型效果"><a href="#7-用测试集验证模型效果" class="headerlink" title="7.用测试集验证模型效果"></a>7.用测试集验证模型效果</h3><p>用测试集去验证训练好的模型，日志等级设置为2</p>
-<pre><code class="python">test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
-print(&#39;Test acc:&#39;, test_acc)</code></pre>
-<pre><code>313/313 - 0s - loss: 0.0885 - acc: 0.9779
-Test acc: 0.9779000282287598</code></pre>
-<h3 id="8-将图片输入模型，返回预测结果"><a href="#8-将图片输入模型，返回预测结果" class="headerlink" title="8.将图片输入模型，返回预测结果"></a>8.将图片输入模型，返回预测结果</h3><p>将测试集中的第一张图片输入模型，看是哪个数字的概率最大，并输出真实值</p>
-<pre><code class="python">predictions = model.predict(test_images)
-print(&#39;预测值:&#39;, np.argmax(predictions[0]))
-print(&#39;真实值:&#39;, test_labels[0])</code></pre>
-<pre><code>预测值: 7
-真实值: 7</code></pre>
+plt.figure(figsize=(16, 8))
+plt.plot(rf_prediction[0:200], &#39;r&#39;)
+plt.plot(y_test[0:200])
+
+dt_reg = DecisionTreeRegressor()
+dt_reg.fit(X_train, y_train)
+dt_prediction = dt_reg.predict(X_test)
+print(&#39;MSE:&#39;, metrics.mean_squared_error(y_test, dt_prediction))</code></pre>
+<pre><code class="python">plt.scatter(y_test, dt_prediction)
+print(test.head(3))</code></pre>
+<pre><code class="python">test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;, &#39;humidity&#39;
+    , &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]] = sc_X.fit_transform(test[[&#39;season&#39;
+    , &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;, &#39;humidity&#39;
+    , &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]])
+test_pred = rf.predict(test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;
+    , &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]])
+print(test_pred)</code></pre>
+<pre><code class="python">test_pred = test_pred.reshape(-1, 1)
+test_pred = sc_y.inverse_transform(test_pred)
+test_pred = pd.DataFrame(test_pred, columns=[&#39;count&#39;])
+df = pd.concat([test[&#39;datetime&#39;], test_pred], axis=1)
+print(df.head(3))</code></pre>
+<h2 id="6-将结果写入预测文件中"><a href="#6-将结果写入预测文件中" class="headerlink" title="6.将结果写入预测文件中"></a>6.将结果写入预测文件中</h2><pre><code class="python">df[&#39;count&#39;] = df[&#39;count&#39;].astype(&#39;int&#39;)
+df.to_csv(&#39;submission.csv&#39;, index=False)</code></pre>
+<pre><code class="python"></code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>

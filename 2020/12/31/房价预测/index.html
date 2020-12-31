@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>房价预测 | Weillin</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="房价预测 | Weillin">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="resnet算法实现1.导入依赖包from tensorflow import keras import tensorflow as tf import numpy as np import pandas as pd import os import matplotlib.pyplot as plt from sklearn.model_selection import train_test_sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="resnet算法实现">
+<meta property="og:url" content="http://example.com/2020/12/31/resnet%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Weillin">
+<meta property="og:description" content="resnet算法实现1.导入依赖包from tensorflow import keras import tensorflow as tf import numpy as np import pandas as pd import os import matplotlib.pyplot as plt from sklearn.model_selection import train_test_sp">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-31T11:52:34.000Z">
+<meta property="article:modified_time" content="2020-12-31T12:02:22.366Z">
+<meta property="article:author" content="Qinweilin">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Qinweilin</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(13)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="TF2">
+                        
+                        TF2
+                        <small>(11)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="爬虫">
+                        
+                        爬虫
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="13">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/resnet%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="resnet算法实现">resnet算法实现</span>
+            <span class="post-date" title="2020-12-31 19:52:34">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/inception%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="inception算法实现">inception算法实现</span>
+            <span class="post-date" title="2020-12-31 19:52:06">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/VGG16%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="VGG16算法实现">VGG16算法实现</span>
+            <span class="post-date" title="2020-12-31 19:51:40">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/AlexNet%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="AlexNet算法实现">AlexNet算法实现</span>
+            <span class="post-date" title="2020-12-31 19:51:18">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/LeNet5%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LeNet5算法实现">LeNet5算法实现</span>
+            <span class="post-date" title="2020-12-31 19:50:54">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E7%94%9F%E5%AD%98%E9%A2%84%E6%B5%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="泰坦尼克号生存预测">泰坦尼克号生存预测</span>
+            <span class="post-date" title="2020-12-31 19:50:19">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/%E8%87%AA%E8%A1%8C%E8%BD%A6%E4%BD%BF%E7%94%A8%E9%87%8F%E9%A2%84%E6%B5%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自行车使用量预测">自行车使用量预测</span>
+            <span class="post-date" title="2020-12-31 19:49:40">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/31/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="房价预测">房价预测</span>
+            <span class="post-date" title="2020-12-31 19:49:11">2020/12/31</span>
+        </a>
+        
+        <a  class="全部文章 爬虫 "
+           href="/2020/12/27/%E7%94%A8python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87-%E5%88%86%E7%B1%BB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="用python爬虫下载美女图片_分类">用python爬虫下载美女图片_分类</span>
+            <span class="post-date" title="2020-12-27 13:29:59">2020/12/27</span>
+        </a>
+        
+        <a  class="全部文章 爬虫 "
+           href="/2020/12/27/%E7%94%A8python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87-%E9%A6%96%E9%A1%B5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="用python爬虫下载美女图片_首页">用python爬虫下载美女图片_首页</span>
+            <span class="post-date" title="2020-12-27 13:24:28">2020/12/27</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/27/tensorflow2%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="tensorflow2面向对象实现数字识别">tensorflow2面向对象实现数字识别</span>
+            <span class="post-date" title="2020-12-27 13:21:04">2020/12/27</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/27/tensorflow2%E5%AE%9E%E7%8E%B0%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="tensorflow2实现卷积神经网络">tensorflow2实现卷积神经网络</span>
+            <span class="post-date" title="2020-12-27 13:12:05">2020/12/27</span>
+        </a>
+        
+        <a  class="全部文章 TF2 "
+           href="/2020/12/26/tensorflow2%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="tensorflow2实现手写数字识别">tensorflow2实现手写数字识别</span>
+            <span class="post-date" title="2020-12-26 20:51:33">2020/12/26</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-房价预测" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">房价预测</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="TF2">TF2</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:00:24'>2020-12-31 19:49</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B"><span class="toc-text">房价预测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E9%9C%80%E8%A6%81%E7%9A%84%E5%8C%85"><span class="toc-text">1.导入需要的包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BF%BD%E7%95%A5%E6%97%A0%E7%94%A8%E8%AD%A6%E5%91%8A"><span class="toc-text">2.忽略无用警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">3.导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">4.数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E6%9F%A5%E7%9C%8B%E4%BB%B7%E6%A0%BC%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5%E5%B9%B6%E6%89%93%E5%8D%B0%E5%81%8F%E5%BA%A6%E5%92%8C%E5%B3%B0%E5%BA%A6"><span class="toc-text">4.1查看价格分布情况并打印偏度和峰度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E6%89%BE%E5%87%BA%E6%95%B0%E5%80%BC%E7%89%B9%E5%BE%81"><span class="toc-text">4.2找出数值特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83-%E6%89%BE%E5%87%BA%E5%BC%82%E5%B8%B8%E5%80%BC"><span class="toc-text">4.3显示数据分布,找出异常值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4%E6%9F%A5%E7%9C%8B%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="toc-text">4.4查看相关系数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%BE%81%E5%92%8C%E4%BB%B7%E6%A0%BC%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">4.5查看特征和价格的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6%E5%88%A0%E9%99%A4Id"><span class="toc-text">4.6删除Id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7%E4%BB%B7%E6%A0%BC%E5%8F%B3%E5%81%8F-%E7%94%A8log-1-x-%E8%B0%83%E6%95%B4"><span class="toc-text">4.7价格右偏, 用log(1+x)调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8%E6%9F%A5%E7%9C%8B%E8%B0%83%E6%95%B4%E5%90%8E%E7%9A%84%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5"><span class="toc-text">4.8查看调整后的分布情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9%E5%BE%97%E5%88%B0%E6%8B%9F%E5%90%88%E5%8F%82%E6%95%B0"><span class="toc-text">4.9得到拟合参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10%E8%B0%83%E6%95%B4%E5%89%8D%E5%90%8E%E5%AF%B9%E6%AF%94"><span class="toc-text">4.10调整前后对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11%E5%88%A0%E9%99%A4%E5%BC%82%E5%B8%B8%E5%80%BC"><span class="toc-text">4.11删除异常值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12%E5%88%92%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">4.12划分训练集和测试集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13%E7%A1%AE%E5%AE%9A%E7%BC%BA%E5%A4%B1%E5%80%BC%E7%9A%84%E9%98%88%E5%80%BC"><span class="toc-text">4.13确定缺失值的阈值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-text">4.14缺失数据百分比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E7%99%BE%E5%88%86%E6%AF%94%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">4.15缺失数据百分比可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-16%E8%BD%AC%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="toc-text">4.16转为字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-17%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-text">4.17填补缺失值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-18%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E8%BF%98%E6%9C%89%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-text">4.18查看是否还有缺失值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-19%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E6%95%B0%E5%80%BC%E7%89%B9%E5%BE%81"><span class="toc-text">4.19找出所有数值特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-20%E4%B8%BA%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97%E7%89%B9%E6%80%A7%E5%88%9B%E5%BB%BA%E6%A1%86%E5%9B%BE"><span class="toc-text">4.20为所有数字特性创建框图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-21%E6%89%BE%E5%87%BA%E5%81%8F%E5%BA%A6%E5%A4%A7%E4%BA%8E0-5%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-text">4.21找出偏度大于0.5的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-22%E6%AD%A3%E5%88%99%E5%8C%96%E5%81%8F%E7%A7%BB%E7%89%B9%E5%BE%81"><span class="toc-text">4.22正则化偏移特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-23%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E6%89%80%E6%9C%89%E5%81%8F%E7%A7%BB%E7%89%B9%E5%BE%81%E9%83%BD%E5%A4%84%E7%90%86%E5%AE%8C%E6%AF%95"><span class="toc-text">4.23查看是否所有偏移特征都处理完毕</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-24%E5%88%9B%E9%80%A0%E6%96%B0%E7%89%B9%E5%BE%81"><span class="toc-text">4.24创造新特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-25%E7%94%A8%E6%95%B0%E5%80%BC%E7%89%B9%E5%BE%81%E7%9A%84%E5%AF%B9%E6%95%B0%E6%9D%A5%E5%88%9B%E5%BB%BA%E6%96%B0%E7%89%B9%E5%BE%81"><span class="toc-text">4.25用数值特征的对数来创建新特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-26%E7%94%A8%E6%95%B0%E5%80%BC%E7%89%B9%E5%BE%81%E7%9A%84%E5%B9%B3%E6%96%B9%E6%9D%A5%E5%88%9B%E5%BB%BA%E6%96%B0%E7%89%B9%E5%BE%81"><span class="toc-text">4.26用数值特征的平方来创建新特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-27%E7%BC%96%E7%A0%81%E5%88%86%E7%B1%BB%E7%89%B9%E5%BE%81"><span class="toc-text">4.27编码分类特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-28%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E7%9A%84%E5%88%97%E5%90%8D"><span class="toc-text">4.28删除重复的列名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-29%E5%88%92%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">4.29划分训练集和测试集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-30%E8%AE%BE%E7%BD%AE%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="toc-text">4.30设置交叉验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-31%E5%AE%9A%E4%B9%89%E8%AF%AF%E5%B7%AE%E6%8C%87%E6%A0%87"><span class="toc-text">4.31定义误差指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%90%AD%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.搭建模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E8%BD%BB%E9%87%8F%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E6%9C%BA"><span class="toc-text">5.1轻量梯度提升机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2xgboost"><span class="toc-text">5.2xgboost</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3%E5%B2%AD%E5%9B%9E%E5%BD%92"><span class="toc-text">5.3岭回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-text">5.4支持向量机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E6%A0%91"><span class="toc-text">5.5梯度提升树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-text">5.6随机森林</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7%E8%9E%8D%E5%90%88%E5%A4%9A%E4%B8%AA%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.7融合多个模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%89%93%E5%8D%B0%E5%90%84%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E5%88%86%E6%95%B0"><span class="toc-text">6.打印各模型的交叉验证分数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B"><span class="toc-text">6.1混合模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2%E6%89%93%E5%8D%B0%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">6.2打印混合模型结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3%E6%A8%A1%E5%9E%8B%E5%88%86%E6%95%B0%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">6.3模型分数可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4%E7%9F%AB%E6%AD%A3%E9%A2%84%E6%B5%8B"><span class="toc-text">6.4矫正预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5%E8%A7%84%E6%A8%A1%E9%A2%84%E6%B5%8B"><span class="toc-text">6.5规模预测</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="房价预测"><a href="#房价预测" class="headerlink" title="房价预测"></a>房价预测</h1><h2 id="1-导入需要的包"><a href="#1-导入需要的包" class="headerlink" title="1.导入需要的包"></a>1.导入需要的包</h2><pre><code class="python">import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.linear_model import RidgeCV
+from sklearn.svm import SVR
+from mlxtend.regressor import StackingCVRegressor
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
+from scipy.stats import skew, norm
+from scipy.special import boxcox1p
+from scipy.stats import boxcox_normmax
+from sklearn.model_selection import KFold, cross_val_score
+from sklearn.metrics import mean_squared_error
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import RobustScaler
+import warnings</code></pre>
+<h2 id="2-忽略无用警告"><a href="#2-忽略无用警告" class="headerlink" title="2.忽略无用警告"></a>2.忽略无用警告</h2><pre><code class="python">pd.set_option(&#39;display.max_columns&#39;, None)
+warnings.filterwarnings(action=&#39;ignore&#39;)
+pd.options.display.max_seq_items = 8000
+pd.options.display.max_rows = 8000</code></pre>
+<h2 id="3-导入数据集"><a href="#3-导入数据集" class="headerlink" title="3.导入数据集"></a>3.导入数据集</h2><pre><code class="python">train = pd.read_csv(&#39;./data/house_train.csv&#39;)
+test = pd.read_csv(&#39;./data/house_test.csv&#39;)</code></pre>
+<h2 id="4-数据预处理"><a href="#4-数据预处理" class="headerlink" title="4.数据预处理"></a>4.数据预处理</h2><h3 id="4-1查看价格分布情况并打印偏度和峰度"><a href="#4-1查看价格分布情况并打印偏度和峰度" class="headerlink" title="4.1查看价格分布情况并打印偏度和峰度"></a>4.1查看价格分布情况并打印偏度和峰度</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
+sns.set_color_codes(palette=&#39;deep&#39;)
+f, ax = plt.subplots(figsize=(8, 7))
+sns.distplot(train[&#39;SalePrice&#39;], color=&#39;b&#39;)
+ax.xaxis.grid(False)
+ax.set(ylabel=&#39;Frequency&#39;)
+ax.set(xlabel=&#39;SelePrice&#39;)
+ax.set(title=&#39;SalePricr distribution&#39;)
+sns.despine(trim=True, left=True)
+plt.show()
+
+print(&#39;Skewness: %f&#39; % train[&#39;SalePrice&#39;].skew())  # 偏度
+print(&#39;Kurtosis: %f&#39; % train[&#39;SalePrice&#39;].kurt())  # 峰度</code></pre>
+<h3 id="4-2找出数值特征"><a href="#4-2找出数值特征" class="headerlink" title="4.2找出数值特征"></a>4.2找出数值特征</h3><pre><code class="python">numeric_dtypes = [&#39;int16&#39;, &#39;int32&#39;, &#39;int64&#39;, &#39;float16&#39;, &#39;float32&#39;, &#39;float64&#39;]
+numeric = []
+for i in train.columns:
+    if train[i].dtype in numeric_dtypes:
+        if i in [&#39;TotalSF&#39;, &#39;Total_Bathrooms&#39;, &#39;Total_porch_sf&#39;, &#39;haspool&#39;, &#39;hasgarage&#39;, &#39;hasbsmt&#39;, &#39;hasfireplace&#39;]:
+            pass
+        else:
+            numeric.append(i)</code></pre>
+<h3 id="4-3显示数据分布-找出异常值"><a href="#4-3显示数据分布-找出异常值" class="headerlink" title="4.3显示数据分布,找出异常值"></a>4.3显示数据分布,找出异常值</h3><pre><code class="python">fig, axs = plt.subplots(ncols=2, nrows=0, figsize=(12, 120))
+plt.subplots_adjust(right=2)
+plt.subplots_adjust(top=2)
+sns.color_palette(&#39;husl&#39;, 8)
+for i, feature in enumerate(list(train[numeric]), 1):
+    if (feature == &#39;MiscVal&#39;):
+        break
+    plt.subplot(len(list(numeric)), 3, i)
+    sns.scatterplot(x=feature, y=&#39;SalePrice&#39;, hue=&#39;SalePrice&#39;, palette=&#39;Blues&#39;, data=train)
+    plt.xlabel(&#39;&#123;&#125;&#39;.format(feature), size=15, labelpad=12.5)
+    plt.ylabel(&#39;SalePrice&#39;, size=15, labelpad=12.5)
+    for j in range(2):
+        plt.tick_params(axis=&#39;x&#39;, labelsize=12)
+        plt.tick_params(axis=&#39;y&#39;, labelsize=12)
+    plt.legend(loc=&#39;best&#39;, prop=&#123;&#39;size&#39;: 10&#125;)
+plt.show()</code></pre>
+<h3 id="4-4查看相关系数"><a href="#4-4查看相关系数" class="headerlink" title="4.4查看相关系数"></a>4.4查看相关系数</h3><pre><code class="python">corr = train.corr()
+plt.subplots(figsize=(15, 12))
+sns.heatmap(corr, vmax=0.9, cmap=&#39;Blues&#39;, square=True)
+
+data = pd.concat([train[&#39;SalePrice&#39;], train[&#39;OverallQual&#39;]], axis=1)
+f, ax = plt.subplots(figsize=(8, 6))
+fig = sns.boxplot(x=train[&#39;OverallQual&#39;], y=&#39;SalePrice&#39;, data=data)
+fig.axis(ymin=0, ymax=800000)
+
+data = pd.concat([train[&#39;SalePrice&#39;], train[&#39;YearBuilt&#39;]], axis=1)
+f, ax = plt.subplots(figsize=(16, 8))
+fig = sns.boxplot(x=train[&#39;YearBuilt&#39;], y=&#39;SalePrice&#39;, data=data)
+fig.axis(ymin=0, ymax=800000)
+plt.xticks(rotation=45)</code></pre>
+<h3 id="4-5查看特征和价格的关系"><a href="#4-5查看特征和价格的关系" class="headerlink" title="4.5查看特征和价格的关系"></a>4.5查看特征和价格的关系</h3><pre><code class="python">data = pd.concat([train[&#39;SalePrice&#39;], train[&#39;TotalBsmtSF&#39;]], axis=1)
+data.plot.scatter(x=&#39;TotalBsmtSF&#39;, y=&#39;SalePrice&#39;, alpha=0.3, ylim=(0, 800000))
+
+data = pd.concat([train[&#39;SalePrice&#39;], train[&#39;LotArea&#39;]], axis=1)
+data.plot.scatter(x=&#39;LotArea&#39;, y=&#39;SalePrice&#39;, alpha=0.3, ylim=(0, 800000))
+
+data = pd.concat([train[&#39;SalePrice&#39;], train[&#39;GrLivArea&#39;]], axis=1)
+data.plot.scatter(x=&#39;GrLivArea&#39;, y=&#39;SalePrice&#39;, alpha=0.3, ylim=(0, 800000))</code></pre>
+<h3 id="4-6删除Id"><a href="#4-6删除Id" class="headerlink" title="4.6删除Id"></a>4.6删除Id</h3><pre><code class="python">train_id = train[&#39;Id&#39;]
+test_id = test[&#39;Id&#39;]
+train.drop([&#39;Id&#39;], axis=1, inplace=True)
+test.drop([&#39;Id&#39;], axis=1, inplace=True)</code></pre>
+<h3 id="4-7价格右偏-用log-1-x-调整"><a href="#4-7价格右偏-用log-1-x-调整" class="headerlink" title="4.7价格右偏, 用log(1+x)调整"></a>4.7价格右偏, 用log(1+x)调整</h3><pre><code class="python">train[&#39;SalePrice&#39;] = np.log1p(train[&#39;SalePrice&#39;])</code></pre>
+<h3 id="4-8查看调整后的分布情况"><a href="#4-8查看调整后的分布情况" class="headerlink" title="4.8查看调整后的分布情况"></a>4.8查看调整后的分布情况</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
+sns.set_color_codes(palette=&#39;deep&#39;)
+f, ax = plt.subplots(figsize=(8, 7))
+sns.distplot(train[&#39;SalePrice&#39;], fit=norm, color=&#39;b&#39;)</code></pre>
+<h3 id="4-9得到拟合参数"><a href="#4-9得到拟合参数" class="headerlink" title="4.9得到拟合参数"></a>4.9得到拟合参数</h3><pre><code class="python">(mu, sigma) = norm.fit(train[&#39;SalePrice&#39;])
+print(&#39;mu = &#123;:.2f&#125; and sigma = &#123;:.2f&#125;&#39;.format(mu, sigma))</code></pre>
+<h3 id="4-10调整前后对比"><a href="#4-10调整前后对比" class="headerlink" title="4.10调整前后对比"></a>4.10调整前后对比</h3><pre><code class="python">plt.legend([&#39;Normal dist. ($\mu=$ &#123;:.2f&#125; and $\sigma=$ &#123;:.2f&#125; )&#39;.format(mu, sigma)], loc=&#39;best&#39;)
+ax.xaxis.grid(False)
+ax.set(ylabel=&#39;Frequency&#39;)
+ax.set(xlabel=&#39;SalePrice&#39;)
+ax.set(title=&#39;SalePrice distribution&#39;)
+sns.despine(trim=True, left=True)
+plt.show()</code></pre>
+<h3 id="4-11删除异常值"><a href="#4-11删除异常值" class="headerlink" title="4.11删除异常值"></a>4.11删除异常值</h3><pre><code class="python">train.drop(train[(train[&#39;OverallQual&#39;] &lt; 5) &amp; (train[&#39;SalePrice&#39;] &gt; 200000)].index, inplace=True)
+train.drop(train[(train[&#39;GrLivArea&#39;] &gt; 4500) &amp; (train[&#39;SalePrice&#39;] &lt; 30000)].index, inplace=True)
+train.reset_index(drop=True, inplace=True)</code></pre>
+<h3 id="4-12划分训练集和测试集"><a href="#4-12划分训练集和测试集" class="headerlink" title="4.12划分训练集和测试集"></a>4.12划分训练集和测试集</h3><pre><code class="python">train_labels = train[&#39;SalePrice&#39;].reset_index(drop=True)
+train_features = train.drop([&#39;SalePrice&#39;], axis=1)
+test_features = test
+all_features = pd.concat([train_features, test_features]).reset_index(drop=True)</code></pre>
+<h3 id="4-13确定缺失值的阈值"><a href="#4-13确定缺失值的阈值" class="headerlink" title="4.13确定缺失值的阈值"></a>4.13确定缺失值的阈值</h3><pre><code class="python">def percent_missing(df):
+    data = pd.DataFrame(df)
+    df_cols = list(pd.DataFrame(data))
+    dict_x = &#123;&#125;
+    for i in range(0, len(df_cols)):
+        dict_x.update(&#123;df_cols[i]: round(data[df_cols[i]].isnull().mean() * 100, 2)&#125;)
+    return dict_x</code></pre>
+<h3 id="4-14缺失数据百分比"><a href="#4-14缺失数据百分比" class="headerlink" title="4.14缺失数据百分比"></a>4.14缺失数据百分比</h3><pre><code class="python">missing = percent_missing(all_features)
+df_miss = sorted(missing.items(), key=lambda x: x[1], reverse=True)
+print(df_miss[0:10])</code></pre>
+<h3 id="4-15缺失数据百分比可视化"><a href="#4-15缺失数据百分比可视化" class="headerlink" title="4.15缺失数据百分比可视化"></a>4.15缺失数据百分比可视化</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
+f, ax = plt.subplots(figsize=(8, 7))
+sns.set_color_codes(palette=&#39;deep&#39;)
+missing = round(train.isnull().mean() * 100, 2)
+missing = missing[missing &gt; 0]
+missing.sort_values(inplace=True)
+missing.plot.bar(color=&#39;b&#39;)
+
+ax.xaxis.grid(False)
+ax.set(ylabel=&#39;Percent of missing values&#39;)
+ax.set(xlabel=&#39;Features&#39;)
+ax.set(title=&#39;Percent missing data by feature&#39;)
+sns.despine(trim=True, left=True)</code></pre>
+<h3 id="4-16转为字符串类型"><a href="#4-16转为字符串类型" class="headerlink" title="4.16转为字符串类型"></a>4.16转为字符串类型</h3><pre><code class="python">all_features[&#39;MSSubClass&#39;] = all_features[&#39;MSSubClass&#39;].apply(str)
+all_features[&#39;YrSold&#39;] = all_features[&#39;YrSold&#39;].astype(str)
+all_features[&#39;MoSold&#39;] = all_features[&#39;MoSold&#39;].astype(str)</code></pre>
+<h3 id="4-17填补缺失值"><a href="#4-17填补缺失值" class="headerlink" title="4.17填补缺失值"></a>4.17填补缺失值</h3><pre><code class="python">def handle_missing(features):
+    features[&#39;Functional&#39;] = features[&#39;Functional&#39;].fillna(&#39;Typ&#39;)
+    features[&#39;Electrical&#39;] = features[&#39;Electrical&#39;].fillna(&#39;SBrkr&#39;)
+    features[&#39;KitchenQual&#39;] = features[&#39;KitchenQual&#39;].fillna(&#39;TA&#39;)
+    features[&#39;Exterior1st&#39;] = features[&#39;Exterior1st&#39;].fillna(features[&#39;Exterior1st&#39;].mode()[0])
+    features[&#39;Exterior2nd&#39;] = features[&#39;Exterior2nd&#39;].fillna(features[&#39;Exterior2nd&#39;].mode()[0])
+    features[&#39;SaleType&#39;] = features[&#39;SaleType&#39;].fillna(features[&#39;SaleType&#39;].mode()[0])
+    features[&#39;MSZoning&#39;] = features.groupby(&#39;MSSubClass&#39;)[&#39;MSZoning&#39;].transform(lambda x: x.fillna(x.mode()[0]))
+
+    features[&#39;PoolQC&#39;] = features[&#39;PoolQC&#39;].fillna(&#39;None&#39;)
+    for col in (&#39;GarageYrBlt&#39;, &#39;GarageArea&#39;, &#39;GarageCars&#39;):
+        features[col] = features[col].fillna(0)
+    for col in [&#39;GarageType&#39;, &#39;GarageFinish&#39;, &#39;GarageQual&#39;, &#39;GarageCond&#39;]:
+        features[col] = features[col].fillna(&#39;None&#39;)
+    for col in (&#39;BsmtQual&#39;, &#39;BsmtCond&#39;, &#39;BsmtExposure&#39;, &#39;BsmtFinType1&#39;, &#39;BsmtFinType2&#39;):
+        features[col] = features[col].fillna(&#39;None&#39;)
+    features[&#39;LotFrontage&#39;] = features.groupby(&#39;Neighborhood&#39;)[&#39;LotFrontage&#39;].transform(lambda x: x.fillna(x.median()))
+
+    objects = []
+    for i in features.columns:
+        if features[i].dtype == object:
+            objects.append(i)
+    features.update(features[objects].fillna(&#39;None&#39;))
+
+    numeric_dtypes = [&#39;int16&#39;, &#39;int32&#39;, &#39;int64&#39;, &#39;float16&#39;, &#39;float32&#39;, &#39;float64&#39;]
+    numeric = []
+    for i in features.columns:
+        if features[i].dtype in numeric_dtypes:
+            numeric.append(i)
+    features.update(features[numeric].fillna(0))
+    return features
+
+
+all_features = handle_missing(all_features)</code></pre>
+<h3 id="4-18查看是否还有缺失值"><a href="#4-18查看是否还有缺失值" class="headerlink" title="4.18查看是否还有缺失值"></a>4.18查看是否还有缺失值</h3><pre><code class="python">missing = percent_missing(all_features)
+df_miss = sorted(missing.items(), key=lambda x: x[1], reverse=True)
+print(df_miss[0:10])</code></pre>
+<h3 id="4-19找出所有数值特征"><a href="#4-19找出所有数值特征" class="headerlink" title="4.19找出所有数值特征"></a>4.19找出所有数值特征</h3><pre><code class="python">numeric_dtypes = [&#39;int16&#39;, &#39;int32&#39;, &#39;int64&#39;, &#39;float16&#39;, &#39;float32&#39;, &#39;float64&#39;]
+numeric = []
+for i in all_features.columns:
+    if all_features[i].dtype in numeric_dtypes:
+        numeric.append(i)</code></pre>
+<h3 id="4-20为所有数字特性创建框图"><a href="#4-20为所有数字特性创建框图" class="headerlink" title="4.20为所有数字特性创建框图"></a>4.20为所有数字特性创建框图</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
+f, ax = plt.subplots(figsize=(8, 7))
+ax.set_xscale(&#39;log&#39;)
+ax = sns.boxplot(data=all_features[numeric], orient=&#39;h&#39;, palette=&#39;Set1&#39;)
+ax.xaxis.grid(False)
+ax.set(ylabel=&#39;Feature names&#39;)
+ax.set(xlabel=&#39;Numeric values&#39;)
+ax.set(title=&#39;Numeric Distribution of Features&#39;)
+sns.despine(trim=True, left=True)</code></pre>
+<h3 id="4-21找出偏度大于0-5的特征"><a href="#4-21找出偏度大于0-5的特征" class="headerlink" title="4.21找出偏度大于0.5的特征"></a>4.21找出偏度大于0.5的特征</h3><pre><code class="python">skew_features = all_features[numeric].apply(lambda x: skew(x)).sort_values(ascending=False)
+high_skew = skew_features[skew_features &gt; 0.5]
+skew_index = high_skew.index
+print(&#39;Skew &gt; 0.5 :&#39;.format(high_skew.shape[0]))
+skewness = pd.DataFrame(&#123;&#39;Skew&#39;: high_skew&#125;)
+skew_features.head(10)</code></pre>
+<h3 id="4-22正则化偏移特征"><a href="#4-22正则化偏移特征" class="headerlink" title="4.22正则化偏移特征"></a>4.22正则化偏移特征</h3><pre><code class="python">for i in skew_index:
+    all_features[i] = boxcox1p(all_features[i], boxcox_normmax(all_features[i] + 1))</code></pre>
+<h3 id="4-23查看是否所有偏移特征都处理完毕"><a href="#4-23查看是否所有偏移特征都处理完毕" class="headerlink" title="4.23查看是否所有偏移特征都处理完毕"></a>4.23查看是否所有偏移特征都处理完毕</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
+f, ax = plt.subplots(figsize=(8, 7))
+ax.set_xscale(&#39;log&#39;)
+ax = sns.boxplot(data=all_features[skew_index], orient=&#39;h&#39;, palette=&#39;Set1&#39;)
+ax.xaxis.grid(False)
+ax.set(ylabel=&#39;Feature names&#39;)
+ax.set(xlabel=&#39;Numeric values&#39;)
+ax.set(title=&#39;Numeric Distribution of Features&#39;)
+sns.despine(trim=True, left=True)</code></pre>
+<h3 id="4-24创造新特征"><a href="#4-24创造新特征" class="headerlink" title="4.24创造新特征"></a>4.24创造新特征</h3><pre><code class="python">all_features[&#39;BsmtFinType1_Unf&#39;] = 1 * (all_features[&#39;BsmtFinType1&#39;] == &#39;Unf&#39;)
+all_features[&#39;HasWoodDeck&#39;] = (all_features[&#39;WoodDeckSF&#39;] == 0) * 1
+all_features[&#39;HasOpenPorch&#39;] = (all_features[&#39;OpenPorchSF&#39;] == 0) * 1
+all_features[&#39;HasEnclosedPorch&#39;] = (all_features[&#39;EnclosedPorch&#39;] == 0) * 1
+all_features[&#39;Has3SsnPorch&#39;] = (all_features[&#39;3SsnPorch&#39;] == 0) * 1
+all_features[&#39;HasScreenPorch&#39;] = (all_features[&#39;ScreenPorch&#39;] == 0) * 1
+all_features[&#39;YearsSinceRemodel&#39;] = all_features[&#39;YrSold&#39;].astype(int) - all_features[&#39;YearRemodAdd&#39;].astype(int)
+all_features[&#39;Total_Home_Quality&#39;] = all_features[&#39;OverallQual&#39;] + all_features[&#39;OverallCond&#39;]
+all_features = all_features.drop([&#39;Utilities&#39;, &#39;Street&#39;, &#39;PoolQC&#39;, ], axis=1)
+all_features[&#39;TotalSF&#39;] = all_features[&#39;TotalBsmtSF&#39;] + all_features[&#39;1stFlrSF&#39;] + all_features[&#39;2ndFlrSF&#39;]
+all_features[&#39;YrBltAndRemod&#39;] = all_features[&#39;YearBuilt&#39;] + all_features[&#39;YearRemodAdd&#39;]
+
+all_features[&#39;Total_sqr_footage&#39;] = (all_features[&#39;BsmtFinSF1&#39;] +
+                                     all_features[&#39;BsmtFinSF2&#39;] +
+                                     all_features[&#39;1stFlrSF&#39;] +
+                                     all_features[&#39;2ndFlrSF&#39;])
+all_features[&#39;Total_Bathrooms&#39;] = (all_features[&#39;FullBath&#39;] +
+                                   (0.5 * all_features[&#39;HalfBath&#39;]) +
+                                   all_features[&#39;BsmtFullBath&#39;] +
+                                   (0.5 * all_features[&#39;BsmtHalfBath&#39;]))
+all_features[&#39;Total_porch_sf&#39;] = (all_features[&#39;OpenPorchSF&#39;] +
+                                  all_features[&#39;3SsnPorch&#39;] +
+                                  all_features[&#39;EnclosedPorch&#39;] +
+                                  all_features[&#39;ScreenPorch&#39;] +
+                                  all_features[&#39;WoodDeckSF&#39;])
+
+all_features[&#39;TotalBsmtSF&#39;] = all_features[&#39;TotalBsmtSF&#39;].apply(lambda x: np.exp(6) if x &lt;= 0.0 else x)
+all_features[&#39;2ndFlrSF&#39;] = all_features[&#39;2ndFlrSF&#39;].apply(lambda x: np.exp(6.5) if x &lt;= 0.0 else x)
+all_features[&#39;GarageArea&#39;] = all_features[&#39;GarageArea&#39;].apply(lambda x: np.exp(6) if x &lt;= 0.0 else x)
+all_features[&#39;GarageCars&#39;] = all_features[&#39;GarageCars&#39;].apply(lambda x: 0 if x &lt;= 0.0 else x)
+all_features[&#39;LotFrontage&#39;] = all_features[&#39;LotFrontage&#39;].apply(lambda x: np.exp(4.2) if x &lt;= 0.0 else x)
+all_features[&#39;MasVnrArea&#39;] = all_features[&#39;MasVnrArea&#39;].apply(lambda x: np.exp(4) if x &lt;= 0.0 else x)
+all_features[&#39;BsmtFinSF1&#39;] = all_features[&#39;BsmtFinSF1&#39;].apply(lambda x: np.exp(6.5) if x &lt;= 0.0 else x)
+
+all_features[&#39;haspool&#39;] = all_features[&#39;PoolArea&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;has2ndfloor&#39;] = all_features[&#39;2ndFlrSF&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;hasgarage&#39;] = all_features[&#39;GarageArea&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;hasbsmt&#39;] = all_features[&#39;TotalBsmtSF&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;hasfireplace&#39;] = all_features[&#39;Fireplaces&#39;].apply(lambda x: 1 if x &gt; 0 else 0)</code></pre>
+<h3 id="4-25用数值特征的对数来创建新特征"><a href="#4-25用数值特征的对数来创建新特征" class="headerlink" title="4.25用数值特征的对数来创建新特征"></a>4.25用数值特征的对数来创建新特征</h3><pre><code class="python">def logs(res, ls):
+    m = res.shape[1]
+    for l in ls:
+        res = res.assign(newcol=pd.Series(np.log(1.01 + res[l])).values)
+        res.columns.values[m] = l + &#39;_log&#39;
+        m += 1
+    return res
+
+
+log_features = [&#39;LotFrontage&#39;, &#39;LotArea&#39;, &#39;MasVnrArea&#39;, &#39;BsmtFinSF1&#39;, &#39;BsmtFinSF2&#39;, &#39;BsmtUnfSF&#39;,
+                &#39;TotalBsmtSF&#39;, &#39;1stFlrSF&#39;, &#39;2ndFlrSF&#39;, &#39;LowQualFinSF&#39;, &#39;GrLivArea&#39;,
+                &#39;BsmtFullBath&#39;, &#39;BsmtHalfBath&#39;, &#39;FullBath&#39;, &#39;HalfBath&#39;, &#39;BedroomAbvGr&#39;, &#39;KitchenAbvGr&#39;,
+                &#39;TotRmsAbvGrd&#39;, &#39;Fireplaces&#39;, &#39;GarageCars&#39;, &#39;GarageArea&#39;, &#39;WoodDeckSF&#39;, &#39;OpenPorchSF&#39;,
+                &#39;EnclosedPorch&#39;, &#39;3SsnPorch&#39;, &#39;ScreenPorch&#39;, &#39;PoolArea&#39;, &#39;MiscVal&#39;, &#39;YearRemodAdd&#39;, &#39;TotalSF&#39;]
+
+all_features = logs(all_features, log_features)</code></pre>
+<h3 id="4-26用数值特征的平方来创建新特征"><a href="#4-26用数值特征的平方来创建新特征" class="headerlink" title="4.26用数值特征的平方来创建新特征"></a>4.26用数值特征的平方来创建新特征</h3><pre><code class="python">def squares(res, ls):
+    m = res.shape[1]
+    for l in ls:
+        res = res.assign(newcol=pd.Series(res[l] * res[l]).values)
+        res.columns.values[m] = l + &#39;_sq&#39;
+        m += 1
+    return res
+
+
+squared_features = [&#39;YearRemodAdd&#39;, &#39;LotFrontage_log&#39;, &#39;TotalBsmtSF_log&#39;, &#39;1stFlrSF_log&#39;,
+                    &#39;2ndFlrSF_log&#39;, &#39;GrLivArea_log&#39;, &#39;GarageCars_log&#39;, &#39;GarageArea_log&#39;]
+all_features = squares(all_features, squared_features)</code></pre>
+<h3 id="4-27编码分类特征"><a href="#4-27编码分类特征" class="headerlink" title="4.27编码分类特征"></a>4.27编码分类特征</h3><pre><code class="python">all_features = pd.get_dummies(all_features).reset_index(drop=True)</code></pre>
+<h3 id="4-28删除重复的列名"><a href="#4-28删除重复的列名" class="headerlink" title="4.28删除重复的列名"></a>4.28删除重复的列名</h3><pre><code class="python">all_features = all_features.loc[:, ~all_features.columns.duplicated()]</code></pre>
+<h3 id="4-29划分训练集和测试集"><a href="#4-29划分训练集和测试集" class="headerlink" title="4.29划分训练集和测试集"></a>4.29划分训练集和测试集</h3><pre><code class="python">X = all_features.iloc[:len(train_labels), :]
+X_test = all_features.iloc[len(train_labels):, :]</code></pre>
+<h3 id="4-30设置交叉验证"><a href="#4-30设置交叉验证" class="headerlink" title="4.30设置交叉验证"></a>4.30设置交叉验证</h3><pre><code class="python">kf = KFold(n_splits=12, random_state=42, shuffle=True)</code></pre>
+<h3 id="4-31定义误差指标"><a href="#4-31定义误差指标" class="headerlink" title="4.31定义误差指标"></a>4.31定义误差指标</h3><pre><code class="python">def rmsle(y, y_pred):
+    return np.sqrt(mean_squared_error(y, y_pred))
+
+
+def cv_rmse(model, X=X):
+    rmse = np.sqrt(-cross_val_score(model, X, train_labels, scoring=&#39;neg_mean_squared_error&#39;, cv=kf))
+    return (rmse)</code></pre>
+<h2 id="5-搭建模型"><a href="#5-搭建模型" class="headerlink" title="5.搭建模型"></a>5.搭建模型</h2><h3 id="5-1轻量梯度提升机"><a href="#5-1轻量梯度提升机" class="headerlink" title="5.1轻量梯度提升机"></a>5.1轻量梯度提升机</h3><pre><code class="python">lightgbm = LGBMRegressor(objective=&#39;regression&#39;
+                         , num_leaves=6
+                         , learning_rate=0.01
+                         , n_estimators=7000
+                         , max_bin=200
+                         , bagging_fraction=0.8
+                         , bagging_freq=4
+                         , bagging_seed=8
+                         , feature_fraction=0.2
+                         , feature_fraction_seed=8
+                         , min_sum_hessian_in_leaf=11
+                         , verbose=-1
+                         , random_state=42)</code></pre>
+<h3 id="5-2xgboost"><a href="#5-2xgboost" class="headerlink" title="5.2xgboost"></a>5.2xgboost</h3><pre><code class="python">xgboost = XGBRegressor(learning_rate=0.01
+                       , n_estimators=6000
+                       , max_depth=4
+                       , min_child_weight=0
+                       , gamma=0.6
+                       , subsample=0.7
+                       , colsample_bytree=0.7
+                       , objective=&#39;reg:linear&#39;
+                       , nthread=-1
+                       , scale_pos_weight=1
+                       , seed=27
+                       , reg_alpha=0.00006
+                       , random_state=42)</code></pre>
+<h3 id="5-3岭回归"><a href="#5-3岭回归" class="headerlink" title="5.3岭回归"></a>5.3岭回归</h3><pre><code class="python">ridge_alphas = [1e-15, 1e-10, 1e-8, 9e-4, 7e-4, 5e-4, 3e-4, 1e-4, 1e-3, 5e-2
+    , 1e-2, 0.1, 0.3, 1, 3, 5, 10, 15, 18, 20, 30, 50, 75, 100]
+ridge = make_pipeline(RobustScaler(), RidgeCV(alphas=ridge_alphas, cv=kf))</code></pre>
+<h3 id="5-4支持向量机"><a href="#5-4支持向量机" class="headerlink" title="5.4支持向量机"></a>5.4支持向量机</h3><pre><code class="python">svr = make_pipeline(RobustScaler(), SVR(C=20, epsilon=0.008, gamma=0.0003))</code></pre>
+<h3 id="5-5梯度提升树"><a href="#5-5梯度提升树" class="headerlink" title="5.5梯度提升树"></a>5.5梯度提升树</h3><pre><code class="python">gbr = GradientBoostingRegressor(n_estimators=6000
+                                , learning_rate=0.01
+                                , max_depth=4
+                                , max_features=&#39;sqrt&#39;
+                                , min_samples_leaf=15
+                                , min_samples_split=10
+                                , loss=&#39;huber&#39;
+                                , random_state=42)</code></pre>
+<h3 id="5-6随机森林"><a href="#5-6随机森林" class="headerlink" title="5.6随机森林"></a>5.6随机森林</h3><pre><code class="python">rf = RandomForestRegressor(n_estimators=1200
+                           , max_depth=15
+                           , min_samples_split=5
+                           , min_samples_leaf=5
+                           , max_features=None
+                           , oob_score=True
+                           , random_state=42)</code></pre>
+<h3 id="5-7融合多个模型"><a href="#5-7融合多个模型" class="headerlink" title="5.7融合多个模型"></a>5.7融合多个模型</h3><pre><code class="python">stack_gen = StackingCVRegressor(regressors=(xgboost, lightgbm, svr, ridge, gbr, rf)
+                                , meta_regressor=xgboost
+                                , use_features_in_secondary=True)</code></pre>
+<h2 id="6-打印各模型的交叉验证分数"><a href="#6-打印各模型的交叉验证分数" class="headerlink" title="6.打印各模型的交叉验证分数"></a>6.打印各模型的交叉验证分数</h2><pre><code class="python">scores = &#123;&#125;
+score = cv_rmse(lightgbm)
+print(&#39;lightgbm: &#123;:.4f&#125; (&#123;:.4f&#125;)&#39;.format(score.mean(), score.std()))
+scores[&#39;lgb&#39;] = (score.mean(), score.std())</code></pre>
+<pre><code class="python">score = cv_rmse(xgboost)
+print(&#39;xgboost: &#123;:.4f&#125; (&#123;:.4f&#125;)&#39;.format(score.mean(), score.std()))
+scores[&#39;xgb&#39;] = (score.mean(), score.std())</code></pre>
+<pre><code class="python">score = cv_rmse(svr)
+print(&#39;SVR: &#123;:.4f&#125; (&#123;:.4f&#125;)&#39;.format(score.mean(), score.std()))
+scores[&#39;svr&#39;] = (score.mean(), score.std())</code></pre>
+<pre><code class="python">score = cv_rmse(ridge)
+print(&#39;ridge: &#123;:.4f&#125; (&#123;:.4f&#125;)&#39;.format(score.mean(), score.std()))
+scores[&#39;ridge&#39;] = (score.mean(), score.std())</code></pre>
+<pre><code class="python">score = cv_rmse(rf)
+print(&#39;rf: &#123;:.4f&#125; (&#123;:.4f&#125;)&#39;.format(score.mean(), score.std()))
+scores[&#39;rf&#39;] = (score.mean(), score.std())</code></pre>
+<pre><code class="python">score = cv_rmse(gbr)
+print(&#39;gbr: &#123;:.4f&#125; (&#123;:.4f&#125;)&#39;.format(score.mean(), score.std()))
+scores[&#39;gbr&#39;] = (score.mean(), score.std())</code></pre>
+<pre><code class="python">print(&#39;stack_gen&#39;)
+stack_gen_model = stack_gen.fit(np.array(X), np.array(train_labels))</code></pre>
+<pre><code class="python">print(&#39;lightgbm&#39;)
+lgb_model_full_data = lightgbm.fit(X, train_labels)</code></pre>
+<pre><code class="python">print(&#39;xgboost&#39;)
+xgb_model_full_data = xgboost.fit(X, train_labels)</code></pre>
+<pre><code class="python">print(&#39;Svr&#39;)
+svr_model_full_data = svr.fit(X, train_labels)</code></pre>
+<pre><code class="python">print(&#39;Ridge&#39;)
+ridge_model_full_data = ridge.fit(X, train_labels)</code></pre>
+<pre><code class="python">print(&#39;RandomForest&#39;)
+rf_model_full_data = rf.fit(X, train_labels)</code></pre>
+<pre><code class="python">print(&#39;GradientBoosting&#39;)
+gbr_model_full_data = gbr.fit(X, train_labels)</code></pre>
+<h3 id="6-1混合模型"><a href="#6-1混合模型" class="headerlink" title="6.1混合模型"></a>6.1混合模型</h3><pre><code class="python">def blended_predictions(X):
+    return ((0.1 * ridge_model_full_data.predict(X)) +
+            (0.2 * svr_model_full_data.predict(X)) +
+            (0.1 * gbr_model_full_data.predict(X)) +
+            (0.1 * xgb_model_full_data.predict(X)) +
+            (0.1 * lgb_model_full_data.predict(X)) +
+            (0.05 * rf_model_full_data.predict(X)) +
+            (0.35 * stack_gen_model.predict(np.array(X))))</code></pre>
+<h3 id="6-2打印混合模型结果"><a href="#6-2打印混合模型结果" class="headerlink" title="6.2打印混合模型结果"></a>6.2打印混合模型结果</h3><pre><code class="python">blended_score = rmsle(train_labels, blended_predictions(X))
+scores[&#39;blended&#39;] = (blended_score, 0)
+print(&#39;RMSLE score on train data:&#39;)
+print(blended_score)</code></pre>
+<h3 id="6-3模型分数可视化"><a href="#6-3模型分数可视化" class="headerlink" title="6.3模型分数可视化"></a>6.3模型分数可视化</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
+fig = plt.figure(figsize=(24, 12))
+ax = sns.pointplot(x=list(scores.keys()), y=[score for score, _ in scores.values()], markers=[&#39;o&#39;], linestyles=[&#39;-&#39;])
+for i, score in enumerate(scores.values()):
+    ax.text(i, score[0] + 0.002, &#39;&#123;:.6&#125;&#39;.format(score[0]), horizontalalignment=&#39;left&#39;, size=&#39;large&#39;, color=&#39;black&#39;,
+            weight=&#39;semibold&#39;)
+plt.ylabel(&#39;Score (RMSE)&#39;, size=20, labelpad=12.5)
+plt.xlabel(&#39;Model&#39;, size=20, labelpad=12.5)
+plt.tick_params(axis=&#39;x&#39;, labelsize=13.5)
+plt.tick_params(axis=&#39;y&#39;, labelsize=12.5)
+plt.title(&#39;Scores of Models&#39;, size=20)
+plt.show()</code></pre>
+<pre><code class="python">submission = pd.read_csv(&#39;./data/sample_submission.csv&#39;)
+submission.iloc[:, 1] = np.floor(np.expm1(blended_predictions(X_test)))</code></pre>
+<h3 id="6-4矫正预测"><a href="#6-4矫正预测" class="headerlink" title="6.4矫正预测"></a>6.4矫正预测</h3><pre><code class="python">q1 = submission[&#39;SalePrice&#39;].quantile(0.0045)
+q2 = submission[&#39;SalePrice&#39;].quantile(0.99)
+submission[&#39;SalePrice&#39;] = submission[&#39;SalePrice&#39;].apply(lambda x: x if x &gt; q1 else x * 0.77)
+submission[&#39;SalePrice&#39;] = submission[&#39;SalePrice&#39;].apply(lambda x: x if x &lt; q2 else x * 1.1)
+submission.to_csv(&#39;submission_regression1.csv&#39;, index=False)</code></pre>
+<h3 id="6-5规模预测"><a href="#6-5规模预测" class="headerlink" title="6.5规模预测"></a>6.5规模预测</h3><pre><code class="python">submission[&#39;SalePrice&#39;] *= 1.001619
+submission.to_csv(&#39;submission_regression2.csv&#39;, index=False)</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
