@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>泰坦尼克号生存预测 | Weillin</title>
+  <title>图片分割 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="泰坦尼克号生存预测 | Weillin">
+  <meta name="description" content="图片分割 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="冒泡排序 将一个列表的元素，从第一个开始，如果前面的数比后面的数大，就将两个数的位置相互交换，如果前面的数比后面的小，就将指针移动后面的数，直到指针移到最后一个元素上面，结束第一轮排序，此时最后一个元素必是列表中的最大值。 重复第一步的过程，此时只需要将指针移到倒数第二位即可。 将此过程一直重复，需要进行元素数减一轮。  def bubble_sort(arr):     n &#x3D; len(arr)">
 <meta property="og:type" content="article">
@@ -457,9 +457,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-泰坦尼克号生存预测" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-图片分割" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">泰坦尼克号生存预测</h1>
+        <h1 class="article-title">图片分割</h1>
     
     <div class="article-meta">
         
@@ -477,7 +477,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:00:41'>2020-12-31 19:50</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-01 17:34:26'>2021-01-01 17:28</time>
         
     </div>
     <div class="article-meta">
@@ -499,7 +499,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E7%94%9F%E5%AD%98%E9%A2%84%E6%B5%8B"><span class="toc-text">泰坦尼克号生存预测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E9%9C%80%E8%A6%81%E7%9A%84%E5%8C%85"><span class="toc-text">1.导入需要的包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0"><span class="toc-text">2.设置自定义参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.定义训练模型</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%88%86%E5%89%B2"><span class="toc-text">图片分割</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-text">1. 安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">2. 导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">3. 导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8B%86%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">4. 拆分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%9F%A5%E7%9C%8B%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E5%92%8C%E8%BD%AE%E5%BB%93%E6%A0%87%E6%B3%A8%E5%9B%BE%E7%89%87"><span class="toc-text">5. 查看原始图片和轮廓标注图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BD%BF%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E7%9A%84MobileNetV2%E4%BD%9C%E4%B8%BA%E7%BC%96%E7%A0%81%E5%99%A8-%E4%B8%8B%E9%87%87%E6%A0%B7%E5%99%A8"><span class="toc-text">6. 使用预训练的MobileNetV2作为编码器&#x2F;下采样器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%BD%BF%E7%94%A8pix2pix%E4%BD%9C%E4%B8%BA%E8%A7%A3%E7%A0%81%E5%99%A8-%E4%B8%8A%E9%87%87%E6%A0%B7%E5%99%A8"><span class="toc-text">7. 使用pix2pix作为解码器&#x2F;上采样器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">8. 建立模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">9. 查看模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%9F%A5%E7%9C%8B%E8%AE%AD%E7%BB%83%E5%89%8D%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">10. 查看训练前模型的预测结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-text">11. 回调函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">12. 训练模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E6%8D%9F%E5%A4%B1%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">13. 损失可视化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E8%BF%9B%E8%A1%8C%E9%A2%84%E6%B5%8B"><span class="toc-text">14. 进行预测</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -515,193 +515,151 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="泰坦尼克号生存预测"><a href="#泰坦尼克号生存预测" class="headerlink" title="泰坦尼克号生存预测"></a>泰坦尼克号生存预测</h1><h2 id="1-导入需要的包"><a href="#1-导入需要的包" class="headerlink" title="1.导入需要的包"></a>1.导入需要的包</h2><pre><code class="python">import warnings
-import pandas as pd
+        <h1 id="图片分割"><a href="#图片分割" class="headerlink" title="图片分割"></a>图片分割</h1><h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1. 安装环境"></a>1. 安装环境</h2><p>!pip install -q git+<a target="_blank" rel="noopener" href="https://github.com/tensorflow/examples.git">https://github.com/tensorflow/examples.git</a></p>
+<p>!pip install -q -U tfds-nightly</p>
+<h2 id="2-导入依赖包"><a href="#2-导入依赖包" class="headerlink" title="2. 导入依赖包"></a>2. 导入依赖包</h2><pre><code class="python">import tensorflow as tf
+from tensorflow_examples.models.pix2pix import pix2pix
+import tensorflow_datasets as tfds
+from IPython.display import clear_output
 import matplotlib.pyplot as plt
-from sklearn.model_selection import cross_val_score
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-from sklearn.svm import SVC
-from xgboost import XGBClassifier as XGBC
-from sklearn.naive_bayes import BernoulliNB
-from sklearn.neighbors import KNeighborsClassifier</code></pre>
-<h2 id="2-设置自定义参数"><a href="#2-设置自定义参数" class="headerlink" title="2.设置自定义参数"></a>2.设置自定义参数</h2><pre><code class="python">warnings.filterwarnings(&#39;ignore&#39;)
-warnings.filterwarnings(&#39;ignore&#39;, category=DeprecationWarning)
-plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;simHei&#39;]
-plt.rcParams[&#39;axes.unicode_minus&#39;] = False</code></pre>
-<h2 id="3-定义训练模型"><a href="#3-定义训练模型" class="headerlink" title="3.定义训练模型"></a>3.定义训练模型</h2><pre><code class="python">class titanic():
 
-    def __init__(self):
-        &#39;&#39;&#39;导入数据&#39;&#39;&#39;
-        self.train = pd.read_csv(&#39;./data/titanic_train.csv&#39;)
-        self.test = pd.read_csv(&#39;./data/titanic_test.csv&#39;)
-        self.train.drop(&#39;PassengerId&#39;, axis=1, inplace=True)
-        self.sex_map = &#123;&#39;male&#39;: 1, &#39;female&#39;: 0&#125;
-        self.title_map = &#123;
-            &quot;Capt&quot;: &quot;Officer&quot;,
-            &quot;Col&quot;: &quot;Officer&quot;,
-            &quot;Major&quot;: &quot;Officer&quot;,
-            &quot;Jonkheer&quot;: &quot;Royalty&quot;,
-            &quot;Don&quot;: &quot;Royalty&quot;,
-            &quot;Sir&quot;: &quot;Royalty&quot;,
-            &quot;Dr&quot;: &quot;Officer&quot;,
-            &quot;Rev&quot;: &quot;Officer&quot;,
-            &quot;the Countess&quot;: &quot;Royalty&quot;,
-            &quot;Dona&quot;: &quot;Royalty&quot;,
-            &quot;Mme&quot;: &quot;Mrs&quot;,
-            &quot;Mlle&quot;: &quot;Miss&quot;,
-            &quot;Ms&quot;: &quot;Mrs&quot;,
-            &quot;Mr&quot;: &quot;Mr&quot;,
-            &quot;Mrs&quot;: &quot;Mrs&quot;,
-            &quot;Miss&quot;: &quot;Miss&quot;,
-            &quot;Master&quot;: &quot;Master&quot;,
-            &quot;Lady&quot;: &quot;Royalty&quot;
-        &#125;
+tfds.disable_progress_bar()</code></pre>
+<h2 id="3-导入数据集"><a href="#3-导入数据集" class="headerlink" title="3. 导入数据集"></a>3. 导入数据集</h2><pre><code class="python">dataset, info = tfds.load(&#39;oxford_iiit_pet:3.*.*&#39;, with_info=True)</code></pre>
+<pre><code class="python">def normalize(input_image, input_mask):
+    input_image = tf.cast(input_image, tf.float32) / 255.0  # 归一化
+    input_mask -= 1  # 标签减1
+    return input_image, input_mask</code></pre>
+<pre><code class="python">@tf.function
+def load_image_train(datapoint):
+    input_image = tf.image.resize(datapoint[&#39;image&#39;], (128, 128))
+    input_mask = tf.image.resize(datapoint[&#39;segmentation_mask&#39;], [128, 128])
 
-    &#39;&#39;&#39;数据预处理&#39;&#39;&#39;
+    if tf.random.uniform(()) &gt; 0.5:
+        input_image = tf.image.flip_left_right(input_image)  # 图像左右翻转
+        input_mask = tf.image.flip_left_right(input_mask)  # 轮廓标注左右翻转
 
-    def process(self, data):
-        data[&#39;Age&#39;].fillna(data[&#39;Age&#39;].median(), inplace=True)  # 年龄缺失用中位数填补
-        data[&#39;Fare&#39;].fillna(data[&#39;Fare&#39;].mean(), inplace=True)  # 票价缺失用均值填补
-        data[&#39;Embarked&#39;].fillna(data[&#39;Embarked&#39;].mode(), inplace=True)  # 码头缺失用众数填补
-        data[&#39;Cabin&#39;].fillna(&#39;U&#39;, inplace=True)  # 座位号用U(未知)填补
-        data[&#39;Sex&#39;] = data[&#39;Sex&#39;].map(self.sex_map)  # 性别映射成0, 1
-        embarked = pd.get_dummies(data[&#39;Embarked&#39;], prefix=&#39;Embarked&#39;)  # one_hot编码
-        data = pd.concat([data, embarked], axis=1)  # 合并数据
-        data.drop(&#39;Embarked&#39;, axis=1, inplace=True)  # 删除列
-        pclass = pd.get_dummies(data[&#39;Pclass&#39;], prefix=&#39;Pclass&#39;)
-        data = pd.concat([data, pclass], axis=1)
-        data.drop(&#39;Pclass&#39;, axis=1, inplace=True)
-        title = pd.DataFrame()
-        title[&#39;Title&#39;] = data[&#39;Name&#39;].map(self.get_title)
-        title[&#39;Title&#39;] = title[&#39;Title&#39;].map(self.title_map)
-        title = pd.get_dummies(title[&#39;Title&#39;], prefix=&#39;Title&#39;)
-        data = pd.concat([data, title], axis=1)
-        data.drop(&#39;Name&#39;, axis=1, inplace=True)
-        data[&#39;Cabin&#39;] = data[&#39;Cabin&#39;].map(lambda c: c[0])
-        cabin = pd.get_dummies(data[&#39;Cabin&#39;], prefix=&#39;Cabin&#39;)
-        data = pd.concat([data, cabin], axis=1)
-        data.drop(&#39;Cabin&#39;, axis=1, inplace=True)
-        family = pd.DataFrame()
-        family[&#39;FamilySize&#39;] = data[&#39;Parch&#39;] + data[&#39;SibSp&#39;] + 1  # 对家庭成员数量进行分箱
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if s == 1 else 0)
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if 2 &lt;= s &lt;= 4 else 0)
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if s &gt;= 5 else 0)
-        data = pd.concat([data, family], axis=1)
-        data[&#39;Ticket&#39;] = data[&#39;Ticket&#39;].map(self.clean_ticket)
-        ticket = pd.get_dummies(data[&#39;Ticket&#39;], prefix=&#39;Ticket&#39;)
-        data = pd.concat([data, ticket], axis=1)
-        data.drop(&#39;Ticket&#39;, axis=1, inplace=True)
-        return data
+    input_image, input_mask = normalize(input_image, input_mask)
 
-    &#39;&#39;&#39;提取头衔&#39;&#39;&#39;
+    return input_image, input_mask</code></pre>
+<pre><code class="python">def load_image_test(datapoint):
+    input_image = tf.image.resize(datapoint[&#39;image&#39;], (128, 128))
+    input_mask = tf.image.resize(datapoint[&#39;segmentation_mask&#39;], (128, 128))
+    input_image, input_mask = normalize(input_image, input_mask)
 
-    def get_title(self, name):
-        str1 = name.split(&#39;,&#39;)[1]
-        title = str1.split(&#39;.&#39;)[0]
-        return title.strip()
+    return input_image, input_mask</code></pre>
+<h2 id="4-拆分训练集和测试集"><a href="#4-拆分训练集和测试集" class="headerlink" title="4. 拆分训练集和测试集"></a>4. 拆分训练集和测试集</h2><pre><code class="python">train_length = info.splits[&#39;train&#39;].num_examples
+batch_size = 64
+buffer_size = 1000
+steps_per_epoch = train_length // batch_size
 
-    &#39;&#39;&#39;提取票号&#39;&#39;&#39;
+train = dataset[&#39;train&#39;].map(load_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+test = dataset[&#39;test&#39;].map(load_image_test)
 
-    def clean_ticket(self, ticket):
-        ticket = ticket.replace(&#39;.&#39;, &#39;&#39;)
-        ticket = ticket.replace(&#39;/&#39;, &#39;&#39;)
-        ticket = ticket.split()
-        ticket = map(lambda t: t.strip(), ticket)
-        ticket = list(filter(lambda t: not t.isdigit(), ticket))  # 取出票号中的字母
-        if len(ticket) &gt; 0:
-            return ticket[0]
-        else:
-            return &#39;N&#39;
+train_dataset = train.cache().shuffle(buffer_size).batch(batch_size).repeat()
+train_dataset = train_dataset.prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
+test_dataset = test.batch(batch_size)</code></pre>
+<h2 id="5-查看原始图片和轮廓标注图片"><a href="#5-查看原始图片和轮廓标注图片" class="headerlink" title="5. 查看原始图片和轮廓标注图片"></a>5. 查看原始图片和轮廓标注图片</h2><pre><code class="python">def display(display_list):
+    plt.figure(figsize=(15, 15))
+    title = [&#39;Input Image&#39;, &#39;True Mask&#39;, &#39;Predicted Mask&#39;]
 
-    &#39;&#39;&#39;逻辑回归&#39;&#39;&#39;
+    for i in range(len(display_list)):
+        plt.subplot(1, len(display_list), i + 1)
+        plt.title(title[i])
+        plt.imshow(tf.keras.preprocessing.image.array_to_img(display_list[i]))
+        plt.axis(&#39;off&#39;)
+    plt.show()</code></pre>
+<pre><code class="python">for image, mask in train.take(1):
+    sample_image, sample_mask = image, mask
+display([sample_image, sample_mask])</code></pre>
+<p>输出通道为3</p>
+<pre><code class="python">output_channels = 3</code></pre>
+<h2 id="6-使用预训练的MobileNetV2作为编码器-下采样器"><a href="#6-使用预训练的MobileNetV2作为编码器-下采样器" class="headerlink" title="6. 使用预训练的MobileNetV2作为编码器/下采样器"></a>6. 使用预训练的MobileNetV2作为编码器/下采样器</h2><pre><code class="python">base_model = tf.keras.applications.MobileNetV2(input_shape=[128, 128, 3], include_top=False)
+layer_names = [
+    &#39;block_1_expand_relu&#39;
+    , &#39;block_3_expand_relu&#39;
+    , &#39;block_6_expand_relu&#39;
+    , &#39;block_13_expand_relu&#39;
+    , &#39;block_16_project&#39;
+]
+layers = [base_model.get_layer(name).output for name in layer_names]
+down_stack = tf.keras.Model(inputs=base_model.input, outputs=layers)
+down_stack.trainable = False</code></pre>
+<h2 id="7-使用pix2pix作为解码器-上采样器"><a href="#7-使用pix2pix作为解码器-上采样器" class="headerlink" title="7. 使用pix2pix作为解码器/上采样器"></a>7. 使用pix2pix作为解码器/上采样器</h2><pre><code class="python">up_stack = [
+    pix2pix.upsample(512, 3)
+    , pix2pix.upsample(256, 3)
+    , pix2pix.upsample(128, 3)
+    , pix2pix.upsample(64, 3)
+]</code></pre>
+<pre><code class="python">def unet_model(output_channels):
+    inputs = tf.keras.Input(shape=[128, 128, 3])
+    x = inputs
 
-    def Logistic(self, x, y):
-        lr = LogisticRegression()
-        score = cross_val_score(lr, x, y, cv=10).mean()
-        print(&#39;Logistic:&#39;, score)
+    skips = down_stack(x)
+    x = skips[-1]
+    skips = reversed(skips[:-1])
 
-    &#39;&#39;&#39;决策树&#39;&#39;&#39;
+    for up, skip in zip(up_stack, skips):
+        x = up(x)
+        concat = tf.keras.layers.Concatenate()
+        x = concat([x, skip])
 
-    def DecisionTree(self, x, y):
-        dt = DecisionTreeClassifier(random_state=0)
-        score = cross_val_score(dt, x, y, cv=10).mean()
-        print(&#39;DecisionTree:&#39;, score)
-
-    &#39;&#39;&#39;随机森林&#39;&#39;&#39;
-
-    def RandomForest(self, x, y):
-        rfc = RandomForestClassifier(n_estimators=25)
-        score = cross_val_score(rfc, x, y, cv=10).mean()
-        print(&#39;FandomForest:&#39;, score)
-
-    &#39;&#39;&#39;支持向量机&#39;&#39;&#39;
-
-    def SVC(self, x, y):
-        Kernel = [&#39;linear&#39;, &#39;poly&#39;, &#39;rbf&#39;, &#39;sigmoid&#39;]
-        for kernel in Kernel:
-            clf = SVC(kernel=kernel
-                      , gamma=&#39;auto&#39;
-                      , degree=1
-                      , cache_size=5000
-                      )
-            score = cross_val_score(clf, x, y, cv=5).mean()
-            print(&#39;SVC &#123;&#125;:&#39;.format(kernel), score)
-
-    &#39;&#39;&#39;XGBoost&#39;&#39;&#39;
-
-    def XGB(self, x, y):
-        xgb = XGBC(n_estimators=100)
-        score = cross_val_score(xgb, x, y, cv=10).mean()
-        print(&#39;XGB:&#39;, score)
-
-    &#39;&#39;&#39;朴素贝叶斯&#39;&#39;&#39;
-
-    def Naive_bayes(self, x, y):
-        bnb = BernoulliNB()
-        score = cross_val_score(bnb, x, y).mean()
-        print(&#39;Naive_bayes:&#39;, score)
-
-    &#39;&#39;&#39;梯度提升决策树&#39;&#39;&#39;
-
-    def GBDT(self, x, y):
-        gbdt = GradientBoostingClassifier()
-        score = cross_val_score(gbdt, x, y).mean()
-        print(&#39;GBDT:&#39;, score)
-
-    &#39;&#39;&#39;K近邻&#39;&#39;&#39;
-
-    def KNN(self, x, y):
-        knn = KNeighborsClassifier()
-        score = cross_val_score(knn, x, y).mean()
-        print(&#39;KNN:&#39;, score)
-
-    &#39;&#39;&#39;调用各个模型&#39;&#39;&#39;
-    def main(self):
-        data = self.process(self.train)
-        # targets = pd.read_csv(&#39;./data/train.csv&#39;, usecols=[&#39;Survived&#39;])[&#39;Survived&#39;].values
-        # print(targets)
-        # corr = data.corr()
-        # print(corr[&#39;Survived&#39;].sort_values(ascending=False))
-
-        x = data.iloc[:, 1:]
-        y = data.iloc[:, 0]
-        x = StandardScaler().fit_transform(x)
-        self.Logistic(x, y)
-        self.DecisionTree(x, y)
-        self.RandomForest(x, y)
-        self.SVC(x, y)
-        self.XGB(x, y)
-        self.Naive_bayes(x, y)
-        self.GBDT(x, y)
-        self.KNN(x, y)
+    last = tf.keras.layers.Conv2DTranspose(
+        output_channels, 3, strides=2
+        , padding=&#39;same&#39;
+    )
+    x = last(x)
+    return tf.keras.Model(inputs=inputs, outputs=x)</code></pre>
+<h2 id="8-建立模型"><a href="#8-建立模型" class="headerlink" title="8. 建立模型"></a>8. 建立模型</h2><pre><code class="python">model = unet_model(output_channels)
+model.compile(optimizer=&#39;adam&#39;
+              , loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+              , metrics=[&#39;accuracy&#39;])</code></pre>
+<h2 id="9-查看模型结构"><a href="#9-查看模型结构" class="headerlink" title="9. 查看模型结构"></a>9. 查看模型结构</h2><pre><code class="python">tf.keras.utils.plot_model(model, show_shapes=True)</code></pre>
+<h2 id="10-查看训练前模型的预测结果"><a href="#10-查看训练前模型的预测结果" class="headerlink" title="10. 查看训练前模型的预测结果"></a>10. 查看训练前模型的预测结果</h2><pre><code class="python">def create_mask(pred_mask):
+    pred_mask = tf.argmax(pred_mask, axis=-1)
+    pred_mask = pred_mask[..., tf.newaxis]
+    return pred_mask[0]</code></pre>
+<pre><code class="python">def show_predictions(dataset=None, num=1):
+    if dataset:
+        for image, mask in dataset.take(num):
+            pred_mask = model.predict(image)
+            display([image[0], mask[0], create_mask(pred_mask)])
+    else:
+        display([sample_image, sample_mask,
+                 create_mask(model.predict(sample_image[tf.newaxis, ...]))])
 
 
-if __name__ == &#39;__main__&#39;:
-    t = titanic()
-    t.main()</code></pre>
+show_predictions()</code></pre>
+<h2 id="11-回调函数"><a href="#11-回调函数" class="headerlink" title="11. 回调函数"></a>11. 回调函数</h2><pre><code class="python">class DisplayCallback(tf.keras.callbacks.Callback):
+    def on_epoch_end(self, epoch, logs=None):
+        clear_output(wait=True)
+        show_predictions()
+        print(&#39;Eepoch &#123;&#125;&#39;.format(epoch + 1))
+
+
+epochs = 20
+val_subsplits = 5
+validation_steps = info.splits[&#39;test&#39;].num_examples // batch_size // val_subsplits</code></pre>
+<h2 id="12-训练模型"><a href="#12-训练模型" class="headerlink" title="12. 训练模型"></a>12. 训练模型</h2><pre><code class="python">history = model.fit(train_dataset, epochs=epochs
+                    , steps_per_epoch=steps_per_epoch
+                    , validation_steps=validation_steps
+                    , validation_data=test_dataset
+                    , callbacks=[DisplayCallback()]
+                    )</code></pre>
+<h1 id="13-损失可视化"><a href="#13-损失可视化" class="headerlink" title="13. 损失可视化"></a>13. 损失可视化</h1><pre><code class="python">loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs = history.epoch
+
+plt.figure()
+plt.plot(epochs, loss, &#39;g&#39;, label=&#39;loss&#39;)
+plt.plot(epochs, val_loss, &#39;yo&#39;, label=&#39;val_loss&#39;)
+plt.title(&#39;Loss&#39;)
+plt.xlabel(&#39;Epoch&#39;)
+plt.ylabel(&#39;Loss&#39;)
+plt.ylim([0, 1])
+plt.legend()
+plt.show()</code></pre>
+<h2 id="14-进行预测"><a href="#14-进行预测" class="headerlink" title="14. 进行预测"></a>14. 进行预测</h2><pre><code class="python">show_predictions(test_dataset, 3)</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>

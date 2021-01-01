@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>泰坦尼克号生存预测 | Weillin</title>
+  <title>冒泡排序 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="泰坦尼克号生存预测 | Weillin">
+  <meta name="description" content="冒泡排序 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="冒泡排序 将一个列表的元素，从第一个开始，如果前面的数比后面的数大，就将两个数的位置相互交换，如果前面的数比后面的小，就将指针移动后面的数，直到指针移到最后一个元素上面，结束第一轮排序，此时最后一个元素必是列表中的最大值。 重复第一步的过程，此时只需要将指针移到倒数第二位即可。 将此过程一直重复，需要进行元素数减一轮。  def bubble_sort(arr):     n &#x3D; len(arr)">
 <meta property="og:type" content="article">
@@ -457,9 +457,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-泰坦尼克号生存预测" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-冒泡排序" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">泰坦尼克号生存预测</h1>
+        <h1 class="article-title">冒泡排序</h1>
     
     <div class="article-meta">
         
@@ -469,7 +469,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="TF2">TF2</a>
+            <a  data-rel="算法">算法</a>
             
         </span>
         
@@ -477,7 +477,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:00:41'>2020-12-31 19:50</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-01 17:35:04'>2021-01-01 17:29</time>
         
     </div>
     <div class="article-meta">
@@ -499,7 +499,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E7%94%9F%E5%AD%98%E9%A2%84%E6%B5%8B"><span class="toc-text">泰坦尼克号生存预测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E9%9C%80%E8%A6%81%E7%9A%84%E5%8C%85"><span class="toc-text">1.导入需要的包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0"><span class="toc-text">2.设置自定义参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.定义训练模型</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -515,193 +515,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="泰坦尼克号生存预测"><a href="#泰坦尼克号生存预测" class="headerlink" title="泰坦尼克号生存预测"></a>泰坦尼克号生存预测</h1><h2 id="1-导入需要的包"><a href="#1-导入需要的包" class="headerlink" title="1.导入需要的包"></a>1.导入需要的包</h2><pre><code class="python">import warnings
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.model_selection import cross_val_score
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-from sklearn.svm import SVC
-from xgboost import XGBClassifier as XGBC
-from sklearn.naive_bayes import BernoulliNB
-from sklearn.neighbors import KNeighborsClassifier</code></pre>
-<h2 id="2-设置自定义参数"><a href="#2-设置自定义参数" class="headerlink" title="2.设置自定义参数"></a>2.设置自定义参数</h2><pre><code class="python">warnings.filterwarnings(&#39;ignore&#39;)
-warnings.filterwarnings(&#39;ignore&#39;, category=DeprecationWarning)
-plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;simHei&#39;]
-plt.rcParams[&#39;axes.unicode_minus&#39;] = False</code></pre>
-<h2 id="3-定义训练模型"><a href="#3-定义训练模型" class="headerlink" title="3.定义训练模型"></a>3.定义训练模型</h2><pre><code class="python">class titanic():
-
-    def __init__(self):
-        &#39;&#39;&#39;导入数据&#39;&#39;&#39;
-        self.train = pd.read_csv(&#39;./data/titanic_train.csv&#39;)
-        self.test = pd.read_csv(&#39;./data/titanic_test.csv&#39;)
-        self.train.drop(&#39;PassengerId&#39;, axis=1, inplace=True)
-        self.sex_map = &#123;&#39;male&#39;: 1, &#39;female&#39;: 0&#125;
-        self.title_map = &#123;
-            &quot;Capt&quot;: &quot;Officer&quot;,
-            &quot;Col&quot;: &quot;Officer&quot;,
-            &quot;Major&quot;: &quot;Officer&quot;,
-            &quot;Jonkheer&quot;: &quot;Royalty&quot;,
-            &quot;Don&quot;: &quot;Royalty&quot;,
-            &quot;Sir&quot;: &quot;Royalty&quot;,
-            &quot;Dr&quot;: &quot;Officer&quot;,
-            &quot;Rev&quot;: &quot;Officer&quot;,
-            &quot;the Countess&quot;: &quot;Royalty&quot;,
-            &quot;Dona&quot;: &quot;Royalty&quot;,
-            &quot;Mme&quot;: &quot;Mrs&quot;,
-            &quot;Mlle&quot;: &quot;Miss&quot;,
-            &quot;Ms&quot;: &quot;Mrs&quot;,
-            &quot;Mr&quot;: &quot;Mr&quot;,
-            &quot;Mrs&quot;: &quot;Mrs&quot;,
-            &quot;Miss&quot;: &quot;Miss&quot;,
-            &quot;Master&quot;: &quot;Master&quot;,
-            &quot;Lady&quot;: &quot;Royalty&quot;
-        &#125;
-
-    &#39;&#39;&#39;数据预处理&#39;&#39;&#39;
-
-    def process(self, data):
-        data[&#39;Age&#39;].fillna(data[&#39;Age&#39;].median(), inplace=True)  # 年龄缺失用中位数填补
-        data[&#39;Fare&#39;].fillna(data[&#39;Fare&#39;].mean(), inplace=True)  # 票价缺失用均值填补
-        data[&#39;Embarked&#39;].fillna(data[&#39;Embarked&#39;].mode(), inplace=True)  # 码头缺失用众数填补
-        data[&#39;Cabin&#39;].fillna(&#39;U&#39;, inplace=True)  # 座位号用U(未知)填补
-        data[&#39;Sex&#39;] = data[&#39;Sex&#39;].map(self.sex_map)  # 性别映射成0, 1
-        embarked = pd.get_dummies(data[&#39;Embarked&#39;], prefix=&#39;Embarked&#39;)  # one_hot编码
-        data = pd.concat([data, embarked], axis=1)  # 合并数据
-        data.drop(&#39;Embarked&#39;, axis=1, inplace=True)  # 删除列
-        pclass = pd.get_dummies(data[&#39;Pclass&#39;], prefix=&#39;Pclass&#39;)
-        data = pd.concat([data, pclass], axis=1)
-        data.drop(&#39;Pclass&#39;, axis=1, inplace=True)
-        title = pd.DataFrame()
-        title[&#39;Title&#39;] = data[&#39;Name&#39;].map(self.get_title)
-        title[&#39;Title&#39;] = title[&#39;Title&#39;].map(self.title_map)
-        title = pd.get_dummies(title[&#39;Title&#39;], prefix=&#39;Title&#39;)
-        data = pd.concat([data, title], axis=1)
-        data.drop(&#39;Name&#39;, axis=1, inplace=True)
-        data[&#39;Cabin&#39;] = data[&#39;Cabin&#39;].map(lambda c: c[0])
-        cabin = pd.get_dummies(data[&#39;Cabin&#39;], prefix=&#39;Cabin&#39;)
-        data = pd.concat([data, cabin], axis=1)
-        data.drop(&#39;Cabin&#39;, axis=1, inplace=True)
-        family = pd.DataFrame()
-        family[&#39;FamilySize&#39;] = data[&#39;Parch&#39;] + data[&#39;SibSp&#39;] + 1  # 对家庭成员数量进行分箱
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if s == 1 else 0)
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if 2 &lt;= s &lt;= 4 else 0)
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if s &gt;= 5 else 0)
-        data = pd.concat([data, family], axis=1)
-        data[&#39;Ticket&#39;] = data[&#39;Ticket&#39;].map(self.clean_ticket)
-        ticket = pd.get_dummies(data[&#39;Ticket&#39;], prefix=&#39;Ticket&#39;)
-        data = pd.concat([data, ticket], axis=1)
-        data.drop(&#39;Ticket&#39;, axis=1, inplace=True)
-        return data
-
-    &#39;&#39;&#39;提取头衔&#39;&#39;&#39;
-
-    def get_title(self, name):
-        str1 = name.split(&#39;,&#39;)[1]
-        title = str1.split(&#39;.&#39;)[0]
-        return title.strip()
-
-    &#39;&#39;&#39;提取票号&#39;&#39;&#39;
-
-    def clean_ticket(self, ticket):
-        ticket = ticket.replace(&#39;.&#39;, &#39;&#39;)
-        ticket = ticket.replace(&#39;/&#39;, &#39;&#39;)
-        ticket = ticket.split()
-        ticket = map(lambda t: t.strip(), ticket)
-        ticket = list(filter(lambda t: not t.isdigit(), ticket))  # 取出票号中的字母
-        if len(ticket) &gt; 0:
-            return ticket[0]
-        else:
-            return &#39;N&#39;
-
-    &#39;&#39;&#39;逻辑回归&#39;&#39;&#39;
-
-    def Logistic(self, x, y):
-        lr = LogisticRegression()
-        score = cross_val_score(lr, x, y, cv=10).mean()
-        print(&#39;Logistic:&#39;, score)
-
-    &#39;&#39;&#39;决策树&#39;&#39;&#39;
-
-    def DecisionTree(self, x, y):
-        dt = DecisionTreeClassifier(random_state=0)
-        score = cross_val_score(dt, x, y, cv=10).mean()
-        print(&#39;DecisionTree:&#39;, score)
-
-    &#39;&#39;&#39;随机森林&#39;&#39;&#39;
-
-    def RandomForest(self, x, y):
-        rfc = RandomForestClassifier(n_estimators=25)
-        score = cross_val_score(rfc, x, y, cv=10).mean()
-        print(&#39;FandomForest:&#39;, score)
-
-    &#39;&#39;&#39;支持向量机&#39;&#39;&#39;
-
-    def SVC(self, x, y):
-        Kernel = [&#39;linear&#39;, &#39;poly&#39;, &#39;rbf&#39;, &#39;sigmoid&#39;]
-        for kernel in Kernel:
-            clf = SVC(kernel=kernel
-                      , gamma=&#39;auto&#39;
-                      , degree=1
-                      , cache_size=5000
-                      )
-            score = cross_val_score(clf, x, y, cv=5).mean()
-            print(&#39;SVC &#123;&#125;:&#39;.format(kernel), score)
-
-    &#39;&#39;&#39;XGBoost&#39;&#39;&#39;
-
-    def XGB(self, x, y):
-        xgb = XGBC(n_estimators=100)
-        score = cross_val_score(xgb, x, y, cv=10).mean()
-        print(&#39;XGB:&#39;, score)
-
-    &#39;&#39;&#39;朴素贝叶斯&#39;&#39;&#39;
-
-    def Naive_bayes(self, x, y):
-        bnb = BernoulliNB()
-        score = cross_val_score(bnb, x, y).mean()
-        print(&#39;Naive_bayes:&#39;, score)
-
-    &#39;&#39;&#39;梯度提升决策树&#39;&#39;&#39;
-
-    def GBDT(self, x, y):
-        gbdt = GradientBoostingClassifier()
-        score = cross_val_score(gbdt, x, y).mean()
-        print(&#39;GBDT:&#39;, score)
-
-    &#39;&#39;&#39;K近邻&#39;&#39;&#39;
-
-    def KNN(self, x, y):
-        knn = KNeighborsClassifier()
-        score = cross_val_score(knn, x, y).mean()
-        print(&#39;KNN:&#39;, score)
-
-    &#39;&#39;&#39;调用各个模型&#39;&#39;&#39;
-    def main(self):
-        data = self.process(self.train)
-        # targets = pd.read_csv(&#39;./data/train.csv&#39;, usecols=[&#39;Survived&#39;])[&#39;Survived&#39;].values
-        # print(targets)
-        # corr = data.corr()
-        # print(corr[&#39;Survived&#39;].sort_values(ascending=False))
-
-        x = data.iloc[:, 1:]
-        y = data.iloc[:, 0]
-        x = StandardScaler().fit_transform(x)
-        self.Logistic(x, y)
-        self.DecisionTree(x, y)
-        self.RandomForest(x, y)
-        self.SVC(x, y)
-        self.XGB(x, y)
-        self.Naive_bayes(x, y)
-        self.GBDT(x, y)
-        self.KNN(x, y)
+        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><ol>
+<li>将一个列表的元素，从第一个开始，如果前面的数比后面的数大，就将两个数的位置相互交换，如果前面的数比后面的小，就将指针移动后面的数，直到指针移到最后一个元素上面，结束第一轮排序，此时最后一个元素必是列表中的最大值。</li>
+<li>重复第一步的过程，此时只需要将指针移到倒数第二位即可。</li>
+<li>将此过程一直重复，需要进行元素数减一轮。</li>
+</ol>
+<pre><code class="python">def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if arr[j] &gt; arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
 
 
-if __name__ == &#39;__main__&#39;:
-    t = titanic()
-    t.main()</code></pre>
+arr = [9, 7, 4, 8, 3, 8, 4, 9, 2, 7, 0]
+print(bubble_sort(arr))</code></pre>
+<pre><code>[0, 2, 3, 4, 4, 7, 7, 8, 8, 9, 9]</code></pre>
+<pre><code class="python"></code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
