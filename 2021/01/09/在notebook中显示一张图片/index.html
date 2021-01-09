@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>膨胀和腐蚀 | Weillin</title>
+  <title>在notebook中显示一张图片 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="膨胀和腐蚀 | Weillin">
+  <meta name="description" content="在notebook中显示一张图片 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="在notebook中展示视频在notebook中是不能播放视频文件的，如果我们想在notebook中查看一下视频的内容，我们需要把视频中的每一帧图片提取出来，然后一帧一帧地切换，以达到预览视频的效果 1.导入依赖包from IPython.display import clear_output, Image, display import time import cv2 2.读取一个视频文件cap">
 <meta property="og:type" content="article">
@@ -735,9 +735,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-膨胀和腐蚀" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-在notebook中显示一张图片" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">膨胀和腐蚀</h1>
+        <h1 class="article-title">在notebook中显示一张图片</h1>
     
     <div class="article-meta">
         
@@ -755,7 +755,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-02 15:47:12'>2021-01-02 15:18</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-09 15:23:49'>2021-01-09 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -788,7 +788,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%86%A8%E8%83%80%E5%92%8C%E8%85%90%E8%9A%80"><span class="toc-text">膨胀和腐蚀</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8notebook%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87"><span class="toc-text">在notebook中显示一张图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8opencv%E6%89%93%E5%BC%80"><span class="toc-text">示例一：使用opencv打开</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%BE%E7%BD%AEmatplotlib%E5%9C%A8%E7%BA%BF%E6%98%BE%E7%A4%BA"><span class="toc-text">2.设置matplotlib在线显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8opencv%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87"><span class="toc-text">3.用opencv读取图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-opencv%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E6%98%AFBGR%EF%BC%8Cmatplotlib%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E6%98%AFRGB%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81%E5%B0%86%E7%9F%A9%E9%98%B5%E9%A2%A0%E5%80%92%E8%BF%87%E6%9D%A5"><span class="toc-text">4.opencv读取图片是BGR，matplotlib读取图片是RGB，所以需要将矩阵颠倒过来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87"><span class="toc-text">5，显示图片</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -804,35 +804,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="膨胀和腐蚀"><a href="#膨胀和腐蚀" class="headerlink" title="膨胀和腐蚀"></a>膨胀和腐蚀</h1><pre><code class="python">import cv2 as cv
-import numpy as np
-
-def erode_demo(image):
-    print(image.shape)
-    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU)
-    cv.imshow(&#39;binary&#39;, binary)
-    kernel = cv.getStructuringElement(cv.MORPH_RECT, (5, 5))
-    dst = cv.erode(binary, kernel)
-    cv.imshow(&#39;erode_demo&#39;, dst)
-
-def dilate_demo(image):
-    print(image.shape)
-    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU)
-    cv.imshow(&#39;binary&#39;, binary)
-    kernel = cv.getStructuringElement(cv.MORPH_RECT, (5, 5))
-    dst = cv.dilate(binary, kernel)
-    cv.imshow(&#39;dilate_demo&#39;, dst)
-
-src = cv.imread(&#39;./15.png&#39;)  # blue, green, red
-cv.namedWindow(&#39;input image&#39;, cv.WINDOW_AUTOSIZE)
-cv.imshow(&#39;input image&#39;, src)
-# erode_demo(src)
-dilate_demo(src)
-cv.waitKey(0)
-
-cv.destroyAllWindows()</code></pre>
+        <h1 id="在notebook中显示一张图片"><a href="#在notebook中显示一张图片" class="headerlink" title="在notebook中显示一张图片"></a>在notebook中显示一张图片</h1><h2 id="示例一：使用opencv打开"><a href="#示例一：使用opencv打开" class="headerlink" title="示例一：使用opencv打开"></a>示例一：使用opencv打开</h2><h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><pre><code class="python">from matplotlib import pyplot as plt
+import cv2</code></pre>
+<h3 id="2-设置matplotlib在线显示"><a href="#2-设置matplotlib在线显示" class="headerlink" title="2.设置matplotlib在线显示"></a>2.设置matplotlib在线显示</h3><pre><code class="python">%matplotlib inline</code></pre>
+<h3 id="3-用opencv读取图片"><a href="#3-用opencv读取图片" class="headerlink" title="3.用opencv读取图片"></a>3.用opencv读取图片</h3><pre><code class="python">img= cv2.imread(&#39;1.jpg&#39;)</code></pre>
+<h3 id="4-opencv读取图片是BGR，matplotlib读取图片是RGB，所以需要将矩阵颠倒过来"><a href="#4-opencv读取图片是BGR，matplotlib读取图片是RGB，所以需要将矩阵颠倒过来" class="headerlink" title="4.opencv读取图片是BGR，matplotlib读取图片是RGB，所以需要将矩阵颠倒过来"></a>4.opencv读取图片是BGR，matplotlib读取图片是RGB，所以需要将矩阵颠倒过来</h3><pre><code class="python">img2 = img[:,:,::-1]</code></pre>
+<h3 id="5，显示图片"><a href="#5，显示图片" class="headerlink" title="5，显示图片"></a>5，显示图片</h3><pre><code class="python">plt.imshow(img2)</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>

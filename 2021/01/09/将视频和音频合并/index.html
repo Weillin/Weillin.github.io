@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>膨胀和腐蚀 | Weillin</title>
+  <title>将视频和音频合并 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="膨胀和腐蚀 | Weillin">
+  <meta name="description" content="将视频和音频合并 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="在notebook中展示视频在notebook中是不能播放视频文件的，如果我们想在notebook中查看一下视频的内容，我们需要把视频中的每一帧图片提取出来，然后一帧一帧地切换，以达到预览视频的效果 1.导入依赖包from IPython.display import clear_output, Image, display import time import cv2 2.读取一个视频文件cap">
 <meta property="og:type" content="article">
@@ -735,9 +735,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-膨胀和腐蚀" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-将视频和音频合并" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">膨胀和腐蚀</h1>
+        <h1 class="article-title">将视频和音频合并</h1>
     
     <div class="article-meta">
         
@@ -755,7 +755,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-02 15:47:12'>2021-01-02 15:18</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-09 15:23:18'>2021-01-09 15:16</time>
         
     </div>
     <div class="article-meta">
@@ -788,7 +788,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%86%A8%E8%83%80%E5%92%8C%E8%85%90%E8%9A%80"><span class="toc-text">膨胀和腐蚀</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%86%E8%A7%86%E9%A2%91%E5%92%8C%E9%9F%B3%E9%A2%91%E5%90%88%E5%B9%B6"><span class="toc-text">将视频和音频合并</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5moviepy%E5%BA%93"><span class="toc-text">1.导入moviepy库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8F%90%E5%8F%96a-mp4%E6%96%87%E4%BB%B6%E7%9A%84%E9%9F%B3%E9%A2%91"><span class="toc-text">2.提取a.mp4文件的音频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AF%BB%E5%8F%96b-mp4%E6%96%87%E4%BB%B6"><span class="toc-text">3.读取b.mp4文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B0%86a-mp4%E6%96%87%E4%BB%B6%E7%9A%84%E9%9F%B3%E9%A2%91%E5%92%8Cb-mp4%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%86%E9%A2%91%E8%BF%9B%E8%A1%8C%E5%90%88%E5%B9%B6-%E4%B8%A4%E4%B8%AA%E8%A7%86%E9%A2%91%E7%9A%84%E9%95%BF%E5%BA%A6%E5%BF%85%E9%A1%BB%E4%B8%80%E6%A0%B7"><span class="toc-text">4.将a.mp4文件的音频和b.mp4文件的视频进行合并(两个视频的长度必须一样)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BE%93%E5%87%BA%E6%96%B0%E7%9A%84%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6"><span class="toc-text">5.输出新的视频文件</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -804,35 +804,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="膨胀和腐蚀"><a href="#膨胀和腐蚀" class="headerlink" title="膨胀和腐蚀"></a>膨胀和腐蚀</h1><pre><code class="python">import cv2 as cv
-import numpy as np
-
-def erode_demo(image):
-    print(image.shape)
-    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU)
-    cv.imshow(&#39;binary&#39;, binary)
-    kernel = cv.getStructuringElement(cv.MORPH_RECT, (5, 5))
-    dst = cv.erode(binary, kernel)
-    cv.imshow(&#39;erode_demo&#39;, dst)
-
-def dilate_demo(image):
-    print(image.shape)
-    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU)
-    cv.imshow(&#39;binary&#39;, binary)
-    kernel = cv.getStructuringElement(cv.MORPH_RECT, (5, 5))
-    dst = cv.dilate(binary, kernel)
-    cv.imshow(&#39;dilate_demo&#39;, dst)
-
-src = cv.imread(&#39;./15.png&#39;)  # blue, green, red
-cv.namedWindow(&#39;input image&#39;, cv.WINDOW_AUTOSIZE)
-cv.imshow(&#39;input image&#39;, src)
-# erode_demo(src)
-dilate_demo(src)
-cv.waitKey(0)
-
-cv.destroyAllWindows()</code></pre>
+        <h1 id="将视频和音频合并"><a href="#将视频和音频合并" class="headerlink" title="将视频和音频合并"></a>将视频和音频合并</h1><h2 id="1-导入moviepy库"><a href="#1-导入moviepy库" class="headerlink" title="1.导入moviepy库"></a>1.导入moviepy库</h2><pre><code class="python">from moviepy.editor import VideoFileClip</code></pre>
+<h2 id="2-提取a-mp4文件的音频"><a href="#2-提取a-mp4文件的音频" class="headerlink" title="2.提取a.mp4文件的音频"></a>2.提取a.mp4文件的音频</h2><pre><code class="python">audio = VideoFileClip(&#39;a.mp4&#39;).audio</code></pre>
+<h2 id="3-读取b-mp4文件"><a href="#3-读取b-mp4文件" class="headerlink" title="3.读取b.mp4文件"></a>3.读取b.mp4文件</h2><pre><code class="python">video = VideoFileClip(&#39;b.mp4&#39;)</code></pre>
+<h2 id="4-将a-mp4文件的音频和b-mp4文件的视频进行合并-两个视频的长度必须一样"><a href="#4-将a-mp4文件的音频和b-mp4文件的视频进行合并-两个视频的长度必须一样" class="headerlink" title="4.将a.mp4文件的音频和b.mp4文件的视频进行合并(两个视频的长度必须一样)"></a>4.将a.mp4文件的音频和b.mp4文件的视频进行合并(两个视频的长度必须一样)</h2><pre><code class="python">resurl = video.set_audio(audio)</code></pre>
+<h2 id="5-输出新的视频文件"><a href="#5-输出新的视频文件" class="headerlink" title="5.输出新的视频文件"></a>5.输出新的视频文件</h2><pre><code class="python">resurl.write_videofile(&#39;out.mp4&#39;,audio_codec=&#39;aac&#39;)</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
