@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>冒泡排序 | Weillin</title>
+  <title>逻辑回归 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="冒泡排序 | Weillin">
+  <meta name="description" content="逻辑回归 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="多层感知器1.导入依赖包import torch from torch import nn import torch.nn.functional as F from torch.utils.data import TensorDataset, DataLoader import numpy as np import pandas as pd from sklearn.model_selection">
 <meta property="og:type" content="article">
@@ -751,9 +751,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-冒泡排序" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-逻辑回归" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">冒泡排序</h1>
+        <h1 class="article-title">逻辑回归</h1>
     
     <div class="article-meta">
         
@@ -763,7 +763,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="pytorch">pytorch</a>
             
         </span>
         
@@ -771,7 +771,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-01 17:35:04'>2021-01-01 17:29</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-10 14:28:36'>2021-01-10 14:26</time>
         
     </div>
     <div class="article-meta">
@@ -804,7 +804,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-text">逻辑回归</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.读取数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9C%89653%E8%A1%8C%EF%BC%8C16%E5%88%97%EF%BC%8C%E6%95%B0%E6%8D%AE%E9%9B%86%E6%B2%A1%E6%9C%89%E8%A1%A8%E5%A4%B4%EF%BC%8C%E9%9C%80%E8%A6%81%E8%AE%BE%E7%BD%AEheader-None"><span class="toc-text">2.1可以看到数据集有653行，16列，数据集没有表头，需要设置header&#x3D;None</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BF%A1%E6%81%AF%EF%BC%8C%E6%B2%A1%E6%9C%89%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-text">2.2查看数据集信息，没有缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%9A%E4%B9%89X%E5%92%8CY"><span class="toc-text">3.定义X和Y</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%89%8D15%E5%88%97%E4%BD%9C%E4%B8%BAX"><span class="toc-text">3.1数据集的前15列作为X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%88%97%E4%BD%9C%E4%B8%BAY"><span class="toc-text">3.2数据集的最后一列作为Y</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E5%B0%86X%E8%BD%AC%E5%8C%96%E6%88%90%E5%BC%A0%E9%87%8F"><span class="toc-text">3.3将X转化成张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E5%B0%86Y%E8%BD%AC%E5%8C%96%E6%88%90%E5%BC%A0%E9%87%8F"><span class="toc-text">3.4将Y转化成张量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.1查看模型结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">5.定义损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AE%9A%E4%B9%89%E4%BC%98%E5%8C%96%E5%99%A8"><span class="toc-text">6.定义优化器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%BE%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0"><span class="toc-text">7.设置超参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1%E5%AE%9A%E4%B9%89batch-size"><span class="toc-text">7.1定义batch_size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2%E5%AE%9A%E4%B9%89epoches"><span class="toc-text">7.2定义epoches</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">8.训练模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%9F%A5%E7%9C%8B%E5%90%84%E5%8F%82%E6%95%B0%E7%9A%84%E6%9D%83%E9%87%8D"><span class="toc-text">9.查看各参数的权重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9E%8B%E5%87%86%E7%A1%AE%E7%8E%87"><span class="toc-text">10.查看模型准确率</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -820,24 +820,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><ol>
-<li>将一个列表的元素，从第一个开始，如果前面的数比后面的数大，就将两个数的位置相互交换，如果前面的数比后面的小，就将指针移动后面的数，直到指针移到最后一个元素上面，结束第一轮排序，此时最后一个元素必是列表中的最大值。</li>
-<li>重复第一步的过程，此时只需要将指针移到倒数第二位即可。</li>
-<li>将此过程一直重复，需要进行元素数减一轮。</li>
-</ol>
-<pre><code class="python">def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n - 1):
-        for j in range(n - 1 - i):
-            if arr[j] &gt; arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    return arr
-
-
-arr = [9, 7, 4, 8, 3, 8, 4, 9, 2, 7, 0]
-print(bubble_sort(arr))</code></pre>
-<pre><code>[0, 2, 3, 4, 4, 7, 7, 8, 8, 9, 9]</code></pre>
-<pre><code class="python"></code></pre>
+        <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">import torch
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt</code></pre>
+<h2 id="2-读取数据集"><a href="#2-读取数据集" class="headerlink" title="2.读取数据集"></a>2.读取数据集</h2><h3 id="2-1可以看到数据集有653行，16列，数据集没有表头，需要设置header-None"><a href="#2-1可以看到数据集有653行，16列，数据集没有表头，需要设置header-None" class="headerlink" title="2.1可以看到数据集有653行，16列，数据集没有表头，需要设置header=None"></a>2.1可以看到数据集有653行，16列，数据集没有表头，需要设置header=None</h3><pre><code class="python">data = pd.read_csv(&#39;credit-a.csv&#39;, header=None)
+data</code></pre>
+<h3 id="2-2查看数据集信息，没有缺失值"><a href="#2-2查看数据集信息，没有缺失值" class="headerlink" title="2.2查看数据集信息，没有缺失值"></a>2.2查看数据集信息，没有缺失值</h3><pre><code class="python">data.info()</code></pre>
+<h2 id="3-定义X和Y"><a href="#3-定义X和Y" class="headerlink" title="3.定义X和Y"></a>3.定义X和Y</h2><h3 id="3-1数据集的前15列作为X"><a href="#3-1数据集的前15列作为X" class="headerlink" title="3.1数据集的前15列作为X"></a>3.1数据集的前15列作为X</h3><pre><code class="python">X = data.iloc[:, :-1]
+X.head()</code></pre>
+<h3 id="3-2数据集的最后一列作为Y"><a href="#3-2数据集的最后一列作为Y" class="headerlink" title="3.2数据集的最后一列作为Y"></a>3.2数据集的最后一列作为Y</h3><pre><code class="python">Y = data.iloc[:, -1].replace(-1, 0)
+Y.unique()</code></pre>
+<h3 id="3-3将X转化成张量"><a href="#3-3将X转化成张量" class="headerlink" title="3.3将X转化成张量"></a>3.3将X转化成张量</h3><pre><code class="python">X = torch.from_numpy(X.values).type(torch.float32)
+X.shape</code></pre>
+<h3 id="3-4将Y转化成张量"><a href="#3-4将Y转化成张量" class="headerlink" title="3.4将Y转化成张量"></a>3.4将Y转化成张量</h3><pre><code class="python">Y = torch.from_numpy(Y.values.reshape(-1, 1)).type(torch.float32)
+Y.size()</code></pre>
+<h2 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h2><pre><code class="python">model = torch.nn.Sequential(
+    torch.nn.Linear(15, 1),
+    torch.nn.Sigmoid()
+)</code></pre>
+<h3 id="4-1查看模型结构"><a href="#4-1查看模型结构" class="headerlink" title="4.1查看模型结构"></a>4.1查看模型结构</h3><pre><code class="python">model</code></pre>
+<h2 id="5-定义损失函数"><a href="#5-定义损失函数" class="headerlink" title="5.定义损失函数"></a>5.定义损失函数</h2><pre><code class="python">loss_fn = torch.nn.BCELoss()</code></pre>
+<h2 id="6-定义优化器"><a href="#6-定义优化器" class="headerlink" title="6.定义优化器"></a>6.定义优化器</h2><pre><code class="python">opt = torch.optim.Adam(model.parameters(), lr=0.001)</code></pre>
+<h2 id="7-设置超参数"><a href="#7-设置超参数" class="headerlink" title="7.设置超参数"></a>7.设置超参数</h2><h3 id="7-1定义batch-size"><a href="#7-1定义batch-size" class="headerlink" title="7.1定义batch_size"></a>7.1定义batch_size</h3><pre><code class="python">batch_size = 16
+iteration = Y.size(0)//16</code></pre>
+<h3 id="7-2定义epoches"><a href="#7-2定义epoches" class="headerlink" title="7.2定义epoches"></a>7.2定义epoches</h3><pre><code class="python">epoches = 1000</code></pre>
+<h2 id="8-训练模型"><a href="#8-训练模型" class="headerlink" title="8.训练模型"></a>8.训练模型</h2><pre><code class="python">for epoch in range(epoches):
+    for batch in range(iteration):
+        start = batch * batch_size
+        end = start + batch_size
+        x = X[start : end]
+        y = Y[start : end]
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        opt.zero_grad()
+        loss.backward()
+        opt.step()</code></pre>
+<h2 id="9-查看各参数的权重"><a href="#9-查看各参数的权重" class="headerlink" title="9.查看各参数的权重"></a>9.查看各参数的权重</h2><pre><code class="python">model.state_dict()</code></pre>
+<h2 id="10-查看模型准确率"><a href="#10-查看模型准确率" class="headerlink" title="10.查看模型准确率"></a>10.查看模型准确率</h2><pre><code class="python">((model(X).data.numpy() &gt; 0.5).astype(&#39;int&#39;) == Y.numpy()).mean()</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>

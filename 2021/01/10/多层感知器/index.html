@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>冒泡排序 | Weillin</title>
+  <title>多层感知器 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="冒泡排序 | Weillin">
+  <meta name="description" content="多层感知器 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="多层感知器1.导入依赖包import torch from torch import nn import torch.nn.functional as F from torch.utils.data import TensorDataset, DataLoader import numpy as np import pandas as pd from sklearn.model_selection">
 <meta property="og:type" content="article">
@@ -751,9 +751,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-冒泡排序" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-多层感知器" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">冒泡排序</h1>
+        <h1 class="article-title">多层感知器</h1>
     
     <div class="article-meta">
         
@@ -763,7 +763,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="pytorch">pytorch</a>
             
         </span>
         
@@ -771,7 +771,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-01 17:35:04'>2021-01-01 17:29</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-10 14:28:54'>2021-01-10 14:26</time>
         
     </div>
     <div class="article-meta">
@@ -804,7 +804,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E5%99%A8"><span class="toc-text">多层感知器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">2.数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86%E5%B9%B6%E6%9F%A5%E7%9C%8B%E5%89%8D5%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="toc-text">2.1读取数据集并查看前5条数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">2.2查看数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">2.3查看数据信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E6%9F%A5%E7%9C%8B%E4%B8%80%E5%85%B1%E6%9C%89%E5%87%A0%E4%B8%AA%E9%83%A8%E9%97%A8"><span class="toc-text">2.4查看一共有几个部门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E6%9F%A5%E7%9C%8B%E4%B8%80%E5%85%B1%E6%9C%89%E5%87%A0%E7%A7%8D%E5%AE%89%E5%85%A8%E7%A8%8B%E5%BA%A6"><span class="toc-text">2.5查看一共有几种安全程度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E6%9F%A5%E7%9C%8B%E6%AF%8F%E4%B8%AA%E5%AE%89%E5%85%A8%E7%A8%8B%E5%BA%A6%E5%90%84%E9%83%A8%E9%97%A8%E6%9C%89%E5%A4%9A%E5%B0%91%E4%BA%BA"><span class="toc-text">2.6查看每个安全程度各部门有多少人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7%E5%AF%B9%E5%AE%89%E5%85%A8%E7%A8%8B%E5%BA%A6%E8%BF%9B%E8%A1%8C%E7%8B%AC%E7%83%AD%E7%BC%96%E7%A0%81"><span class="toc-text">2.7对安全程度进行独热编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8%E5%B0%86%E5%AE%89%E5%85%A8%E7%A8%8B%E5%BA%A6%E7%9A%84%E7%8B%AC%E7%83%AD%E7%BC%96%E7%A0%81%E5%8A%A0%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%8E%9F%E6%9D%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E5%BE%81%E8%BF%9B%E8%A1%8C%E5%88%A0%E9%99%A4"><span class="toc-text">2.8将安全程度的独热编码加入数据集中，并将原来字符串特征进行删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9%E5%B0%86%E9%83%A8%E9%97%A8%E8%BF%9B%E8%A1%8C%E7%8B%AC%E7%83%AD%E7%BC%96%E7%A0%81%E5%B9%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E5%BE%81"><span class="toc-text">2.9将部门进行独热编码并删除原来的字符串特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-0%E6%9F%A5%E7%9C%8B%E5%90%84%E4%B8%AA%E6%A0%87%E7%AD%BE%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">3.0查看各个标签出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E6%94%B9%E5%8F%98Y%E7%9A%84%E7%BB%B4%E5%BA%A6"><span class="toc-text">3.1改变Y的维度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E5%B0%86Y%E8%BD%AC%E6%88%90%E5%BC%A0%E9%87%8F"><span class="toc-text">3.2将Y转成张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E5%B0%86X%E8%BD%AC%E6%88%90%E5%BC%A0%E9%87%8F"><span class="toc-text">3.3将X转成张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E6%9F%A5%E7%9C%8BX%E5%92%8CY%E7%9A%84%E7%BB%B4%E5%BA%A6"><span class="toc-text">3.4查看X和Y的维度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%90%AD%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.搭建模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="toc-text">4.1方法一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A"><span class="toc-text">4.2方法二：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AE%BE%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0"><span class="toc-text">5.设置超参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%8E%B7%E5%8F%96%E6%A8%A1%E5%9E%8B"><span class="toc-text">6.获取模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.训练模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%94%A8%E5%88%87%E5%88%86%E7%9A%84%E6%96%B9%E6%B3%95%E5%88%87%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">7.1方法一：用切分的方法切割数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E7%94%A8TensorDataset%E7%9A%84%E6%96%B9%E6%B3%95%E5%88%87%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">7.2方法二：用TensorDataset的方法切割数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E7%94%A8DataLoader%E7%9A%84%E6%96%B9%E6%B3%95%E5%88%87%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">7.3方法三：用DataLoader的方法切割数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9A%E7%94%A8train-test-split%E7%9A%84%E6%96%B9%E6%B3%95%E5%88%87%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%85%B6%E5%88%92%E5%88%86%E4%B8%BA%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">7.4方法四：用train_test_split的方法切割数据集，并将其划分为训练集和测试集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%B7%BB%E5%8A%A0%E5%87%86%E7%A1%AE%E7%8E%87"><span class="toc-text">8.添加准确率</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -820,24 +820,149 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><ol>
-<li>将一个列表的元素，从第一个开始，如果前面的数比后面的数大，就将两个数的位置相互交换，如果前面的数比后面的小，就将指针移动后面的数，直到指针移到最后一个元素上面，结束第一轮排序，此时最后一个元素必是列表中的最大值。</li>
-<li>重复第一步的过程，此时只需要将指针移到倒数第二位即可。</li>
-<li>将此过程一直重复，需要进行元素数减一轮。</li>
-</ol>
-<pre><code class="python">def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n - 1):
-        for j in range(n - 1 - i):
-            if arr[j] &gt; arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    return arr
+        <h1 id="多层感知器"><a href="#多层感知器" class="headerlink" title="多层感知器"></a>多层感知器</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">import torch
+from torch import nn
+import torch.nn.functional as F
+from torch.utils.data import TensorDataset, DataLoader
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+%matplotlib inline</code></pre>
+<h2 id="2-数据预处理"><a href="#2-数据预处理" class="headerlink" title="2.数据预处理"></a>2.数据预处理</h2><h3 id="2-1读取数据集并查看前5条数据"><a href="#2-1读取数据集并查看前5条数据" class="headerlink" title="2.1读取数据集并查看前5条数据"></a>2.1读取数据集并查看前5条数据</h3><pre><code class="python">data = pd.read_csv(&#39;HR.csv&#39;)
+data.head()</code></pre>
+<h3 id="2-2查看数据结构"><a href="#2-2查看数据结构" class="headerlink" title="2.2查看数据结构"></a>2.2查看数据结构</h3><pre><code class="python">data.shape</code></pre>
+<h3 id="2-3查看数据信息"><a href="#2-3查看数据信息" class="headerlink" title="2.3查看数据信息"></a>2.3查看数据信息</h3><p>可以看到一共有10个特征，其中有两个是字符串类型，需要转成独热编码</p>
+<pre><code class="python">data.info()</code></pre>
+<h3 id="2-4查看一共有几个部门"><a href="#2-4查看一共有几个部门" class="headerlink" title="2.4查看一共有几个部门"></a>2.4查看一共有几个部门</h3><pre><code class="python">data.part.unique()</code></pre>
+<h3 id="2-5查看一共有几种安全程度"><a href="#2-5查看一共有几种安全程度" class="headerlink" title="2.5查看一共有几种安全程度"></a>2.5查看一共有几种安全程度</h3><pre><code class="python">data.salary.unique()</code></pre>
+<h3 id="2-6查看每个安全程度各部门有多少人"><a href="#2-6查看每个安全程度各部门有多少人" class="headerlink" title="2.6查看每个安全程度各部门有多少人"></a>2.6查看每个安全程度各部门有多少人</h3><pre><code class="python">data.groupby([&#39;salary&#39;, &#39;part&#39;]).size()</code></pre>
+<h3 id="2-7对安全程度进行独热编码"><a href="#2-7对安全程度进行独热编码" class="headerlink" title="2.7对安全程度进行独热编码"></a>2.7对安全程度进行独热编码</h3><pre><code class="python">pd.get_dummies(data.salary)</code></pre>
+<h3 id="2-8将安全程度的独热编码加入数据集中，并将原来字符串特征进行删除"><a href="#2-8将安全程度的独热编码加入数据集中，并将原来字符串特征进行删除" class="headerlink" title="2.8将安全程度的独热编码加入数据集中，并将原来字符串特征进行删除"></a>2.8将安全程度的独热编码加入数据集中，并将原来字符串特征进行删除</h3><pre><code class="python">data = data.join(pd.get_dummies(data.salary))
+del data[&#39;salary&#39;]
+data.head()</code></pre>
+<h3 id="2-9将部门进行独热编码并删除原来的字符串特征"><a href="#2-9将部门进行独热编码并删除原来的字符串特征" class="headerlink" title="2.9将部门进行独热编码并删除原来的字符串特征"></a>2.9将部门进行独热编码并删除原来的字符串特征</h3><pre><code class="python">data = data.join(pd.get_dummies(data.part))
+del data[&#39;part&#39;]
+data</code></pre>
+<h3 id="3-0查看各个标签出现的次数"><a href="#3-0查看各个标签出现的次数" class="headerlink" title="3.0查看各个标签出现的次数"></a>3.0查看各个标签出现的次数</h3><pre><code class="python">data.left.value_counts()</code></pre>
+<h3 id="3-1改变Y的维度"><a href="#3-1改变Y的维度" class="headerlink" title="3.1改变Y的维度"></a>3.1改变Y的维度</h3><pre><code class="python">Y_data = data.left.values.reshape(-1, 1)
+Y_data.shape</code></pre>
+<h3 id="3-2将Y转成张量"><a href="#3-2将Y转成张量" class="headerlink" title="3.2将Y转成张量"></a>3.2将Y转成张量</h3><pre><code class="python">Y = torch.from_numpy(Y_data).type(torch.FloatTensor)</code></pre>
+<h3 id="3-3将X转成张量"><a href="#3-3将X转成张量" class="headerlink" title="3.3将X转成张量"></a>3.3将X转成张量</h3><pre><code class="python">X_data = data[[c for c in data.columns if c != &#39;left&#39;]].values
+X = torch.from_numpy(X_data).type(torch.FloatTensor)</code></pre>
+<h3 id="3-4查看X和Y的维度"><a href="#3-4查看X和Y的维度" class="headerlink" title="3.4查看X和Y的维度"></a>3.4查看X和Y的维度</h3><pre><code class="python">X.size(), Y.size()</code></pre>
+<h2 id="4-搭建模型"><a href="#4-搭建模型" class="headerlink" title="4.搭建模型"></a>4.搭建模型</h2><h3 id="4-1方法一："><a href="#4-1方法一：" class="headerlink" title="4.1方法一："></a>4.1方法一：</h3><pre><code class="python">class Model_1(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linear_1 = nn.Linear(20, 64)
+        self.linear_2 = nn.Linear(64, 64)
+        self.linear_3 = nn.Linear(64, 1)
+        self.relu = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
 
+    def forward(self, input):
+        x = self.linear_1(input)
+        x = self.relu(x)
+        x = self.linear_2(x)
+        x = self.relu(x)
+        x = self.linear_3(x)
+        y = self.sigmoid(x)
+        return y
 
-arr = [9, 7, 4, 8, 3, 8, 4, 9, 2, 7, 0]
-print(bubble_sort(arr))</code></pre>
-<pre><code>[0, 2, 3, 4, 4, 7, 7, 8, 8, 9, 9]</code></pre>
-<pre><code class="python"></code></pre>
+model_1 = Model_1()
+model_1</code></pre>
+<h3 id="4-2方法二："><a href="#4-2方法二：" class="headerlink" title="4.2方法二："></a>4.2方法二：</h3><pre><code class="python">class Model_2(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linear_1 = nn.Linear(20, 64)
+        self.linear_2 = nn.Linear(64, 64)
+        self.linear_3 = nn.Linear(64, 1)
+
+    def forward(self, input):
+        x = F.relu(self.linear_1(input))
+        x = F.relu(self.linear_2(x))
+        y = F.sigmoid(self.linear_3(x))
+        return y
+
+model_2 = Model_2()
+model_2</code></pre>
+<h2 id="5-设置超参数"><a href="#5-设置超参数" class="headerlink" title="5.设置超参数"></a>5.设置超参数</h2><pre><code class="python">lr = 0.0001                              #学习率
+loss_fn = nn.BCELoss()                   #损失函数
+batch_size = 64                          #批训练大小
+iteration = len(data) // batch_size      #需要训练的批数
+epochs = 100                             #所有数据训练的次数</code></pre>
+<h2 id="6-获取模型"><a href="#6-获取模型" class="headerlink" title="6.获取模型"></a>6.获取模型</h2><pre><code class="python">def get_model():
+    model = Model_2()
+    opt = torch.optim.Adam(model.parameters(), lr=lr)
+    return model, opt
+
+model, optim = get_model()</code></pre>
+<h2 id="7-训练模型"><a href="#7-训练模型" class="headerlink" title="7.训练模型"></a>7.训练模型</h2><h3 id="7-1方法一：用切分的方法切割数据集"><a href="#7-1方法一：用切分的方法切割数据集" class="headerlink" title="7.1方法一：用切分的方法切割数据集"></a>7.1方法一：用切分的方法切割数据集</h3><pre><code class="python">for epoch in range(epochs):
+    for i in range(iteration):
+        start = i * batch_size
+        end = start + batch_size
+        x = X[start : end]
+        y = Y[start : end]
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        optim.zero_grad()
+        loss.backward()
+        optim.step()
+    with torch.no_grad():
+        print(&#39;epoch: &#39;, epoch, &#39;loss: &#39;, loss_fn(model(X), Y).data.item())</code></pre>
+<h3 id="7-2方法二：用TensorDataset的方法切割数据集"><a href="#7-2方法二：用TensorDataset的方法切割数据集" class="headerlink" title="7.2方法二：用TensorDataset的方法切割数据集"></a>7.2方法二：用TensorDataset的方法切割数据集</h3><pre><code class="python">hr_dataset = TensorDataset(X, Y)
+len(hr_dataset)</code></pre>
+<pre><code class="python">hr_dataset[66 : 68]</code></pre>
+<pre><code class="python">model, optim = get_model()</code></pre>
+<pre><code class="python">for epoch in range(epochs):
+    for i in range(iteration):
+        x, y = hr_dataset[i * batch_size: i * batch_size + batch_size]
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        optim.zero_grad()
+        loss.backward()
+        optim.step()
+    with torch.no_grad():
+        print(&#39;epoch: &#39;, epoch, &#39;loss: &#39;, loss_fn(model(X), Y).data.item())</code></pre>
+<h3 id="7-3方法三：用DataLoader的方法切割数据集"><a href="#7-3方法三：用DataLoader的方法切割数据集" class="headerlink" title="7.3方法三：用DataLoader的方法切割数据集"></a>7.3方法三：用DataLoader的方法切割数据集</h3><pre><code class="python">hr_ds = TensorDataset(X, Y)
+hr_dl = DataLoader(hr_ds, batch_size=batch_size, shuffle=True)</code></pre>
+<pre><code class="python">model, optim = get_model()</code></pre>
+<pre><code class="python">for epoch in range(epochs):
+    for x, y in hr_dl:
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        optim.zero_grad()
+        loss.backward()
+        optim.step()
+    with torch.no_grad():
+        print(&#39;epoch: &#39;, epoch, &#39;loss: &#39;, loss_fn(model(X), Y).data.item())</code></pre>
+<h3 id="7-4方法四：用train-test-split的方法切割数据集，并将其划分为训练集和测试集"><a href="#7-4方法四：用train-test-split的方法切割数据集，并将其划分为训练集和测试集" class="headerlink" title="7.4方法四：用train_test_split的方法切割数据集，并将其划分为训练集和测试集"></a>7.4方法四：用train_test_split的方法切割数据集，并将其划分为训练集和测试集</h3><pre><code class="python">train_x, test_x, train_y, test_y = train_test_split(X_data, Y_data)
+train_x = torch.from_numpy(train_x).type(torch.float32)
+train_y = torch.from_numpy(train_y).type(torch.float32)
+test_x = torch.from_numpy(test_x).type(torch.float32)
+test_y = torch.from_numpy(test_y).type(torch.float32)</code></pre>
+<pre><code class="python">train_ds = TensorDataset(train_x, train_y)
+train_dl = DataLoader(train_ds, batch_size=batch_size, shuffle=True)</code></pre>
+<pre><code class="python">test_ds = TensorDataset(test_x, test_y)
+test_dl = DataLoader(test_ds, batch_size=batch_size, shuffle=True)</code></pre>
+<h2 id="8-添加准确率"><a href="#8-添加准确率" class="headerlink" title="8.添加准确率"></a>8.添加准确率</h2><pre><code class="python">def acc(y_pred, y_true):
+    y_pred = y_pred = (y_pred &gt; 0.5).type(torch.int32)
+    acc = (y_pred == y_true).float().mean()
+    return acc</code></pre>
+<pre><code class="python">model, optim = get_model()</code></pre>
+<pre><code class="python">for epoch in range(epochs):
+    for x, y in train_dl:
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        optim.zero_grad()
+        loss.backward()
+        optim.step()
+    with torch.no_grad():
+        epoch_acc = acc(model(train_x), train_y)
+        epoch_loss = loss_fn(model(train_x), train_y).data
+        epoch_test_acc = acc(model(test_x), test_y)
+        epoch_test_loss = loss_fn(model(test_x), test_y).data
+        print(&#39;epoch: &#39;, epoch, &#39;loss: &#39;, round(epoch_loss.item(), 3), &#39;accuracy: &#39;, round(epoch_acc.item(), 3), &#39;test_loss: &#39;, round(epoch_test_loss.item(), 3), &#39;test_accuracy: &#39;, round(epoch_test_acc.item(), 3))</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
