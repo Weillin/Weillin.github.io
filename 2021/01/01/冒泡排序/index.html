@@ -6,15 +6,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="冒泡排序 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="多层感知器1.导入依赖包import torch from torch import nn import torch.nn.functional as F from torch.utils.data import TensorDataset, DataLoader import numpy as np import pandas as pd from sklearn.model_selection">
+<meta name="description" content="希尔排序1.设置一个小于待排序列表长度的步长将列表分成若干个新的列表，然后对每个新的列表分别进行插入排序 2.将排序好的新列表分成更小的列表，然后再对更小的列表进行插入排序 3.再将更小的列表进行分组和排序 4.重复上面的过程，一直到列表的长度为一不能继续分组为止，此时的列表就是有序的 def shell_sort(arr):     n &#x3D; len(arr)     gap &#x3D; n &#x2F;&#x2F; 2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多层感知器">
-<meta property="og:url" content="http://example.com/2021/01/10/%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E5%99%A8/index.html">
+<meta property="og:title" content="希尔排序">
+<meta property="og:url" content="http://example.com/2021/01/10/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Weillin">
-<meta property="og:description" content="多层感知器1.导入依赖包import torch from torch import nn import torch.nn.functional as F from torch.utils.data import TensorDataset, DataLoader import numpy as np import pandas as pd from sklearn.model_selection">
+<meta property="og:description" content="希尔排序1.设置一个小于待排序列表长度的步长将列表分成若干个新的列表，然后对每个新的列表分别进行插入排序 2.将排序好的新列表分成更小的列表，然后再对更小的列表进行插入排序 3.再将更小的列表进行分组和排序 4.重复上面的过程，一直到列表的长度为一不能继续分组为止，此时的列表就是有序的 def shell_sort(arr):     n &#x3D; len(arr)     gap &#x3D; n &#x2F;&#x2F; 2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-10T06:26:45.000Z">
-<meta property="article:modified_time" content="2021-01-10T06:28:54.161Z">
+<meta property="article:published_time" content="2021-01-10T14:28:37.000Z">
+<meta property="article:modified_time" content="2021-01-10T14:32:17.135Z">
 <meta property="article:author" content="Qinweilin">
 <meta name="twitter:card" content="summary">
 
@@ -142,7 +142,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(55)</small>
+                <small>(58)</small>
             
         </div>
     </li>
@@ -195,7 +195,7 @@
                     <div data-rel="算法">
                         
                         算法
-                        <small>(1)</small>
+                        <small>(4)</small>
                         
                     </div>
                     
@@ -237,7 +237,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="55">
+<input type="hidden" id="yelog_site_posts_number" value="58">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -293,6 +293,30 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 算法 "
+           href="/2021/01/10/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2021-01-10 22:28:37">2021/01/10</span>
+        </a>
+        
+        <a  class="全部文章 算法 "
+           href="/2021/01/10/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2021-01-10 22:28:13">2021/01/10</span>
+        </a>
+        
+        <a  class="全部文章 算法 "
+           href="/2021/01/10/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2021-01-10 22:27:51">2021/01/10</span>
+        </a>
         
         <a  class="全部文章 pytorch "
            href="/2021/01/10/%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E5%99%A8/"
@@ -771,7 +795,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-01 17:35:04'>2021-01-01 17:29</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-10 21:26:58'>2021-01-01 17:29</time>
         
     </div>
     <div class="article-meta">
@@ -804,7 +828,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%94%B9%E8%BF%9B%E7%89%88"><span class="toc-text">冒泡排序改进版</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -837,7 +861,22 @@
 arr = [9, 7, 4, 8, 3, 8, 4, 9, 2, 7, 0]
 print(bubble_sort(arr))</code></pre>
 <pre><code>[0, 2, 3, 4, 4, 7, 7, 8, 8, 9, 9]</code></pre>
-<pre><code class="python"></code></pre>
+<h2 id="冒泡排序改进版"><a href="#冒泡排序改进版" class="headerlink" title="冒泡排序改进版"></a>冒泡排序改进版</h2><p>增加一个每次排序次数统计，如果统计次数为零，说明已经是有序的了，可以直接停止后面的排序</p>
+<pre><code class="python">def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        count = 0
+        for j in range(n - 1 - i):
+            if arr[j] &gt; arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                count += 1
+        if count == 0:
+            return arr
+
+
+arr = [6, 9, 3, 8, 5, 1, 2, 3]
+arr = bubble_sort(arr)
+print(arr)</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>KNN实现鸢尾花分类 | Weillin</title>
+  <title>选择排序 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="KNN实现鸢尾花分类 | Weillin">
+  <meta name="description" content="选择排序 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="希尔排序1.设置一个小于待排序列表长度的步长将列表分成若干个新的列表，然后对每个新的列表分别进行插入排序 2.将排序好的新列表分成更小的列表，然后再对更小的列表进行插入排序 3.再将更小的列表进行分组和排序 4.重复上面的过程，一直到列表的长度为一不能继续分组为止，此时的列表就是有序的 def shell_sort(arr):     n &#x3D; len(arr)     gap &#x3D; n &#x2F;&#x2F; 2">
 <meta property="og:type" content="article">
@@ -775,9 +775,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-KNN实现鸢尾花分类" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-选择排序" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">KNN实现鸢尾花分类</h1>
+        <h1 class="article-title">选择排序</h1>
     
     <div class="article-meta">
         
@@ -787,7 +787,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="sklearn">sklearn</a>
+            <a  data-rel="算法">算法</a>
             
         </span>
         
@@ -795,7 +795,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-05 20:57:30'>2021-01-03 22:56</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-10 22:31:46'>2021-01-10 22:27</time>
         
     </div>
     <div class="article-meta">
@@ -828,7 +828,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#KNN%E5%AE%9E%E7%8E%B0%E9%B8%A2%E5%B0%BE%E8%8A%B1%E5%88%86%E7%B1%BB"><span class="toc-text">KNN实现鸢尾花分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1. 导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2. 导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B0%86%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%87%E5%88%86%E6%88%90%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">3. 将数据集切分成训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AF%B9%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E6%A0%87%E5%87%86%E5%8C%96"><span class="toc-text">4. 对数据进行标准化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">5. 定义模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">6. 训练模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%89%93%E5%8D%B0%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">7. 打印预测结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%89%93%E5%8D%B0%E5%87%86%E7%A1%AE%E7%8E%87"><span class="toc-text">8. 打印准确率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%BA%8C%EF%BC%9A%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2"><span class="toc-text">案例二：添加网格搜索</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-text">选择排序</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -844,50 +844,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="KNN实现鸢尾花分类"><a href="#KNN实现鸢尾花分类" class="headerlink" title="KNN实现鸢尾花分类"></a>KNN实现鸢尾花分类</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1. 导入依赖包"></a>1. 导入依赖包</h2><pre><code class="python">from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier</code></pre>
-<h2 id="2-导入数据集"><a href="#2-导入数据集" class="headerlink" title="2. 导入数据集"></a>2. 导入数据集</h2><pre><code class="python">iris = load_iris()</code></pre>
-<h2 id="3-将数据集切分成训练集和测试集"><a href="#3-将数据集切分成训练集和测试集" class="headerlink" title="3. 将数据集切分成训练集和测试集"></a>3. 将数据集切分成训练集和测试集</h2><pre><code class="python">x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=666)</code></pre>
-<h2 id="4-对数据进行标准化"><a href="#4-对数据进行标准化" class="headerlink" title="4. 对数据进行标准化"></a>4. 对数据进行标准化</h2><pre><code class="python">transfer = StandardScaler()
-x_train = transfer.fit_transform(x_train)
-x_test = transfer.transform(x_test)</code></pre>
-<h2 id="5-定义模型"><a href="#5-定义模型" class="headerlink" title="5. 定义模型"></a>5. 定义模型</h2><pre><code class="python">estimator = KNeighborsClassifier(n_neighbors=3)</code></pre>
-<h2 id="6-训练模型"><a href="#6-训练模型" class="headerlink" title="6. 训练模型"></a>6. 训练模型</h2><pre><code class="python">estimator.fit(x_train, y_train)</code></pre>
-<h2 id="7-打印预测结果"><a href="#7-打印预测结果" class="headerlink" title="7. 打印预测结果"></a>7. 打印预测结果</h2><pre><code class="python">y_predict = estimator.predict(x_test)
-print(y_predict)</code></pre>
-<h2 id="8-打印准确率"><a href="#8-打印准确率" class="headerlink" title="8. 打印准确率"></a>8. 打印准确率</h2><pre><code class="python">score = estimator.score(x_test, y_test)
-print(score)</code></pre>
-<h2 id="案例二：添加网格搜索"><a href="#案例二：添加网格搜索" class="headerlink" title="案例二：添加网格搜索"></a>案例二：添加网格搜索</h2><pre><code class="python">from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import GridSearchCV
+        <h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>1.从第二个数开始遍历，找出其中最小的数，让其和第一个数交换位置</p>
+<p>2.从第三个数开始遍历，找出其中最小的数，让其和第二个数交换位置</p>
+<p>3.从第四个数开始遍历，找出其中最小的数，让其和第三个数交换位置</p>
+<p>4.一直重复这个过程n-1次，直到全部有序</p>
+<pre><code class="python">def select_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        min_indax = i
+        for j in range(i + 1, n):
+            if arr[min_indax] &gt; arr[j]:
+                min_indax = j
+        arr[min_indax], arr[i] = arr[i], arr[min_indax]
+    return arr
 
 
-iris = load_iris()
-x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=22)
-transfer = StandardScaler()
-x_train = transfer.fit_transform(x_train)
-x_test = transfer.transform(x_test)
-
-estimator = KNeighborsClassifier()</code></pre>
-<p>设置网格搜索的可选参数</p>
-<pre><code class="python">param_dict = &#123;&#39;n_neighbors&#39;: [1,3,5,7,9,11]&#125;</code></pre>
-<p>设置为10折交叉验证</p>
-<pre><code class="python">estimator = GridSearchCV(estimator, param_grid=param_dict, cv=10)</code></pre>
-<pre><code class="python">estimator.fit(x_train, y_train)
-
-y_predict = estimator.predict(x_test)</code></pre>
-<p>打印最佳得分</p>
-<pre><code class="python">score = estimator.score(x_test, y_test)
-print(score)</code></pre>
-<p>打印最佳参数、最佳得分、最佳模型、参数列表</p>
-<pre><code class="python">print(estimator.best_params_)
-print(estimator.best_score_)
-print(estimator.best_estimator_)
-print(estimator.cv_results_)</code></pre>
+arr = [9, 3, 3, 6, 7, 2, 5, 2, 5]
+arr = select_sort(arr)
+print(arr)</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
