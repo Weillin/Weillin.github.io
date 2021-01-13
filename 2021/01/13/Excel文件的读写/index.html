@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>直线检测 | Weillin</title>
+  <title>Excel文件的读写 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="直线检测 | Weillin">
+  <meta name="description" content="Excel文件的读写 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Excel文件的读写1.导入依赖库import xlrd        #读取excel import xlwt        #写入excel 2.读取exceldata &#x3D; xlrd.open_workbook(r&#39;人口.xlsx&#39;) 3.查看当前excel有哪些sheetsheet &#x3D; data.sheet_names()  print(sheet) 4.查看第一个sheet">
 <meta property="og:type" content="article">
@@ -797,9 +797,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-直线检测" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Excel文件的读写" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">直线检测</h1>
+        <h1 class="article-title">Excel文件的读写</h1>
     
     <div class="article-meta">
         
@@ -809,7 +809,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="其他">其他</a>
+            <a  data-rel="数据分析">数据分析</a>
             
         </span>
         
@@ -817,7 +817,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-02 15:54:13'>2021-01-02 15:23</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:40:30'>2021-01-13 19:39</time>
         
     </div>
     <div class="article-meta">
@@ -850,7 +850,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF%E6%A3%80%E6%B5%8B"><span class="toc-text">直线检测</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Excel%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99"><span class="toc-text">Excel文件的读写</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="toc-text">1.导入依赖库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AF%BB%E5%8F%96excel"><span class="toc-text">2.读取excel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dexcel%E6%9C%89%E5%93%AA%E4%BA%9Bsheet"><span class="toc-text">3.查看当前excel有哪些sheet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9F%A5%E7%9C%8B%E7%AC%AC%E4%B8%80%E4%B8%AAsheet%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="toc-text">4.查看第一个sheet的名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%80%89%E6%8B%A9%E8%A6%81%E6%93%8D%E4%BD%9C%E7%AC%AC%E5%87%A0%E4%B8%AAsheet%EF%BC%8C%E6%89%93%E5%8D%B0%E5%85%B6%E5%90%8D%E7%A7%B0%E3%80%81%E6%80%BB%E8%A1%8C%E6%95%B0%E3%80%81%E6%80%BB%E5%88%97%E6%95%B0"><span class="toc-text">5.选择要操作第几个sheet，打印其名称、总行数、总列数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%80%89%E6%8B%A9%E8%A6%81%E6%93%8D%E4%BD%9C%E5%93%AA%E4%B8%AAsheet%EF%BC%8C%E6%89%93%E5%8D%B0%E5%85%B6%E5%90%8D%E7%A7%B0%E3%80%81%E6%80%BB%E8%A1%8C%E6%95%B0%E3%80%81%E6%80%BB%E5%88%97%E6%95%B0"><span class="toc-text">6.选择要操作哪个sheet，打印其名称、总行数、总列数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%98%BE%E7%A4%BA%E7%AC%AC%E4%B8%80%E8%A1%8C%E3%80%81%E7%AC%AC%E4%B8%80%E5%88%97"><span class="toc-text">7.显示第一行、第一列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%AD%9B%E9%80%89%E6%83%B3%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%85%A5%E5%88%97%E8%A1%A8"><span class="toc-text">8.筛选想要的数据存入列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%89%93%E5%8D%B0%E7%AC%AC%E4%BA%8C%E8%A1%8C%E7%AC%AC%E4%B8%80%E5%88%97"><span class="toc-text">9.打印第二行第一列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%89%93%E5%8D%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">10.打印数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%AF%B9%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%8E%BB%E9%87%8D"><span class="toc-text">11.对列表中的数据进行去重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E7%BB%9F%E8%AE%A1%E5%8E%BB%E9%87%8D%E5%90%8E%E5%88%97%E8%A1%A8%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">12.统计去重后列表中每个元素出现的次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E5%B0%86%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%BD%AC%E6%8D%A2"><span class="toc-text">13.将时间数据格式进行转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E5%B0%86%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5excel"><span class="toc-text">14.将数据写入excel</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -866,47 +866,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="直线检测"><a href="#直线检测" class="headerlink" title="直线检测"></a>直线检测</h1><pre><code class="python">import cv2 as cv
-import numpy as np
+        <h1 id="Excel文件的读写"><a href="#Excel文件的读写" class="headerlink" title="Excel文件的读写"></a>Excel文件的读写</h1><h2 id="1-导入依赖库"><a href="#1-导入依赖库" class="headerlink" title="1.导入依赖库"></a>1.导入依赖库</h2><pre><code class="python">import xlrd        #读取excel
+import xlwt        #写入excel</code></pre>
+<h2 id="2-读取excel"><a href="#2-读取excel" class="headerlink" title="2.读取excel"></a>2.读取excel</h2><pre><code class="python">data = xlrd.open_workbook(r&#39;人口.xlsx&#39;)</code></pre>
+<h2 id="3-查看当前excel有哪些sheet"><a href="#3-查看当前excel有哪些sheet" class="headerlink" title="3.查看当前excel有哪些sheet"></a>3.查看当前excel有哪些sheet</h2><pre><code class="python">sheet = data.sheet_names() 
+print(sheet)</code></pre>
+<h2 id="4-查看第一个sheet的名称"><a href="#4-查看第一个sheet的名称" class="headerlink" title="4.查看第一个sheet的名称"></a>4.查看第一个sheet的名称</h2><pre><code class="python">sheet1 = data.sheet_names()[0]
+print(sheet1) </code></pre>
+<h2 id="5-选择要操作第几个sheet，打印其名称、总行数、总列数"><a href="#5-选择要操作第几个sheet，打印其名称、总行数、总列数" class="headerlink" title="5.选择要操作第几个sheet，打印其名称、总行数、总列数"></a>5.选择要操作第几个sheet，打印其名称、总行数、总列数</h2><pre><code class="python">sheet1 = data.sheet_by_index(0)
+print(sheet1.name)
+print(sheet1.nrows)
+print(sheet1.ncols)</code></pre>
+<h2 id="6-选择要操作哪个sheet，打印其名称、总行数、总列数"><a href="#6-选择要操作哪个sheet，打印其名称、总行数、总列数" class="headerlink" title="6.选择要操作哪个sheet，打印其名称、总行数、总列数"></a>6.选择要操作哪个sheet，打印其名称、总行数、总列数</h2><pre><code class="python">sheet2 = data.sheet_by_name(&#39;Sheet1&#39;)
+print(sheet2.name)
+print(sheet2.nrows)
+print(sheet2.ncols)</code></pre>
+<h2 id="7-显示第一行、第一列"><a href="#7-显示第一行、第一列" class="headerlink" title="7.显示第一行、第一列"></a>7.显示第一行、第一列</h2><pre><code class="python">row = sheet2.row_values(0)
+col = sheet2.col_values(0)
+print(row)
+print(col)</code></pre>
+<h2 id="8-筛选想要的数据存入列表"><a href="#8-筛选想要的数据存入列表" class="headerlink" title="8.筛选想要的数据存入列表"></a>8.筛选想要的数据存入列表</h2><pre><code class="python">li = []
+for i in col[1:]:
+#     res = i.replace(&#39;\n&#39;, &#39; &#39;)
+#     r = res.split(&#39; &#39;)
+        li.append(i)
+print(li)
+print(len(li))</code></pre>
+<h2 id="9-打印第二行第一列"><a href="#9-打印第二行第一列" class="headerlink" title="9.打印第二行第一列"></a>9.打印第二行第一列</h2><pre><code class="python">print(sheet1.cell(1,0).value)
+print(sheet1.cell_value(1,0))
+print(sheet1.row(1)[0].value)</code></pre>
+<h2 id="10-打印数据类型"><a href="#10-打印数据类型" class="headerlink" title="10.打印数据类型"></a>10.打印数据类型</h2><p>说明：0:empty, 1:string, 2:number, 3:date, 4:boolean, 5:error</p>
+<pre><code class="python">print(sheet1.cell(1,0).ctype)
+print(sheet1.cell(1,1).ctype)
+print(sheet1.cell(1,2).ctype)</code></pre>
+<h2 id="11-对列表中的数据进行去重"><a href="#11-对列表中的数据进行去重" class="headerlink" title="11.对列表中的数据进行去重"></a>11.对列表中的数据进行去重</h2><pre><code class="python">li_set = list(set(li))
+print(li_set)
+print(len(li_set))</code></pre>
+<h2 id="12-统计去重后列表中每个元素出现的次数"><a href="#12-统计去重后列表中每个元素出现的次数" class="headerlink" title="12.统计去重后列表中每个元素出现的次数"></a>12.统计去重后列表中每个元素出现的次数</h2><pre><code class="python">li_1 = []
+li_2 = []
+for j in li_set:
+    li_1.append(j)
+    li_2.append(li.count(j))
+print(li_1)
+print(li_2)</code></pre>
+<h2 id="13-将时间数据格式进行转换"><a href="#13-将时间数据格式进行转换" class="headerlink" title="13.将时间数据格式进行转换"></a>13.将时间数据格式进行转换</h2><pre><code class="python">from datetime import datetime,date
 
-
-def line_detection(image):
-    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    edges = cv.Canny(gray, 50, 150, apertureSize=3)
-    lines = cv.HoughLines(edges, 1, np.pi / 180, 200)
-    for line in lines:
-        print(type(lines))
-        rho, theta = line[0]
-        a = np.cos(theta)
-        b = np.sin(theta)
-        x0 = a * rho
-        y0 = a * rho
-        x1 = int(x0 + 1000 * (-b))
-        y1 = int(y0 + 1000 * (a))
-        x2 = int(x0 - 1000 * (-b))
-        y2 = int(y0 - 1000 * (a))
-        cv.line(image, (x1, y1), (x2, y2), (0, 0, 255), 2)
-    cv.imshow(&#39;image-lines&#39;, image)
-
-def line_detect_possible_demo(image):
-    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    edges = cv.Canny(gray, 50, 150, apertureSize=3)
-    lines = cv.HoughLinesP(edges, 1, np.pi/180, 100, minLineLength=50, maxLineGap=10)
-    for line in lines:
-        print(type(line))
-        x1, y1, x2, y2 = line[0]
-        cv.line(image, (x1, y1), (x2, y2), (0, 0, 255), 2)
-    cv.imshow(&#39;line_detect_possible_demo&#39;, image)
-
-
-src = cv.imread(&#39;./11.png&#39;)  # blue, green, red
-cv.namedWindow(&#39;input image&#39;, cv.WINDOW_AUTOSIZE)
-cv.imshow(&#39;input image&#39;, src)
-# line_detection(src)
-line_detect_possible_demo(src)
-cv.waitKey(0)
-
-cv.destroyAllWindows()</code></pre>
+li_3 = []
+for i in range(len(col)):
+    if sheet1.cell(i,2).ctype == 3 :
+        num = sheet1.cell(i, 2).value
+        date_value = xlrd.xldate_as_tuple(sheet1.cell(i, 2).value, data.datemode)
+        inp = date(*date_value[:3])
+        out = date(*date_value[:3]).strftime(&#39;%Y/%m/%d&#39;)
+        li_3.append(out)
+        print(out)</code></pre>
+<h2 id="14-将数据写入excel"><a href="#14-将数据写入excel" class="headerlink" title="14.将数据写入excel"></a>14.将数据写入excel</h2><pre><code class="python">workbook = xlwt.Workbook(encoding = &#39;utf-8&#39;)
+worksheet = workbook.add_sheet(&#39;data&#39;)
+worksheet.write(0,0, label = &#39;城市&#39;)
+worksheet.write(0,1, label = &#39;人口（万）&#39;)
+worksheet.write(0,2, label = &#39;日期&#39;)
+for k in range(len(li_1)):
+    worksheet.write(k+1,0,li_1[k])
+    worksheet.write(k+1,1,li_2[k])
+    worksheet.write(k+1,2,li_3[k])
+workbook.save(&#39;城市人口.xls&#39;)</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
