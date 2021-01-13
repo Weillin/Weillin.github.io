@@ -817,7 +817,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 19:36:50'>2020-12-26 20:51</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:50:28'>2020-12-26 20:51</time>
         
     </div>
     <div class="article-meta">
@@ -886,43 +886,13 @@ import numpy as np</code></pre>
               metrics=[&#39;acc&#39;])</code></pre>
 <h3 id="6-训练模型"><a href="#6-训练模型" class="headerlink" title="6.训练模型"></a>6.训练模型</h3><p>将训练集输入模型进行训练，一共训练10次</p>
 <pre><code class="python">model.fit(train_images, train_labels, epochs=10)</code></pre>
-<pre><code>Epoch 1/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.2566 - acc: 0.9264
-Epoch 2/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.1124 - acc: 0.9669
-Epoch 3/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0773 - acc: 0.9762
-Epoch 4/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0582 - acc: 0.9819
-Epoch 5/10
-1875/1875 [==============================] - 4s 2ms/step - loss: 0.0441 - acc: 0.9862
-Epoch 6/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0354 - acc: 0.9889
-Epoch 7/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0274 - acc: 0.9912
-Epoch 8/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0228 - acc: 0.9929
-Epoch 9/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0181 - acc: 0.9944
-Epoch 10/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0157 - acc: 0.9952
-
-
-
-
-
-&lt;tensorflow.python.keras.callbacks.History at 0x14f4196e7c0&gt;</code></pre>
 <h3 id="7-用测试集验证模型效果"><a href="#7-用测试集验证模型效果" class="headerlink" title="7.用测试集验证模型效果"></a>7.用测试集验证模型效果</h3><p>用测试集去验证训练好的模型，日志等级设置为2</p>
 <pre><code class="python">test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
 print(&#39;Test acc:&#39;, test_acc)</code></pre>
-<pre><code>313/313 - 0s - loss: 0.0885 - acc: 0.9779
-Test acc: 0.9779000282287598</code></pre>
 <h3 id="8-将图片输入模型，返回预测结果"><a href="#8-将图片输入模型，返回预测结果" class="headerlink" title="8.将图片输入模型，返回预测结果"></a>8.将图片输入模型，返回预测结果</h3><p>将测试集中的第一张图片输入模型，看是哪个数字的概率最大，并输出真实值</p>
 <pre><code class="python">predictions = model.predict(test_images)
 print(&#39;预测值:&#39;, np.argmax(predictions[0]))
 print(&#39;真实值:&#39;, test_labels[0])</code></pre>
-<pre><code>预测值: 7
-真实值: 7</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
