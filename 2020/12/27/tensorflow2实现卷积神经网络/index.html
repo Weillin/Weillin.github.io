@@ -817,7 +817,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 19:36:35'>2020-12-27 13:12</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:54:16'>2020-12-27 13:12</time>
         
     </div>
     <div class="article-meta">
@@ -883,36 +883,14 @@ import matplotlib.pyplot as plt</code></pre>
                     epochs=10,                          #epochs: 训练次数
                     validation_data=(x_test, y_test),   #validation_data: 验证集
                     verbose=2)                          #verbose：显示日志等级</code></pre>
-<pre><code>Epoch 1/10
-1875/1875 - 4s - loss: 0.5850 - accuracy: 0.7926 - val_loss: 0.4463 - val_accuracy: 0.8377
-Epoch 2/10
-1875/1875 - 4s - loss: 0.4438 - accuracy: 0.8404 - val_loss: 0.4177 - val_accuracy: 0.8502
-Epoch 3/10
-1875/1875 - 4s - loss: 0.4103 - accuracy: 0.8515 - val_loss: 0.3987 - val_accuracy: 0.8559
-Epoch 4/10
-1875/1875 - 4s - loss: 0.3888 - accuracy: 0.8584 - val_loss: 0.3770 - val_accuracy: 0.8623
-Epoch 5/10
-1875/1875 - 4s - loss: 0.3746 - accuracy: 0.8644 - val_loss: 0.3693 - val_accuracy: 0.8662
-Epoch 6/10
-1875/1875 - 4s - loss: 0.3635 - accuracy: 0.8662 - val_loss: 0.3670 - val_accuracy: 0.8680
-Epoch 7/10
-1875/1875 - 4s - loss: 0.3524 - accuracy: 0.8693 - val_loss: 0.3592 - val_accuracy: 0.8689
-Epoch 8/10
-1875/1875 - 4s - loss: 0.3457 - accuracy: 0.8730 - val_loss: 0.3568 - val_accuracy: 0.8724
-Epoch 9/10
-1875/1875 - 4s - loss: 0.3386 - accuracy: 0.8748 - val_loss: 0.3412 - val_accuracy: 0.8775
-Epoch 10/10
-1875/1875 - 4s - loss: 0.3349 - accuracy: 0.8753 - val_loss: 0.3503 - val_accuracy: 0.8738</code></pre>
 <h3 id="6-显示模型准确率的变化过程"><a href="#6-显示模型准确率的变化过程" class="headerlink" title="6.显示模型准确率的变化过程"></a>6.显示模型准确率的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;accuracy&#39;), label=&#39;accuracy&#39;)         #横坐标、纵坐标、标签
 plt.plot(history.epoch, history.history.get(&#39;val_accuracy&#39;), label=&#39;val_accuracy&#39;)
 plt.legend()       #绘图
 plt.show()         #显示图像</code></pre>
-<p><img src="output_13_0.png" alt="png"></p>
 <h3 id="7-显示模型损失的变化过程"><a href="#7-显示模型损失的变化过程" class="headerlink" title="7.显示模型损失的变化过程"></a>7.显示模型损失的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;loss&#39;), label=&#39;loss&#39;)
 plt.plot(history.epoch, history.history.get(&#39;val_loss&#39;), label=&#39;val_loss&#39;)
 plt.legend()
 plt.show()</code></pre>
-<p><img src="output_15_0.png" alt="png"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>

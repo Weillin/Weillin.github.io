@@ -817,7 +817,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-03 23:04:09'>2020-12-27 13:21</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:55:03'>2020-12-27 13:21</time>
         
     </div>
     <div class="article-meta">
@@ -894,28 +894,6 @@ model = Mnist()</code></pre>
               metrics=[&#39;accuracy&#39;])</code></pre>
 <h3 id="6-记录模型开始训练时间"><a href="#6-记录模型开始训练时间" class="headerlink" title="6.记录模型开始训练时间"></a>6.记录模型开始训练时间</h3><pre><code class="python">start_time = time.time()</code></pre>
 <h3 id="7-训练模型"><a href="#7-训练模型" class="headerlink" title="7.训练模型"></a>7.训练模型</h3><pre><code class="python">model.fit(train_x, train_y, batch_size=64, epochs=10, verbose=1, validation_freq=1)</code></pre>
-<pre><code>Epoch 1/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.3128 - accuracy: 0.9122
-Epoch 2/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.1456 - accuracy: 0.9573
-Epoch 3/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.1049 - accuracy: 0.9693
-Epoch 4/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0809 - accuracy: 0.9767
-Epoch 5/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0646 - accuracy: 0.9808
-Epoch 6/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0529 - accuracy: 0.9841
-Epoch 7/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0445 - accuracy: 0.9871
-Epoch 8/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0377 - accuracy: 0.9889
-Epoch 9/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0314 - accuracy: 0.9908
-Epoch 10/10
-938/938 [==============================] - 2s 2ms/step - loss: 0.0263 - accuracy: 0.9926
-
-&lt;tensorflow.python.keras.callbacks.History at 0x21981ca9400&gt;</code></pre>
 <h3 id="8-记录模型训练完成时间"><a href="#8-记录模型训练完成时间" class="headerlink" title="8.记录模型训练完成时间"></a>8.记录模型训练完成时间</h3><pre><code class="python">end_time = time.time()</code></pre>
 <h3 id="9-用测试集验证模型效果"><a href="#9-用测试集验证模型效果" class="headerlink" title="9.用测试集验证模型效果"></a>9.用测试集验证模型效果</h3><pre><code class="python">test_loss, test_acc = model.evaluate(test_x, test_y, verbose=1)
 predict = model.predict(test_x)
@@ -923,11 +901,6 @@ print(&#39;time:&#39;, end_time - start_time)
 print(test_acc)
 print(&#39;预测值：&#39;, np.argmax(predict[0]))
 print(&#39;真实值：&#39;, test_y[0])</code></pre>
-<pre><code>313/313 [==============================] - 1s 2ms/step - loss: 0.0698 - accuracy: 0.9797
-time: 19.72472095489502
-0.9797000288963318
-预测值： 7
-真实值： 7</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
