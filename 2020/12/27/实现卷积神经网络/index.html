@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>tensorflow2面向对象实现数字识别 | Weillin</title>
+  <title>tensorflow2实现卷积神经网络 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="tensorflow2面向对象实现数字识别 | Weillin">
+  <meta name="description" content="tensorflow2实现卷积神经网络 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Excel文件的读写1.导入依赖库import xlrd        #读取excel import xlwt        #写入excel 2.读取exceldata &#x3D; xlrd.open_workbook(r&#39;人口.xlsx&#39;) 3.查看当前excel有哪些sheetsheet &#x3D; data.sheet_names()  print(sheet) 4.查看第一个sheet">
 <meta property="og:type" content="article">
@@ -757,7 +757,7 @@
         </a>
         
         <a  class="全部文章 TF2 "
-           href="/2020/12/27/tensorflow2%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/"
+           href="/2020/12/27/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="tensorflow2面向对象实现数字识别">tensorflow2面向对象实现数字识别</span>
@@ -765,7 +765,7 @@
         </a>
         
         <a  class="全部文章 TF2 "
-           href="/2020/12/27/tensorflow2%E5%AE%9E%E7%8E%B0%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           href="/2020/12/27/%E5%AE%9E%E7%8E%B0%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="tensorflow2实现卷积神经网络">tensorflow2实现卷积神经网络</span>
@@ -797,9 +797,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-tensorflow2面向对象实现数字识别" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-实现卷积神经网络" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">tensorflow2面向对象实现数字识别</h1>
+        <h1 class="article-title">tensorflow2实现卷积神经网络</h1>
     
     <div class="article-meta">
         
@@ -817,7 +817,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:55:03'>2020-12-27 13:21</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:54:16'>2020-12-27 13:12</time>
         
     </div>
     <div class="article-meta">
@@ -850,7 +850,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9B%BE%E7%89%87%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.图片归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.创建模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%87%BD%E6%95%B0%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化函数、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%B0%E5%BD%95%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4"><span class="toc-text">6.记录模型开始训练时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E8%AE%B0%E5%BD%95%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4"><span class="toc-text">8.记录模型训练完成时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E7%94%A8%E6%B5%8B%E8%AF%95%E9%9B%86%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><span class="toc-text">9.用测试集验证模型效果</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%90%AD%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.搭建模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%87%BD%E6%95%B0%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化函数、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E5%87%86%E7%A1%AE%E7%8E%87%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">6.显示模型准确率的变化过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">7.显示模型损失的变化过程</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -867,40 +867,30 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><pre><code class="python">import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.layers import Flatten, Dense
-import numpy as np
-import time</code></pre>
-<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><pre><code class="python">(train_x, train_y), (test_x, test_y) = keras.datasets.mnist.load_data()</code></pre>
-<h3 id="3-图片归一化"><a href="#3-图片归一化" class="headerlink" title="3.图片归一化"></a>3.图片归一化</h3><pre><code class="python">train_x, test_x = train_x / 255.0, test_x / 255.0</code></pre>
-<h3 id="4-创建模型"><a href="#4-创建模型" class="headerlink" title="4.创建模型"></a>4.创建模型</h3><pre><code class="python">class Mnist(tf.keras.Model):
-
-    def __init__(self):
-        super(Mnist, self).__init__()
-        self.dense1 = Flatten(input_shape=(28, 28))
-        self.dense2 = Dense(100, activation=&#39;relu&#39;)
-        self.dense3 = Dense(10, activation=&#39;softmax&#39;)
-
-    def call(self, inputs):
-        x = self.dense1(inputs)
-        x = self.dense2(x)
-        x = self.dense3(x)
-        return x
-
-
-model = Mnist()</code></pre>
-<h3 id="5-指定优化函数、损失函数、评价指标"><a href="#5-指定优化函数、损失函数、评价指标" class="headerlink" title="5.指定优化函数、损失函数、评价指标"></a>5.指定优化函数、损失函数、评价指标</h3><pre><code class="python">model.compile(optimizer=&#39;adam&#39;,
-              loss=tf.keras.losses.SparseCategoricalCrossentropy(),
-              metrics=[&#39;accuracy&#39;])</code></pre>
-<h3 id="6-记录模型开始训练时间"><a href="#6-记录模型开始训练时间" class="headerlink" title="6.记录模型开始训练时间"></a>6.记录模型开始训练时间</h3><pre><code class="python">start_time = time.time()</code></pre>
-<h3 id="7-训练模型"><a href="#7-训练模型" class="headerlink" title="7.训练模型"></a>7.训练模型</h3><pre><code class="python">model.fit(train_x, train_y, batch_size=64, epochs=10, verbose=1, validation_freq=1)</code></pre>
-<h3 id="8-记录模型训练完成时间"><a href="#8-记录模型训练完成时间" class="headerlink" title="8.记录模型训练完成时间"></a>8.记录模型训练完成时间</h3><pre><code class="python">end_time = time.time()</code></pre>
-<h3 id="9-用测试集验证模型效果"><a href="#9-用测试集验证模型效果" class="headerlink" title="9.用测试集验证模型效果"></a>9.用测试集验证模型效果</h3><pre><code class="python">test_loss, test_acc = model.evaluate(test_x, test_y, verbose=1)
-predict = model.predict(test_x)
-print(&#39;time:&#39;, end_time - start_time)
-print(test_acc)
-print(&#39;预测值：&#39;, np.argmax(predict[0]))
-print(&#39;真实值：&#39;, test_y[0])</code></pre>
+import matplotlib.pyplot as plt</code></pre>
+<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><pre><code class="python">(x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()</code></pre>
+<h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><pre><code class="python">x_train, x_test = x_train / 255.0, x_test / 255.0</code></pre>
+<h3 id="4-搭建模型"><a href="#4-搭建模型" class="headerlink" title="4.搭建模型"></a>4.搭建模型</h3><pre><code class="python">model = tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28, 28)),      #Flatten：对图片进行展平    input_shape: 输入图片的尺寸
+    tf.keras.layers.Dense(128, activation=&#39;relu&#39;),      #Dense: 全连接层    128：神经元个数    activation：激活函数
+    tf.keras.layers.Dropout(0.4),                       #Dropout：随机失活神经元，防止过拟合
+    tf.keras.layers.Dense(10, activation=&#39;softmax&#39;)     #10：一共有几个分类
+])</code></pre>
+<h3 id="5-指定优化函数、损失函数、评价指标"><a href="#5-指定优化函数、损失函数、评价指标" class="headerlink" title="5.指定优化函数、损失函数、评价指标"></a>5.指定优化函数、损失函数、评价指标</h3><pre><code class="python">model.compile(optimizer=&#39;adam&#39;,                         #optimizer：优化器
+              loss=&#39;sparse_categorical_crossentropy&#39;,   #loss：损失函数
+              metrics=[&#39;accuracy&#39;])                          #评价指标</code></pre>
+<h3 id="5-训练模型"><a href="#5-训练模型" class="headerlink" title="5.训练模型"></a>5.训练模型</h3><pre><code class="python">history = model.fit(x_train, y_train,                   #训练数据
+                    epochs=10,                          #epochs: 训练次数
+                    validation_data=(x_test, y_test),   #validation_data: 验证集
+                    verbose=2)                          #verbose：显示日志等级</code></pre>
+<h3 id="6-显示模型准确率的变化过程"><a href="#6-显示模型准确率的变化过程" class="headerlink" title="6.显示模型准确率的变化过程"></a>6.显示模型准确率的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;accuracy&#39;), label=&#39;accuracy&#39;)         #横坐标、纵坐标、标签
+plt.plot(history.epoch, history.history.get(&#39;val_accuracy&#39;), label=&#39;val_accuracy&#39;)
+plt.legend()       #绘图
+plt.show()         #显示图像</code></pre>
+<h3 id="7-显示模型损失的变化过程"><a href="#7-显示模型损失的变化过程" class="headerlink" title="7.显示模型损失的变化过程"></a>7.显示模型损失的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;loss&#39;), label=&#39;loss&#39;)
+plt.plot(history.epoch, history.history.get(&#39;val_loss&#39;), label=&#39;val_loss&#39;)
+plt.legend()
+plt.show()</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
