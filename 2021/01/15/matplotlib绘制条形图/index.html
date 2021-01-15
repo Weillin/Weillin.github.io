@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Excel文件的读写 | Weillin</title>
+  <title>matplotlib绘制条形图 | Weillin</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Excel文件的读写 | Weillin">
+  <meta name="description" content="matplotlib绘制条形图 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="matplotlib绘制柱状图示例一：垂直柱状图# 1.导入依赖包 import matplotlib.pyplot as plt  # 2.设置在线显示图像 %matplotlib inline  # 3.设置字体 plt.rcParams[&#39;font.sans-serif&#39;] &#x3D; [&#39;KaiTi&#39;]  # 4.定义Y值 tem &#x3D; [32.45, 34.344,">
 <meta property="og:type" content="article">
@@ -805,9 +805,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Excel文件的读写" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-matplotlib绘制条形图" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Excel文件的读写</h1>
+        <h1 class="article-title">matplotlib绘制条形图</h1>
     
     <div class="article-meta">
         
@@ -825,7 +825,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-13 19:40:30'>2021-01-13 19:39</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-15 20:31:21'>2021-01-15 20:30</time>
         
     </div>
     <div class="article-meta">
@@ -858,7 +858,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Excel%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99"><span class="toc-text">Excel文件的读写</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="toc-text">1.导入依赖库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AF%BB%E5%8F%96excel"><span class="toc-text">2.读取excel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dexcel%E6%9C%89%E5%93%AA%E4%BA%9Bsheet"><span class="toc-text">3.查看当前excel有哪些sheet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9F%A5%E7%9C%8B%E7%AC%AC%E4%B8%80%E4%B8%AAsheet%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="toc-text">4.查看第一个sheet的名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%80%89%E6%8B%A9%E8%A6%81%E6%93%8D%E4%BD%9C%E7%AC%AC%E5%87%A0%E4%B8%AAsheet%EF%BC%8C%E6%89%93%E5%8D%B0%E5%85%B6%E5%90%8D%E7%A7%B0%E3%80%81%E6%80%BB%E8%A1%8C%E6%95%B0%E3%80%81%E6%80%BB%E5%88%97%E6%95%B0"><span class="toc-text">5.选择要操作第几个sheet，打印其名称、总行数、总列数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%80%89%E6%8B%A9%E8%A6%81%E6%93%8D%E4%BD%9C%E5%93%AA%E4%B8%AAsheet%EF%BC%8C%E6%89%93%E5%8D%B0%E5%85%B6%E5%90%8D%E7%A7%B0%E3%80%81%E6%80%BB%E8%A1%8C%E6%95%B0%E3%80%81%E6%80%BB%E5%88%97%E6%95%B0"><span class="toc-text">6.选择要操作哪个sheet，打印其名称、总行数、总列数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%98%BE%E7%A4%BA%E7%AC%AC%E4%B8%80%E8%A1%8C%E3%80%81%E7%AC%AC%E4%B8%80%E5%88%97"><span class="toc-text">7.显示第一行、第一列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%AD%9B%E9%80%89%E6%83%B3%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%85%A5%E5%88%97%E8%A1%A8"><span class="toc-text">8.筛选想要的数据存入列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%89%93%E5%8D%B0%E7%AC%AC%E4%BA%8C%E8%A1%8C%E7%AC%AC%E4%B8%80%E5%88%97"><span class="toc-text">9.打印第二行第一列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%89%93%E5%8D%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">10.打印数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%AF%B9%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%8E%BB%E9%87%8D"><span class="toc-text">11.对列表中的数据进行去重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E7%BB%9F%E8%AE%A1%E5%8E%BB%E9%87%8D%E5%90%8E%E5%88%97%E8%A1%A8%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">12.统计去重后列表中每个元素出现的次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E5%B0%86%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%BD%AC%E6%8D%A2"><span class="toc-text">13.将时间数据格式进行转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E5%B0%86%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5excel"><span class="toc-text">14.将数据写入excel</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#matplotlib%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-text">matplotlib绘制柱状图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%80%EF%BC%9A%E5%9E%82%E7%9B%B4%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-text">示例一：垂直柱状图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BA%8C%EF%BC%9A%E6%B0%B4%E5%B9%B3%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-text">示例二：水平柱状图</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -874,70 +874,109 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Excel文件的读写"><a href="#Excel文件的读写" class="headerlink" title="Excel文件的读写"></a>Excel文件的读写</h1><h2 id="1-导入依赖库"><a href="#1-导入依赖库" class="headerlink" title="1.导入依赖库"></a>1.导入依赖库</h2><pre><code class="python">import xlrd        #读取excel
-import xlwt        #写入excel</code></pre>
-<h2 id="2-读取excel"><a href="#2-读取excel" class="headerlink" title="2.读取excel"></a>2.读取excel</h2><pre><code class="python">data = xlrd.open_workbook(r&#39;人口.xlsx&#39;)</code></pre>
-<h2 id="3-查看当前excel有哪些sheet"><a href="#3-查看当前excel有哪些sheet" class="headerlink" title="3.查看当前excel有哪些sheet"></a>3.查看当前excel有哪些sheet</h2><pre><code class="python">sheet = data.sheet_names() 
-print(sheet)</code></pre>
-<h2 id="4-查看第一个sheet的名称"><a href="#4-查看第一个sheet的名称" class="headerlink" title="4.查看第一个sheet的名称"></a>4.查看第一个sheet的名称</h2><pre><code class="python">sheet1 = data.sheet_names()[0]
-print(sheet1) </code></pre>
-<h2 id="5-选择要操作第几个sheet，打印其名称、总行数、总列数"><a href="#5-选择要操作第几个sheet，打印其名称、总行数、总列数" class="headerlink" title="5.选择要操作第几个sheet，打印其名称、总行数、总列数"></a>5.选择要操作第几个sheet，打印其名称、总行数、总列数</h2><pre><code class="python">sheet1 = data.sheet_by_index(0)
-print(sheet1.name)
-print(sheet1.nrows)
-print(sheet1.ncols)</code></pre>
-<h2 id="6-选择要操作哪个sheet，打印其名称、总行数、总列数"><a href="#6-选择要操作哪个sheet，打印其名称、总行数、总列数" class="headerlink" title="6.选择要操作哪个sheet，打印其名称、总行数、总列数"></a>6.选择要操作哪个sheet，打印其名称、总行数、总列数</h2><pre><code class="python">sheet2 = data.sheet_by_name(&#39;Sheet1&#39;)
-print(sheet2.name)
-print(sheet2.nrows)
-print(sheet2.ncols)</code></pre>
-<h2 id="7-显示第一行、第一列"><a href="#7-显示第一行、第一列" class="headerlink" title="7.显示第一行、第一列"></a>7.显示第一行、第一列</h2><pre><code class="python">row = sheet2.row_values(0)
-col = sheet2.col_values(0)
-print(row)
-print(col)</code></pre>
-<h2 id="8-筛选想要的数据存入列表"><a href="#8-筛选想要的数据存入列表" class="headerlink" title="8.筛选想要的数据存入列表"></a>8.筛选想要的数据存入列表</h2><pre><code class="python">li = []
-for i in col[1:]:
-#     res = i.replace(&#39;\n&#39;, &#39; &#39;)
-#     r = res.split(&#39; &#39;)
-        li.append(i)
-print(li)
-print(len(li))</code></pre>
-<h2 id="9-打印第二行第一列"><a href="#9-打印第二行第一列" class="headerlink" title="9.打印第二行第一列"></a>9.打印第二行第一列</h2><pre><code class="python">print(sheet1.cell(1,0).value)
-print(sheet1.cell_value(1,0))
-print(sheet1.row(1)[0].value)</code></pre>
-<h2 id="10-打印数据类型"><a href="#10-打印数据类型" class="headerlink" title="10.打印数据类型"></a>10.打印数据类型</h2><p>说明：0:empty, 1:string, 2:number, 3:date, 4:boolean, 5:error</p>
-<pre><code class="python">print(sheet1.cell(1,0).ctype)
-print(sheet1.cell(1,1).ctype)
-print(sheet1.cell(1,2).ctype)</code></pre>
-<h2 id="11-对列表中的数据进行去重"><a href="#11-对列表中的数据进行去重" class="headerlink" title="11.对列表中的数据进行去重"></a>11.对列表中的数据进行去重</h2><pre><code class="python">li_set = list(set(li))
-print(li_set)
-print(len(li_set))</code></pre>
-<h2 id="12-统计去重后列表中每个元素出现的次数"><a href="#12-统计去重后列表中每个元素出现的次数" class="headerlink" title="12.统计去重后列表中每个元素出现的次数"></a>12.统计去重后列表中每个元素出现的次数</h2><pre><code class="python">li_1 = []
-li_2 = []
-for j in li_set:
-    li_1.append(j)
-    li_2.append(li.count(j))
-print(li_1)
-print(li_2)</code></pre>
-<h2 id="13-将时间数据格式进行转换"><a href="#13-将时间数据格式进行转换" class="headerlink" title="13.将时间数据格式进行转换"></a>13.将时间数据格式进行转换</h2><pre><code class="python">from datetime import datetime,date
+        <h1 id="matplotlib绘制柱状图"><a href="#matplotlib绘制柱状图" class="headerlink" title="matplotlib绘制柱状图"></a>matplotlib绘制柱状图</h1><h2 id="示例一：垂直柱状图"><a href="#示例一：垂直柱状图" class="headerlink" title="示例一：垂直柱状图"></a>示例一：垂直柱状图</h2><pre><code class="python"># 1.导入依赖包
+import matplotlib.pyplot as plt
 
-li_3 = []
-for i in range(len(col)):
-    if sheet1.cell(i,2).ctype == 3 :
-        num = sheet1.cell(i, 2).value
-        date_value = xlrd.xldate_as_tuple(sheet1.cell(i, 2).value, data.datemode)
-        inp = date(*date_value[:3])
-        out = date(*date_value[:3]).strftime(&#39;%Y/%m/%d&#39;)
-        li_3.append(out)
-        print(out)</code></pre>
-<h2 id="14-将数据写入excel"><a href="#14-将数据写入excel" class="headerlink" title="14.将数据写入excel"></a>14.将数据写入excel</h2><pre><code class="python">workbook = xlwt.Workbook(encoding = &#39;utf-8&#39;)
-worksheet = workbook.add_sheet(&#39;data&#39;)
-worksheet.write(0,0, label = &#39;城市&#39;)
-worksheet.write(0,1, label = &#39;人口（万）&#39;)
-worksheet.write(0,2, label = &#39;日期&#39;)
-for k in range(len(li_1)):
-    worksheet.write(k+1,0,li_1[k])
-    worksheet.write(k+1,1,li_2[k])
-    worksheet.write(k+1,2,li_3[k])
-workbook.save(&#39;城市人口.xls&#39;)</code></pre>
+# 2.设置在线显示图像
+%matplotlib inline
+
+# 3.设置字体
+plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;KaiTi&#39;]
+
+# 4.定义Y值
+tem = [32.45, 34.344, 37.345, 41, 35]
+
+# 5.设置画布尺寸
+f, ax = plt.subplots(figsize=(8, 6))
+
+# 6.绘图
+# 参数：X， Y， 对齐方式， 颜色， 透明度
+plt.bar(range(len(tem)), tem, align=&#39;center&#39;, color=&#39;steelblue&#39;, alpha=0.8)
+
+# 7.标题
+plt.title(&#39;城市最高温度&#39;)
+
+# 8.y轴标签
+plt.ylabel(&#39;温度&#39;)
+
+# 9.x轴刻度
+# 参数： 原值， 替换标签， 旋转角度
+plt.xticks(range(len(tem)), [&#39;深圳市&#39;, &#39;上海市&#39;, &#39;南宁市&#39;, &#39;天津市&#39;, &#39;重庆市&#39;], rotation=0)
+
+# 10.y轴上下限
+plt.ylim([20, 43])
+
+# 11.添加数据标注
+# 参数： x坐标,  y坐标， 值， 对齐方式
+for x, y in enumerate(tem):
+    plt.text(x, y + 0.3, &#39;%s&#39; % round(y, 1), ha=&#39;center&#39;)
+
+# 12.保存图片
+# 参数： 图片保存路径， 去除周边空白部分， 分辨率
+f.savefig(&#39;城市最高温度1.png&#39;, bbox_inches=&#39;tight&#39;, dpi=300)
+
+# 13.显示图片
+plt.show()</code></pre>
+<h2 id="示例二：水平柱状图"><a href="#示例二：水平柱状图" class="headerlink" title="示例二：水平柱状图"></a>示例二：水平柱状图</h2><pre><code class="python"># 1.导入依赖包
+import matplotlib.pyplot as plt
+
+# 2.设置在线显示
+%matplotlib inline
+
+# 3.设置字体
+plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;KaiTi&#39;]
+
+# 4.定义Y
+price = [35.5, 37.9, 40, 45.9, 49.34]
+
+# 5.设置画布大小
+f, ax = plt.subplots(figsize=(7, 6))
+
+# 6.绘图
+barh = plt.barh(range(len(price)), price, align=&#39;center&#39;, color=&#39;cyan&#39;, alpha=0.8)
+
+# 7.设置最上面一个柱状颜色
+barh[-1].set_color(&#39;dodgerblue&#39;)
+
+# 8.设置标题
+plt.title(&#39;城市最高温度&#39;)
+
+# 9.设置x轴坐标
+plt.xlabel(&#39;温度&#39;)
+
+# 10.设置y轴坐标
+plt.ylabel(&#39;城市&#39;)
+
+# 11.设置y轴刻度标签
+plt.yticks(range(5), [&#39;深圳市&#39;, &#39;上海市&#39;, &#39;南宁市&#39;, &#39;天津市&#39;, &#39;重庆市&#39;])
+
+# 12.设置x轴上下限
+plt.xlim([32, 52])
+
+# 13.隐藏上面边框
+ax.spines[&#39;top&#39;].set_visible(False)
+
+# 14.隐藏下面边框
+ax.spines[&#39;bottom&#39;].set_visible(False)
+
+# 15.隐藏左边边框
+ax.spines[&#39;left&#39;].set_visible(False)
+
+# 16.隐藏右边边框
+ax.spines[&#39;right&#39;].set_visible(False)
+
+# 17.隐藏x轴刻度
+ax.set_xticks([])
+
+# 18.添加数据标注
+for x, y in enumerate(price):
+    plt.text(y + 0.3, x, &#39;%s&#39; % y, va=&#39;center&#39;)
+
+# 19.保存图片
+f.savefig(&#39;城市最高温度2.png&#39;, bbox_inches=&#39;tight&#39;, dpi=300)
+
+# 20.显示图片
+plt.show()</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
