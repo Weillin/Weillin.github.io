@@ -825,7 +825,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-01 17:33:56'>2021-01-01 17:27</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-16 17:32:08'>2021-01-01 17:27</time>
         
     </div>
     <div class="article-meta">
@@ -858,7 +858,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#flask%E9%83%A8%E7%BD%B2pytorch-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">flask部署pytorch-客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1. 导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89%E8%AF%B7%E6%B1%82URL"><span class="toc-text">2. 定义请求URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%91%E9%80%81%E5%9B%BE%E7%89%87%EF%BC%8C%E8%8E%B7%E5%8F%96%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C"><span class="toc-text">3. 发送图片，获取返回结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E4%B8%BB%E5%87%BD%E6%95%B0"><span class="toc-text">4. 定义主函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python-%E6%9C%AC%E6%96%87%E4%BB%B6%E5%90%8D-py-%E2%80%93file-data-dog-jpg-%E8%B7%AF%E5%BE%84%E4%B8%8D%E5%8A%A0%E5%BC%95%E5%8F%B7"><span class="toc-text">python 本文件名.py –file&#x3D;.&#x2F;data&#x2F;dog.jpg    #路径不加引号</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1. 导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89%E8%AF%B7%E6%B1%82URL"><span class="toc-text">2. 定义请求URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%91%E9%80%81%E5%9B%BE%E7%89%87%EF%BC%8C%E8%8E%B7%E5%8F%96%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C"><span class="toc-text">3. 发送图片，获取返回结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E4%B8%BB%E5%87%BD%E6%95%B0"><span class="toc-text">4. 定义主函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python-%E6%9C%AC%E6%96%87%E4%BB%B6%E5%90%8D-py-%E2%80%93file-data-dog-jpg-%E8%B7%AF%E5%BE%84%E4%B8%8D%E5%8A%A0%E5%BC%95%E5%8F%B7"><span class="toc-text">python 本文件名.py –file&#x3D;.&#x2F;data&#x2F;dog.jpg    #路径不加引号</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -874,7 +874,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="flask部署pytorch-客户端"><a href="#flask部署pytorch-客户端" class="headerlink" title="flask部署pytorch-客户端"></a>flask部署pytorch-客户端</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1. 导入依赖包"></a>1. 导入依赖包</h2><pre><code class="python">import requests
+        <h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1. 导入依赖包"></a>1. 导入依赖包</h2><pre><code class="python">import requests
 import argparse</code></pre>
 <h2 id="2-定义请求URL"><a href="#2-定义请求URL" class="headerlink" title="2. 定义请求URL"></a>2. 定义请求URL</h2><p>这里用本机URL做例子，实际使用中要改成服务器的IP地址</p>
 <pre><code class="python">PyTorch_REST_API_URL = &#39;http://127.0.0.1:5000/predict&#39;</code></pre>
@@ -896,8 +896,7 @@ import argparse</code></pre>
     args = parser.parse_args()
     predict_result(args.file)</code></pre>
 <p>运行本文件，将要测试的图片路径传入</p>
-<h3 id="python-本文件名-py-–file-data-dog-jpg-路径不加引号"><a href="#python-本文件名-py-–file-data-dog-jpg-路径不加引号" class="headerlink" title="python 本文件名.py –file=./data/dog.jpg    #路径不加引号"></a>python 本文件名.py –file=./data/dog.jpg    #路径不加引号</h3><pre><code class="python"></code></pre>
-
+<h3 id="python-本文件名-py-–file-data-dog-jpg-路径不加引号"><a href="#python-本文件名-py-–file-data-dog-jpg-路径不加引号" class="headerlink" title="python 本文件名.py –file=./data/dog.jpg    #路径不加引号"></a>python 本文件名.py –file=./data/dog.jpg    #路径不加引号</h3>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
     </div>

@@ -825,7 +825,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:02:22'>2020-12-31 19:52</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-16 17:27:44'>2020-12-31 19:52</time>
         
     </div>
     <div class="article-meta">
@@ -858,7 +858,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#resnet%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">resnet算法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">3.数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.建立模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.定义优化器、损失函数和评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%96%AD%E7%82%B9%E7%BB%AD%E8%AE%AD"><span class="toc-text">6.断点续训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.训练模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">8.预测结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E5%92%8C%E5%87%86%E7%A1%AE%E7%8E%87%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">9.模型损失和准确率可视化</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">3.数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.建立模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.定义优化器、损失函数和评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%96%AD%E7%82%B9%E7%BB%AD%E8%AE%AD"><span class="toc-text">6.断点续训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.训练模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">8.预测结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E5%92%8C%E5%87%86%E7%A1%AE%E7%8E%87%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">9.模型损失和准确率可视化</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -874,7 +874,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="resnet算法实现"><a href="#resnet算法实现" class="headerlink" title="resnet算法实现"></a>resnet算法实现</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">from tensorflow import keras
+        <h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">from tensorflow import keras
 import tensorflow as tf
 import numpy as np
 import pandas as pd

@@ -825,7 +825,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-31 20:01:14'>2020-12-31 19:50</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-16 17:26:32'>2020-12-31 19:50</time>
         
     </div>
     <div class="article-meta">
@@ -858,7 +858,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeNet5%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">LeNet5算法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%A4%84%E7%90%86%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE"><span class="toc-text">2.加载和处理本地数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.建立模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%87%86%E7%A1%AE%E7%8E%87%E5%92%8C%E6%8D%9F%E5%A4%B1"><span class="toc-text">4.可视化准确率和损失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%BB%E5%87%BD%E6%95%B0"><span class="toc-text">5.主函数</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%A4%84%E7%90%86%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE"><span class="toc-text">2.加载和处理本地数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.建立模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%87%86%E7%A1%AE%E7%8E%87%E5%92%8C%E6%8D%9F%E5%A4%B1"><span class="toc-text">4.可视化准确率和损失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%BB%E5%87%BD%E6%95%B0"><span class="toc-text">5.主函数</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -874,7 +874,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="LeNet5算法实现"><a href="#LeNet5算法实现" class="headerlink" title="LeNet5算法实现"></a>LeNet5算法实现</h1><h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense
+        <h2 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h2><pre><code class="python">from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense
 from tensorflow.keras import models, callbacks
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
