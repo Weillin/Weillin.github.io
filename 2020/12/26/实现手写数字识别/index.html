@@ -6,15 +6,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="实现手写数字识别 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="示例一：垂直柱状图# 1.导入依赖包 import matplotlib.pyplot as plt  # 2.设置在线显示图像 %matplotlib inline  # 3.设置字体 plt.rcParams[&#39;font.sans-serif&#39;] &#x3D; [&#39;KaiTi&#39;]  # 4.定义Y值 tem &#x3D; [32.45, 34.344, 37.345, 41, 35">
+<meta name="description" content="示例一：1.导入依赖包import tensorflow as tf import numpy as np import matplotlib.pyplot as plt from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense 2.加载数据集并改变图片维度(train_x, train_y), (test_x, t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="matplotlib绘制柱状图">
-<meta property="og:url" content="http://example.com/2021/01/15/matplotlib%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/index.html">
+<meta property="og:title" content="fashion_mnist识别">
+<meta property="og:url" content="http://example.com/2021/01/17/fashion-mnist%E8%AF%86%E5%88%AB/index.html">
 <meta property="og:site_name" content="Weillin">
-<meta property="og:description" content="示例一：垂直柱状图# 1.导入依赖包 import matplotlib.pyplot as plt  # 2.设置在线显示图像 %matplotlib inline  # 3.设置字体 plt.rcParams[&#39;font.sans-serif&#39;] &#x3D; [&#39;KaiTi&#39;]  # 4.定义Y值 tem &#x3D; [32.45, 34.344, 37.345, 41, 35">
+<meta property="og:description" content="示例一：1.导入依赖包import tensorflow as tf import numpy as np import matplotlib.pyplot as plt from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense 2.加载数据集并改变图片维度(train_x, train_y), (test_x, t">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-15T12:30:10.000Z">
-<meta property="article:modified_time" content="2021-01-16T09:48:22.261Z">
+<meta property="article:published_time" content="2021-01-17T15:43:48.000Z">
+<meta property="article:modified_time" content="2021-01-17T15:44:55.308Z">
 <meta property="article:author" content="离殇">
 <meta name="twitter:card" content="summary">
 
@@ -142,7 +142,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(60)</small>
+                <small>(61)</small>
             
         </div>
     </li>
@@ -153,7 +153,7 @@
                     <div data-rel="TF2">
                         
                         TF2
-                        <small>(13)</small>
+                        <small>(14)</small>
                         
                     </div>
                     
@@ -251,7 +251,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
+<input type="hidden" id="yelog_site_posts_number" value="61">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -307,6 +307,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 TF2 "
+           href="/2021/01/17/fashion-mnist%E8%AF%86%E5%88%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fashion_mnist识别">fashion_mnist识别</span>
+            <span class="post-date" title="2021-01-17 23:43:48">2021/01/17</span>
+        </a>
         
         <a  class="全部文章 数据分析 "
            href="/2021/01/15/matplotlib%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/"
@@ -825,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-14 14:26:27'>2020-12-26 20:51</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-17 22:06:32'>2020-12-26 20:51</time>
         
     </div>
     <div class="article-meta">
@@ -879,7 +887,7 @@
 from tensorflow.keras.layers import Flatten, Dense
 import numpy as np</code></pre>
 <h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><p>使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签</p>
-<pre><code class="python">(train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()</code></pre>
+<pre><code class="python">(train_images,train_labels),(test_images,test_labels) = keras.datasets.mnist.load_data()</code></pre>
 <h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><p>图片每个像素的数值都是在[0, 255]之间，所以归一化要除以255，数据要是浮点数，所以要添加一个小数点</p>
 <pre><code class="python">train_images, test_images = train_images / 255.0, test_images / 255.0</code></pre>
 <h3 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h3><p>搭建一个顺序模型，第一层先将数据展平，原始图片是28x28的灰度图，所以输入尺寸是（28，28），第二层节点数可以自己选择一个合适值，这里用128个节点，激活函数用relu，第三层有多少个种类就写多少，[0, 9]一共有10个数字,所以必须写10，激活函数用softmax</p>

@@ -6,15 +6,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="图片分割 | Weillin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="示例一：垂直柱状图# 1.导入依赖包 import matplotlib.pyplot as plt  # 2.设置在线显示图像 %matplotlib inline  # 3.设置字体 plt.rcParams[&#39;font.sans-serif&#39;] &#x3D; [&#39;KaiTi&#39;]  # 4.定义Y值 tem &#x3D; [32.45, 34.344, 37.345, 41, 35">
+<meta name="description" content="示例一：1.导入依赖包import tensorflow as tf import numpy as np import matplotlib.pyplot as plt from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense 2.加载数据集并改变图片维度(train_x, train_y), (test_x, t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="matplotlib绘制柱状图">
-<meta property="og:url" content="http://example.com/2021/01/15/matplotlib%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/index.html">
+<meta property="og:title" content="fashion_mnist识别">
+<meta property="og:url" content="http://example.com/2021/01/17/fashion-mnist%E8%AF%86%E5%88%AB/index.html">
 <meta property="og:site_name" content="Weillin">
-<meta property="og:description" content="示例一：垂直柱状图# 1.导入依赖包 import matplotlib.pyplot as plt  # 2.设置在线显示图像 %matplotlib inline  # 3.设置字体 plt.rcParams[&#39;font.sans-serif&#39;] &#x3D; [&#39;KaiTi&#39;]  # 4.定义Y值 tem &#x3D; [32.45, 34.344, 37.345, 41, 35">
+<meta property="og:description" content="示例一：1.导入依赖包import tensorflow as tf import numpy as np import matplotlib.pyplot as plt from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense 2.加载数据集并改变图片维度(train_x, train_y), (test_x, t">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-15T12:30:10.000Z">
-<meta property="article:modified_time" content="2021-01-16T09:48:22.261Z">
+<meta property="article:published_time" content="2021-01-17T15:43:48.000Z">
+<meta property="article:modified_time" content="2021-01-17T15:44:55.308Z">
 <meta property="article:author" content="离殇">
 <meta name="twitter:card" content="summary">
 
@@ -142,7 +142,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(60)</small>
+                <small>(61)</small>
             
         </div>
     </li>
@@ -153,7 +153,7 @@
                     <div data-rel="TF2">
                         
                         TF2
-                        <small>(13)</small>
+                        <small>(14)</small>
                         
                     </div>
                     
@@ -251,7 +251,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
+<input type="hidden" id="yelog_site_posts_number" value="61">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -307,6 +307,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 TF2 "
+           href="/2021/01/17/fashion-mnist%E8%AF%86%E5%88%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fashion_mnist识别">fashion_mnist识别</span>
+            <span class="post-date" title="2021-01-17 23:43:48">2021/01/17</span>
+        </a>
         
         <a  class="全部文章 数据分析 "
            href="/2021/01/15/matplotlib%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/"
@@ -825,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-16 17:56:00'>2021-01-01 17:28</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-17 22:16:04'>2021-01-01 17:28</time>
         
     </div>
     <div class="article-meta">
@@ -935,20 +943,20 @@ display([sample_image, sample_mask])</code></pre>
 <pre><code class="python">output_channels = 3</code></pre>
 <h2 id="6-使用预训练的MobileNetV2作为编码器-下采样器"><a href="#6-使用预训练的MobileNetV2作为编码器-下采样器" class="headerlink" title="6. 使用预训练的MobileNetV2作为编码器/下采样器"></a>6. 使用预训练的MobileNetV2作为编码器/下采样器</h2><pre><code class="python">base_model = tf.keras.applications.MobileNetV2(input_shape=[128, 128, 3], include_top=False)
 layer_names = [
-    &#39;block_1_expand_relu&#39;
-    , &#39;block_3_expand_relu&#39;
-    , &#39;block_6_expand_relu&#39;
-    , &#39;block_13_expand_relu&#39;
-    , &#39;block_16_project&#39;
+    &#39;block_1_expand_relu&#39;,
+    &#39;block_3_expand_relu&#39;,
+    &#39;block_6_expand_relu&#39;,
+    &#39;block_13_expand_relu&#39;,
+    &#39;block_16_project&#39;
 ]
 layers = [base_model.get_layer(name).output for name in layer_names]
 down_stack = tf.keras.Model(inputs=base_model.input, outputs=layers)
 down_stack.trainable = False</code></pre>
 <h2 id="7-使用pix2pix作为解码器-上采样器"><a href="#7-使用pix2pix作为解码器-上采样器" class="headerlink" title="7. 使用pix2pix作为解码器/上采样器"></a>7. 使用pix2pix作为解码器/上采样器</h2><pre><code class="python">up_stack = [
-    pix2pix.upsample(512, 3)
-    , pix2pix.upsample(256, 3)
-    , pix2pix.upsample(128, 3)
-    , pix2pix.upsample(64, 3)
+    pix2pix.upsample(512, 3),
+    pix2pix.upsample(256, 3),
+    pix2pix.upsample(128, 3),
+    pix2pix.upsample(64, 3)
 ]</code></pre>
 <pre><code class="python">def unet_model(output_channels):
     inputs = tf.keras.Input(shape=[128, 128, 3])
@@ -964,15 +972,14 @@ down_stack.trainable = False</code></pre>
         x = concat([x, skip])
 
     last = tf.keras.layers.Conv2DTranspose(
-        output_channels, 3, strides=2
-        , padding=&#39;same&#39;
+        output_channels, 3, strides=2, padding=&#39;same&#39;
     )
     x = last(x)
     return tf.keras.Model(inputs=inputs, outputs=x)</code></pre>
 <h2 id="8-建立模型"><a href="#8-建立模型" class="headerlink" title="8. 建立模型"></a>8. 建立模型</h2><pre><code class="python">model = unet_model(output_channels)
-model.compile(optimizer=&#39;adam&#39;
-              , loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-              , metrics=[&#39;accuracy&#39;])</code></pre>
+model.compile(optimizer=&#39;adam&#39;,
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+              metrics=[&#39;accuracy&#39;])</code></pre>
 <h2 id="9-查看模型结构"><a href="#9-查看模型结构" class="headerlink" title="9. 查看模型结构"></a>9. 查看模型结构</h2><pre><code class="python">tf.keras.utils.plot_model(model, show_shapes=True)</code></pre>
 <h2 id="10-查看训练前模型的预测结果"><a href="#10-查看训练前模型的预测结果" class="headerlink" title="10. 查看训练前模型的预测结果"></a>10. 查看训练前模型的预测结果</h2><pre><code class="python">def create_mask(pred_mask):
     pred_mask = tf.argmax(pred_mask, axis=-1)
@@ -999,11 +1006,11 @@ show_predictions()</code></pre>
 epochs = 20
 val_subsplits = 5
 validation_steps = info.splits[&#39;test&#39;].num_examples // batch_size // val_subsplits</code></pre>
-<h2 id="12-训练模型"><a href="#12-训练模型" class="headerlink" title="12. 训练模型"></a>12. 训练模型</h2><pre><code class="python">history = model.fit(train_dataset, epochs=epochs
-                    , steps_per_epoch=steps_per_epoch
-                    , validation_steps=validation_steps
-                    , validation_data=test_dataset
-                    , callbacks=[DisplayCallback()]
+<h2 id="12-训练模型"><a href="#12-训练模型" class="headerlink" title="12. 训练模型"></a>12. 训练模型</h2><pre><code class="python">history = model.fit(train_dataset, epochs=epochs,
+                    steps_per_epoch=steps_per_epoch,
+                    validation_steps=validation_steps,
+                    validation_data=test_dataset,
+                    callbacks=[DisplayCallback()]
                     )</code></pre>
 <h2 id="13-损失可视化"><a href="#13-损失可视化" class="headerlink" title="13. 损失可视化"></a>13. 损失可视化</h2><pre><code class="python">loss = history.history[&#39;loss&#39;]
 val_loss = history.history[&#39;val_loss&#39;]
