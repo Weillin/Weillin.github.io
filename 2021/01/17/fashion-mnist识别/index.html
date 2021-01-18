@@ -14,7 +14,7 @@
 <meta property="og:description" content="示例一：1.导入依赖包import tensorflow as tf import numpy as np import matplotlib.pyplot as plt from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense 2.加载数据集并改变图片维度(train_x, train_y), (test_x, t">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-17T15:43:48.000Z">
-<meta property="article:modified_time" content="2021-01-17T15:44:55.308Z">
+<meta property="article:modified_time" content="2021-01-18T03:06:13.401Z">
 <meta property="article:author" content="离殇">
 <meta name="twitter:card" content="summary">
 
@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-17 23:44:55'>2021-01-17 23:43</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-18 11:06:13'>2021-01-17 23:43</time>
         
     </div>
     <div class="article-meta">
@@ -937,10 +937,10 @@ from tensorflow.keras.layers import Conv2D, Flatten, Dense, BatchNormalization, 
 train_x = np.expand_dims(train_x, -1)
 test_x = np.expand_dims(test_x, -1)</code></pre>
 <h2 id="3-数据增广"><a href="#3-数据增广" class="headerlink" title="3.数据增广"></a>3.数据增广</h2><pre><code class="python">datagen = ImageDataGenerator(
-    rotation_range=10
-    , zoom_range=0.10
-    , width_shift_range=0.1
-    , height_shift_range=0.1)</code></pre>
+    rotation_range=10,
+    zoom_range=0.10,
+    width_shift_range=0.1,
+    height_shift_range=0.1)</code></pre>
 <h2 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h2><pre><code class="python">model = tf.keras.Sequential()
 
 model.add(Conv2D(32, kernel_size=3, activation=&#39;relu&#39;, input_shape=(28, 28, 1)))
