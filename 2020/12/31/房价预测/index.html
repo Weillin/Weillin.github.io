@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-17 22:43:53'>2020-12-31 19:49</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:37:31'>2020-12-31 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -923,7 +923,8 @@ print(&#39;Kurtosis: %f&#39; % train[&#39;SalePrice&#39;].kurt())  # 峰度</cod
 numeric = []
 for i in train.columns:
     if train[i].dtype in numeric_dtypes:
-        if i in [&#39;TotalSF&#39;, &#39;Total_Bathrooms&#39;, &#39;Total_porch_sf&#39;, &#39;haspool&#39;, &#39;hasgarage&#39;, &#39;hasbsmt&#39;, &#39;hasfireplace&#39;]:
+        if i in [&#39;TotalSF&#39;, &#39;Total_Bathrooms&#39;, &#39;Total_porch_sf&#39;, 
+                 &#39;haspool&#39;, &#39;hasgarage&#39;, &#39;hasbsmt&#39;, &#39;hasfireplace&#39;]:
             pass
         else:
             numeric.append(i)</code></pre>
@@ -935,7 +936,8 @@ for i, feature in enumerate(list(train[numeric]), 1):
     if (feature == &#39;MiscVal&#39;):
         break
     plt.subplot(len(list(numeric)), 3, i)
-    sns.scatterplot(x=feature, y=&#39;SalePrice&#39;, hue=&#39;SalePrice&#39;, palette=&#39;Blues&#39;, data=train)
+    sns.scatterplot(x=feature, y=&#39;SalePrice&#39;, hue=&#39;SalePrice&#39;, 
+                    palette=&#39;Blues&#39;, data=train)
     plt.xlabel(&#39;&#123;&#125;&#39;.format(feature), size=15, labelpad=12.5)
     plt.ylabel(&#39;SalePrice&#39;, size=15, labelpad=12.5)
     for j in range(2):
@@ -976,15 +978,18 @@ f, ax = plt.subplots(figsize=(8, 7))
 sns.distplot(train[&#39;SalePrice&#39;], fit=norm, color=&#39;b&#39;)</code></pre>
 <h3 id="4-9得到拟合参数"><a href="#4-9得到拟合参数" class="headerlink" title="4.9得到拟合参数"></a>4.9得到拟合参数</h3><pre><code class="python">(mu, sigma) = norm.fit(train[&#39;SalePrice&#39;])
 print(&#39;mu = &#123;:.2f&#125; and sigma = &#123;:.2f&#125;&#39;.format(mu, sigma))</code></pre>
-<h3 id="4-10调整前后对比"><a href="#4-10调整前后对比" class="headerlink" title="4.10调整前后对比"></a>4.10调整前后对比</h3><pre><code class="python">plt.legend([&#39;Normal dist. ($\mu=$ &#123;:.2f&#125; and $\sigma=$ &#123;:.2f&#125; )&#39;.format(mu, sigma)], loc=&#39;best&#39;)
+<h3 id="4-10调整前后对比"><a href="#4-10调整前后对比" class="headerlink" title="4.10调整前后对比"></a>4.10调整前后对比</h3><pre><code class="python">plt.legend([&#39;Normal dist. ($\mu=$ &#123;:.2f&#125; and $\sig\
+ma=$ &#123;:.2f&#125; )&#39;.format(mu, sigma)], loc=&#39;best&#39;)
 ax.xaxis.grid(False)
 ax.set(ylabel=&#39;Frequency&#39;)
 ax.set(xlabel=&#39;SalePrice&#39;)
 ax.set(title=&#39;SalePrice distribution&#39;)
 sns.despine(trim=True, left=True)
 plt.show()</code></pre>
-<h3 id="4-11删除异常值"><a href="#4-11删除异常值" class="headerlink" title="4.11删除异常值"></a>4.11删除异常值</h3><pre><code class="python">train.drop(train[(train[&#39;OverallQual&#39;] &lt; 5) &amp; (train[&#39;SalePrice&#39;] &gt; 200000)].index, inplace=True)
-train.drop(train[(train[&#39;GrLivArea&#39;] &gt; 4500) &amp; (train[&#39;SalePrice&#39;] &lt; 30000)].index, inplace=True)
+<h3 id="4-11删除异常值"><a href="#4-11删除异常值" class="headerlink" title="4.11删除异常值"></a>4.11删除异常值</h3><pre><code class="python">train.drop(train[(train[&#39;OverallQual&#39;] &lt; 5) &amp; 
+                 (train[&#39;SalePrice&#39;] &gt; 200000)].index, inplace=True)
+train.drop(train[(train[&#39;GrLivArea&#39;] &gt; 4500) &amp; 
+                 (train[&#39;SalePrice&#39;] &lt; 30000)].index, inplace=True)
 train.reset_index(drop=True, inplace=True)</code></pre>
 <h3 id="4-12划分训练集和测试集"><a href="#4-12划分训练集和测试集" class="headerlink" title="4.12划分训练集和测试集"></a>4.12划分训练集和测试集</h3><pre><code class="python">train_labels = train[&#39;SalePrice&#39;].reset_index(drop=True)
 train_features = train.drop([&#39;SalePrice&#39;], axis=1)
@@ -995,7 +1000,7 @@ all_features = pd.concat([train_features, test_features]).reset_index(drop=True)
     df_cols = list(pd.DataFrame(data))
     dict_x = &#123;&#125;
     for i in range(0, len(df_cols)):
-        dict_x.update(&#123;df_cols[i]: round(data[df_cols[i]].isnull().mean() * 100, 2)&#125;)
+        dict_x.update(&#123;df_cols[i]: round(data[df_cols[i]].isnull().mean()*100,2)&#125;)
     return dict_x</code></pre>
 <h3 id="4-14缺失数据百分比"><a href="#4-14缺失数据百分比" class="headerlink" title="4.14缺失数据百分比"></a>4.14缺失数据百分比</h3><pre><code class="python">missing = percent_missing(all_features)
 df_miss = sorted(missing.items(), key=lambda x: x[1], reverse=True)
@@ -1022,17 +1027,21 @@ all_features[&#39;MoSold&#39;] = all_features[&#39;MoSold&#39;].astype(str)</cod
     features[&#39;KitchenQual&#39;] = features[&#39;KitchenQual&#39;].fillna(&#39;TA&#39;)
     features[&#39;Exterior1st&#39;] = features[&#39;Exterior1st&#39;].fillna(features[&#39;Exterior1st&#39;].mode()[0])
     features[&#39;Exterior2nd&#39;] = features[&#39;Exterior2nd&#39;].fillna(features[&#39;Exterior2nd&#39;].mode()[0])
-    features[&#39;SaleType&#39;] = features[&#39;SaleType&#39;].fillna(features[&#39;SaleType&#39;].mode()[0])
-    features[&#39;MSZoning&#39;] = features.groupby(&#39;MSSubClass&#39;)[&#39;MSZoning&#39;].transform(lambda x: x.fillna(x.mode()[0]))
+    features[&#39;SaleType&#39;] = features[&#39;SaleType&#39;].fillna(features[&#39;Sale\
+    Type&#39;].mode()[0])
+    features[&#39;MSZoning&#39;] = features.groupby(&#39;MSSubClass&#39;)[&#39;MSZon\
+    ing&#39;].transform(lambda x: x.fillna(x.mode()[0]))
 
     features[&#39;PoolQC&#39;] = features[&#39;PoolQC&#39;].fillna(&#39;None&#39;)
     for col in (&#39;GarageYrBlt&#39;, &#39;GarageArea&#39;, &#39;GarageCars&#39;):
         features[col] = features[col].fillna(0)
     for col in [&#39;GarageType&#39;, &#39;GarageFinish&#39;, &#39;GarageQual&#39;, &#39;GarageCond&#39;]:
         features[col] = features[col].fillna(&#39;None&#39;)
-    for col in (&#39;BsmtQual&#39;, &#39;BsmtCond&#39;, &#39;BsmtExposure&#39;, &#39;BsmtFinType1&#39;, &#39;BsmtFinType2&#39;):
+    for col in (&#39;BsmtQual&#39;, &#39;BsmtCond&#39;, &#39;BsmtExposure&#39;, 
+                &#39;BsmtFinType1&#39;, &#39;BsmtFinType2&#39;):
         features[col] = features[col].fillna(&#39;None&#39;)
-    features[&#39;LotFrontage&#39;] = features.groupby(&#39;Neighborhood&#39;)[&#39;LotFrontage&#39;].transform(lambda x: x.fillna(x.median()))
+    features[&#39;LotFrontage&#39;] = features.groupby(&#39;Neighb\
+    orhood&#39;)[&#39;LotFrontage&#39;].transform(lambda x: x.fillna(x.median()))
 
     objects = []
     for i in features.columns:
@@ -1093,8 +1102,10 @@ all_features[&#39;HasScreenPorch&#39;] = (all_features[&#39;ScreenPorch&#39;] ==
 all_features[&#39;YearsSinceRemodel&#39;] = all_features[&#39;YrSold&#39;].astype(int) - all_features[&#39;YearRemodAdd&#39;].astype(int)
 all_features[&#39;Total_Home_Quality&#39;] = all_features[&#39;OverallQual&#39;] + all_features[&#39;OverallCond&#39;]
 all_features = all_features.drop([&#39;Utilities&#39;, &#39;Street&#39;, &#39;PoolQC&#39;, ], axis=1)
-all_features[&#39;TotalSF&#39;] = all_features[&#39;TotalBsmtSF&#39;] + all_features[&#39;1stFlrSF&#39;] + all_features[&#39;2ndFlrSF&#39;]
-all_features[&#39;YrBltAndRemod&#39;] = all_features[&#39;YearBuilt&#39;] + all_features[&#39;YearRemodAdd&#39;]
+all_features[&#39;TotalSF&#39;] = all_features[&#39;TotalBsmtSF&#39;] + all_features[&#39;1stFl\
+rSF&#39;] + all_features[&#39;2ndFlrSF&#39;]
+all_features[&#39;YrBltAndRemod&#39;] = all_features[&#39;YearBu\
+ilt&#39;] + all_features[&#39;YearRemodAdd&#39;]
 
 all_features[&#39;Total_sqr_footage&#39;] = (all_features[&#39;BsmtFinSF1&#39;] +
                                      all_features[&#39;BsmtFinSF2&#39;] +
@@ -1110,19 +1121,31 @@ all_features[&#39;Total_porch_sf&#39;] = (all_features[&#39;OpenPorchSF&#39;] +
                                   all_features[&#39;ScreenPorch&#39;] +
                                   all_features[&#39;WoodDeckSF&#39;])
 
-all_features[&#39;TotalBsmtSF&#39;] = all_features[&#39;TotalBsmtSF&#39;].apply(lambda x: np.exp(6) if x &lt;= 0.0 else x)
-all_features[&#39;2ndFlrSF&#39;] = all_features[&#39;2ndFlrSF&#39;].apply(lambda x: np.exp(6.5) if x &lt;= 0.0 else x)
-all_features[&#39;GarageArea&#39;] = all_features[&#39;GarageArea&#39;].apply(lambda x: np.exp(6) if x &lt;= 0.0 else x)
-all_features[&#39;GarageCars&#39;] = all_features[&#39;GarageCars&#39;].apply(lambda x: 0 if x &lt;= 0.0 else x)
-all_features[&#39;LotFrontage&#39;] = all_features[&#39;LotFrontage&#39;].apply(lambda x: np.exp(4.2) if x &lt;= 0.0 else x)
-all_features[&#39;MasVnrArea&#39;] = all_features[&#39;MasVnrArea&#39;].apply(lambda x: np.exp(4) if x &lt;= 0.0 else x)
-all_features[&#39;BsmtFinSF1&#39;] = all_features[&#39;BsmtFinSF1&#39;].apply(lambda x: np.exp(6.5) if x &lt;= 0.0 else x)
+all_features[&#39;TotalBsmtSF&#39;] = all_features[&#39;TotalB\
+smtSF&#39;].apply(lambda x: np.exp(6) if x &lt;= 0.0 else x)
+all_features[&#39;2ndFlrSF&#39;] = all_features[&#39;2ndF\
+lrSF&#39;].apply(lambda x: np.exp(6.5) if x &lt;= 0.0 else x)
+all_features[&#39;GarageArea&#39;] = all_features[&#39;Gara\
+geArea&#39;].apply(lambda x: np.exp(6) if x &lt;= 0.0 else x)
+all_features[&#39;GarageCars&#39;] = all_features[&#39;Garag\
+eCars&#39;].apply(lambda x: 0 if x &lt;= 0.0 else x)
+all_features[&#39;LotFrontage&#39;] = all_features[&#39;LotFr\
+ontage&#39;].apply(lambda x: np.exp(4.2) if x &lt;= 0.0 else x)
+all_features[&#39;MasVnrArea&#39;] = all_features[&#39;MasVnr\
+Area&#39;].apply(lambda x: np.exp(4) if x &lt;= 0.0 else x)
+all_features[&#39;BsmtFinSF1&#39;] = all_features[&#39;BsmtF\
+inSF1&#39;].apply(lambda x: np.exp(6.5) if x &lt;= 0.0 else x)
 
-all_features[&#39;haspool&#39;] = all_features[&#39;PoolArea&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
-all_features[&#39;has2ndfloor&#39;] = all_features[&#39;2ndFlrSF&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
-all_features[&#39;hasgarage&#39;] = all_features[&#39;GarageArea&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
-all_features[&#39;hasbsmt&#39;] = all_features[&#39;TotalBsmtSF&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
-all_features[&#39;hasfireplace&#39;] = all_features[&#39;Fireplaces&#39;].apply(lambda x: 1 if x &gt; 0 else 0)</code></pre>
+all_features[&#39;haspool&#39;] = all_features[&#39;Poo\
+lArea&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;has2ndfloor&#39;] = all_features[&#39;2nd\
+FlrSF&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;hasgarage&#39;] = all_features[&#39;Garage\
+Area&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;hasbsmt&#39;] = all_features[&#39;TotalBs\
+mtSF&#39;].apply(lambda x: 1 if x &gt; 0 else 0)
+all_features[&#39;hasfireplace&#39;] = all_features[&#39;Firep\
+laces&#39;].apply(lambda x: 1 if x &gt; 0 else 0)</code></pre>
 <h3 id="4-25用数值特征的对数来创建新特征"><a href="#4-25用数值特征的对数来创建新特征" class="headerlink" title="4.25用数值特征的对数来创建新特征"></a>4.25用数值特征的对数来创建新特征</h3><pre><code class="python">def logs(res, ls):
     m = res.shape[1]
     for l in ls:
@@ -1132,11 +1155,14 @@ all_features[&#39;hasfireplace&#39;] = all_features[&#39;Fireplaces&#39;].apply(
     return res
 
 
-log_features = [&#39;LotFrontage&#39;, &#39;LotArea&#39;, &#39;MasVnrArea&#39;, &#39;BsmtFinSF1&#39;, &#39;BsmtFinSF2&#39;, &#39;BsmtUnfSF&#39;,
-                &#39;TotalBsmtSF&#39;, &#39;1stFlrSF&#39;, &#39;2ndFlrSF&#39;, &#39;LowQualFinSF&#39;, &#39;GrLivArea&#39;,
-                &#39;BsmtFullBath&#39;, &#39;BsmtHalfBath&#39;, &#39;FullBath&#39;, &#39;HalfBath&#39;, &#39;BedroomAbvGr&#39;, &#39;KitchenAbvGr&#39;,
-                &#39;TotRmsAbvGrd&#39;, &#39;Fireplaces&#39;, &#39;GarageCars&#39;, &#39;GarageArea&#39;, &#39;WoodDeckSF&#39;, &#39;OpenPorchSF&#39;,
-                &#39;EnclosedPorch&#39;, &#39;3SsnPorch&#39;, &#39;ScreenPorch&#39;, &#39;PoolArea&#39;, &#39;MiscVal&#39;, &#39;YearRemodAdd&#39;, &#39;TotalSF&#39;]
+log_features = [&#39;LotFrontage&#39;, &#39;LotArea&#39;, &#39;MasVnrArea&#39;, &#39;BsmtFinSF1&#39;, 
+                &#39;BsmtFinSF2&#39;, &#39;BsmtUnfSF&#39;, &#39;TotalBsmtSF&#39;, &#39;1stFlrSF&#39;, 
+                &#39;2ndFlrSF&#39;, &#39;LowQualFinSF&#39;, &#39;GrLivArea&#39;, &#39;BsmtFullBath&#39;, 
+                &#39;BsmtHalfBath&#39;, &#39;FullBath&#39;, &#39;HalfBath&#39;, &#39;BedroomAbvGr&#39;, 
+                &#39;KitchenAbvGr&#39;, &#39;TotRmsAbvGrd&#39;, &#39;Fireplaces&#39;, &#39;GarageCars&#39;, 
+                &#39;GarageArea&#39;, &#39;WoodDeckSF&#39;, &#39;OpenPorchSF&#39;, &#39;EnclosedPorch&#39;, 
+                &#39;3SsnPorch&#39;, &#39;ScreenPorch&#39;, &#39;PoolArea&#39;, &#39;MiscVal&#39;, 
+                &#39;YearRemodAdd&#39;, &#39;TotalSF&#39;]
 
 all_features = logs(all_features, log_features)</code></pre>
 <h3 id="4-26用数值特征的平方来创建新特征"><a href="#4-26用数值特征的平方来创建新特征" class="headerlink" title="4.26用数值特征的平方来创建新特征"></a>4.26用数值特征的平方来创建新特征</h3><pre><code class="python">def squares(res, ls):
@@ -1148,8 +1174,9 @@ all_features = logs(all_features, log_features)</code></pre>
     return res
 
 
-squared_features = [&#39;YearRemodAdd&#39;, &#39;LotFrontage_log&#39;, &#39;TotalBsmtSF_log&#39;, &#39;1stFlrSF_log&#39;,
-                    &#39;2ndFlrSF_log&#39;, &#39;GrLivArea_log&#39;, &#39;GarageCars_log&#39;, &#39;GarageArea_log&#39;]
+squared_features = [&#39;YearRemodAdd&#39;, &#39;LotFrontage_log&#39;, &#39;TotalBsmtSF_log&#39;, 
+                    &#39;1stFlrSF_log&#39;, &#39;2ndFlrSF_log&#39;, &#39;GrLivArea_log&#39;, 
+                    &#39;GarageCars_log&#39;, &#39;GarageArea_log&#39;]
 all_features = squares(all_features, squared_features)</code></pre>
 <h3 id="4-27编码分类特征"><a href="#4-27编码分类特征" class="headerlink" title="4.27编码分类特征"></a>4.27编码分类特征</h3><pre><code class="python">all_features = pd.get_dummies(all_features).reset_index(drop=True)</code></pre>
 <h3 id="4-28删除重复的列名"><a href="#4-28删除重复的列名" class="headerlink" title="4.28删除重复的列名"></a>4.28删除重复的列名</h3><pre><code class="python">all_features = all_features.loc[:, ~all_features.columns.duplicated()]</code></pre>
@@ -1161,7 +1188,8 @@ X_test = all_features.iloc[len(train_labels):, :]</code></pre>
 
 
 def cv_rmse(model, X=X):
-    rmse = np.sqrt(-cross_val_score(model, X, train_labels, scoring=&#39;neg_mean_squared_error&#39;, cv=kf))
+    rmse = np.sqrt(-cross_val_score(model, X, train_labels,
+                                    scoring=&#39;neg_mean_squared_error&#39;, cv=kf))
     return (rmse)</code></pre>
 <h2 id="5-搭建模型"><a href="#5-搭建模型" class="headerlink" title="5.搭建模型"></a>5.搭建模型</h2><h3 id="5-1轻量梯度提升机"><a href="#5-1轻量梯度提升机" class="headerlink" title="5.1轻量梯度提升机"></a>5.1轻量梯度提升机</h3><pre><code class="python">lightgbm = LGBMRegressor(objective=&#39;regression&#39;,
                          num_leaves=6,
@@ -1189,8 +1217,8 @@ def cv_rmse(model, X=X):
                        seed=27,
                        reg_alpha=0.00006,
                        random_state=42)</code></pre>
-<h3 id="5-3岭回归"><a href="#5-3岭回归" class="headerlink" title="5.3岭回归"></a>5.3岭回归</h3><pre><code class="python">ridge_alphas = [1e-15, 1e-10, 1e-8, 9e-4, 7e-4, 5e-4, 3e-4, 1e-4, 1e-3, 5e-2,
-    1e-2, 0.1, 0.3, 1, 3, 5, 10, 15, 18, 20, 30, 50, 75, 100]
+<h3 id="5-3岭回归"><a href="#5-3岭回归" class="headerlink" title="5.3岭回归"></a>5.3岭回归</h3><pre><code class="python">ridge_alphas = [1e-15, 1e-10, 1e-8, 9e-4, 7e-4, 5e-4, 3e-4, 1e-4, 1e-3, 5e-2, 
+                1e-2, 0.1, 0.3, 1, 3, 5, 10, 15, 18, 20, 30, 50, 75, 100]
 ridge = make_pipeline(RobustScaler(), RidgeCV(alphas=ridge_alphas, cv=kf))</code></pre>
 <h3 id="5-4支持向量机"><a href="#5-4支持向量机" class="headerlink" title="5.4支持向量机"></a>5.4支持向量机</h3><pre><code class="python">svr = make_pipeline(RobustScaler(), SVR(C=20, epsilon=0.008, gamma=0.0003))</code></pre>
 <h3 id="5-5梯度提升树"><a href="#5-5梯度提升树" class="headerlink" title="5.5梯度提升树"></a>5.5梯度提升树</h3><pre><code class="python">gbr = GradientBoostingRegressor(n_estimators=6000,
@@ -1258,10 +1286,14 @@ print(&#39;RMSLE score on train data:&#39;)
 print(blended_score)</code></pre>
 <h3 id="6-3模型分数可视化"><a href="#6-3模型分数可视化" class="headerlink" title="6.3模型分数可视化"></a>6.3模型分数可视化</h3><pre><code class="python">sns.set_style(&#39;white&#39;)
 fig = plt.figure(figsize=(24, 12))
-ax = sns.pointplot(x=list(scores.keys()), y=[score for score, _ in scores.values()], markers=[&#39;o&#39;], linestyles=[&#39;-&#39;])
+ax = sns.pointplot(x=list(scores.keys()), 
+                   y=[score for score, _ in scores.values()], 
+                   markers=[&#39;o&#39;], 
+                   linestyles=[&#39;-&#39;])
 for i, score in enumerate(scores.values()):
-    ax.text(i, score[0] + 0.002, &#39;&#123;:.6&#125;&#39;.format(score[0]), horizontalalignment=&#39;left&#39;, size=&#39;large&#39;, color=&#39;black&#39;,
-            weight=&#39;semibold&#39;)
+    ax.text(i, score[0] + 0.002, &#39;&#123;:.6&#125;&#39;.format(score[0]), 
+            horizontalalignment=&#39;left&#39;, size=&#39;large&#39;, 
+            color=&#39;black&#39;, weight=&#39;semibold&#39;)
 plt.ylabel(&#39;Score (RMSE)&#39;, size=20, labelpad=12.5)
 plt.xlabel(&#39;Model&#39;, size=20, labelpad=12.5)
 plt.tick_params(axis=&#39;x&#39;, labelsize=13.5)
@@ -1272,8 +1304,10 @@ plt.show()</code></pre>
 submission.iloc[:, 1] = np.floor(np.expm1(blended_predictions(X_test)))</code></pre>
 <h3 id="6-4矫正预测"><a href="#6-4矫正预测" class="headerlink" title="6.4矫正预测"></a>6.4矫正预测</h3><pre><code class="python">q1 = submission[&#39;SalePrice&#39;].quantile(0.0045)
 q2 = submission[&#39;SalePrice&#39;].quantile(0.99)
-submission[&#39;SalePrice&#39;] = submission[&#39;SalePrice&#39;].apply(lambda x: x if x &gt; q1 else x * 0.77)
-submission[&#39;SalePrice&#39;] = submission[&#39;SalePrice&#39;].apply(lambda x: x if x &lt; q2 else x * 1.1)
+submission[&#39;SalePrice&#39;] = submission[&#39;SaleP\
+rice&#39;].apply(lambda x: x if x &gt; q1 else x * 0.77)
+submission[&#39;SalePrice&#39;] = submission[&#39;Sale\
+Price&#39;].apply(lambda x: x if x &lt; q2 else x * 1.1)
 submission.to_csv(&#39;submission_regression1.csv&#39;, index=False)</code></pre>
 <h3 id="6-5规模预测"><a href="#6-5规模预测" class="headerlink" title="6.5规模预测"></a>6.5规模预测</h3><pre><code class="python">submission[&#39;SalePrice&#39;] *= 1.001619
 submission.to_csv(&#39;submission_regression2.csv&#39;, index=False)</code></pre>

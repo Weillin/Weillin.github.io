@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-18 20:32:43'>2020-12-31 19:50</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:09:10'>2020-12-31 19:50</time>
         
     </div>
     <div class="article-meta">
@@ -933,11 +933,15 @@ plt.rcParams[&#39;axes.unicode_minus&#39;] = False</code></pre>
         # 年龄缺失用中位数填补
         data[&#39;Age&#39;].fillna(data[&#39;Age&#39;].median(), inplace=True)
         # 票价缺失用均值填补
-        data[&#39;Fare&#39;].fillna(data[&#39;Fare&#39;].mean(), inplace=True)  
-        data[&#39;Embarked&#39;].fillna(data[&#39;Embarked&#39;].mode(), inplace=True)  # 码头缺失用众数填补
-        data[&#39;Cabin&#39;].fillna(&#39;U&#39;, inplace=True)  # 座位号用U(未知)填补
-        data[&#39;Sex&#39;] = data[&#39;Sex&#39;].map(self.sex_map)  # 性别映射成0, 1
-        embarked = pd.get_dummies(data[&#39;Embarked&#39;], prefix=&#39;Embarked&#39;)  # one_hot编码
+        data[&#39;Fare&#39;].fillna(data[&#39;Fare&#39;].mean(), inplace=True)
+        # 码头缺失用众数填补
+        data[&#39;Embarked&#39;].fillna(data[&#39;Embarked&#39;].mode(), inplace=True)
+        # 座位号用U(未知)填补
+        data[&#39;Cabin&#39;].fillna(&#39;U&#39;, inplace=True)
+        # 性别映射成0, 1
+        data[&#39;Sex&#39;] = data[&#39;Sex&#39;].map(self.sex_map)
+        # one_hot编码
+        embarked = pd.get_dummies(data[&#39;Embarked&#39;], prefix=&#39;Embarked&#39;)
         data = pd.concat([data, embarked], axis=1)  # 合并数据
         data.drop(&#39;Embarked&#39;, axis=1, inplace=True)  # 删除列
         pclass = pd.get_dummies(data[&#39;Pclass&#39;], prefix=&#39;Pclass&#39;)
@@ -954,10 +958,14 @@ plt.rcParams[&#39;axes.unicode_minus&#39;] = False</code></pre>
         data = pd.concat([data, cabin], axis=1)
         data.drop(&#39;Cabin&#39;, axis=1, inplace=True)
         family = pd.DataFrame()
-        family[&#39;FamilySize&#39;] = data[&#39;Parch&#39;] + data[&#39;SibSp&#39;] + 1  # 对家庭成员数量进行分箱
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if s == 1 else 0)
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if 2 &lt;= s &lt;= 4 else 0)
-        family[&#39;Family_Single&#39;] = family[&#39;FamilySize&#39;].map(lambda s: 1 if s &gt;= 5 else 0)
+        # 对家庭成员数量进行分箱
+        family[&#39;FamilySize&#39;] = data[&#39;Parch&#39;] + data[&#39;SibSp&#39;] + 1
+        family[&#39;Family_Single&#39;]=family[&#39;Famil\
+        ySize&#39;].map(lambda s: 1 if s == 1 else 0)
+        family[&#39;Family_Single&#39;] = family[&#39;Family\
+        Size&#39;].map(lambda s: 1 if 2 &lt;= s &lt;= 4 else 0)
+        family[&#39;Family_Single&#39;] = family[&#39;Famil\
+        ySize&#39;].map(lambda s: 1 if s &gt;= 5 else 0)
         data = pd.concat([data, family], axis=1)
         data[&#39;Ticket&#39;] = data[&#39;Ticket&#39;].map(self.clean_ticket)
         ticket = pd.get_dummies(data[&#39;Ticket&#39;], prefix=&#39;Ticket&#39;)

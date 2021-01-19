@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-17 22:11:57'>2020-12-31 19:49</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:46:42'>2020-12-31 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -939,7 +939,7 @@ sns.boxplot(x=&#39;year&#39;, y=&#39;count&#39;, data=train)
 
 plt.figure(figsize=(16, 8))
 plt.hist(train[&#39;count&#39;][train[&#39;year&#39;] == 2011], alpha=0.5, label=&#39;2011&#39;)
-plt.hist(train[&#39;count&#39;][train[&#39;year&#39;] == 2012], alpha=0.5, label=&#39;2012&#39;, color=&#39;red&#39;)
+plt.hist(train[&#39;count&#39;][train[&#39;year&#39;] == 2012],alpha=0.5,label=&#39;2012&#39;,color=&#39;red&#39;)
 plt.scatter(train[&#39;hour&#39;], train[&#39;count&#39;])
 print(train.head(3))</code></pre>
 <h3 id="3-8删除datetime这一列"><a href="#3-8删除datetime这一列" class="headerlink" title="3.8删除datetime这一列"></a>3.8删除datetime这一列</h3><pre><code class="python">del train[&#39;datetime&#39;]</code></pre>
@@ -947,7 +947,8 @@ print(train.head(3))</code></pre>
 Q3 = train.quantile(0.75)
 IQR = Q3 - Q1
 print(IQR)</code></pre>
-<pre><code class="python">train_wind = train[~((train &lt; (Q1 - 1.5 * IQR)) | (train &gt; (Q3 + 1.5 * IQR))).any(axis=1)]
+<pre><code class="python">train_wind = train[~((train &lt; (Q1 - 1.5 * IQR)) | 
+                     (train &gt; (Q3 + 1.5 * IQR))).any(axis=1)]
 train_wind.dropna(inplace=True)
 
 print(train.info())
@@ -974,15 +975,17 @@ test[&#39;wind&#39;] = test[[&#39;windspeed&#39;, &#39;season&#39;]].apply(wind,
 
 print(test.head(3))
 print(train_wind.head(3))</code></pre>
-<pre><code class="python">train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;
-    , &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]] = train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;
-    , &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]].astype(&#39;category&#39;)
-test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;
-    , &#39;hour&#39;, &#39;week&#39;]] = test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;
-    , &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]].astype(&#39;category&#39;)
+<pre><code class="python">train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, 
+            &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;]] = train_wind[[&#39;season&#39;, &#39;holiday&#39;, 
+                                                  &#39;workingday&#39;, &#39;weather&#39;, 
+                                                  &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, 
+                                                  &#39;week&#39;]].astype(&#39;category&#39;)
+test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, 
+      &#39;week&#39;]] = test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, 
+                               &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;,&#39;week&#39;]].astype(&#39;category&#39;)
 print(train_wind.info())</code></pre>
-<pre><code class="python">X = train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;
-    , &#39;atemp&#39;, &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]]
+<pre><code class="python">X = train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;, 
+                &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]]
 y = train_wind[&#39;count&#39;]</code></pre>
 <h3 id="切分训练集和测试集"><a href="#切分训练集和测试集" class="headerlink" title="切分训练集和测试集"></a>切分训练集和测试集</h3><pre><code class="python">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</code></pre>
 <h3 id="数据归一化"><a href="#数据归一化" class="headerlink" title="数据归一化"></a>数据归一化</h3><pre><code class="python">y_train = y_train.values.reshape(-1, 1)

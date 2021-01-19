@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-17 22:16:04'>2021-01-01 17:28</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:40:42'>2021-01-01 17:28</time>
         
     </div>
     <div class="article-meta">
@@ -941,7 +941,8 @@ test_dataset = test.batch(batch_size)</code></pre>
 display([sample_image, sample_mask])</code></pre>
 <p>输出通道为3</p>
 <pre><code class="python">output_channels = 3</code></pre>
-<h2 id="6-使用预训练的MobileNetV2作为编码器-下采样器"><a href="#6-使用预训练的MobileNetV2作为编码器-下采样器" class="headerlink" title="6. 使用预训练的MobileNetV2作为编码器/下采样器"></a>6. 使用预训练的MobileNetV2作为编码器/下采样器</h2><pre><code class="python">base_model = tf.keras.applications.MobileNetV2(input_shape=[128, 128, 3], include_top=False)
+<h2 id="6-使用预训练的MobileNetV2作为编码器-下采样器"><a href="#6-使用预训练的MobileNetV2作为编码器-下采样器" class="headerlink" title="6. 使用预训练的MobileNetV2作为编码器/下采样器"></a>6. 使用预训练的MobileNetV2作为编码器/下采样器</h2><pre><code class="python">base_model = tf.keras.applications.MobileNetV2(input_shape=[128, 128, 3], 
+                                               include_top=False)
 layer_names = [
     &#39;block_1_expand_relu&#39;,
     &#39;block_3_expand_relu&#39;,
@@ -971,9 +972,8 @@ down_stack.trainable = False</code></pre>
         concat = tf.keras.layers.Concatenate()
         x = concat([x, skip])
 
-    last = tf.keras.layers.Conv2DTranspose(
-        output_channels, 3, strides=2, padding=&#39;same&#39;
-    )
+    last = tf.keras.layers.Conv2DTranspose(output_channels, 3, 
+                                           strides=2, padding=&#39;same&#39;)
     x = last(x)
     return tf.keras.Model(inputs=inputs, outputs=x)</code></pre>
 <h2 id="8-建立模型"><a href="#8-建立模型" class="headerlink" title="8. 建立模型"></a>8. 建立模型</h2><pre><code class="python">model = unet_model(output_channels)
@@ -1010,8 +1010,7 @@ validation_steps = info.splits[&#39;test&#39;].num_examples // batch_size // val
                     steps_per_epoch=steps_per_epoch,
                     validation_steps=validation_steps,
                     validation_data=test_dataset,
-                    callbacks=[DisplayCallback()]
-                    )</code></pre>
+                    callbacks=[DisplayCallback()])</code></pre>
 <h2 id="13-损失可视化"><a href="#13-损失可视化" class="headerlink" title="13. 损失可视化"></a>13. 损失可视化</h2><pre><code class="python">loss = history.history[&#39;loss&#39;]
 val_loss = history.history[&#39;val_loss&#39;]
 
