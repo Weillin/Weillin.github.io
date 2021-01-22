@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-18 20:06:19'>2021-01-09 15:17</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:22:53'>2021-01-09 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -895,7 +895,8 @@ import cv2</code></pre>
         if ret:                 #判断视频是否已经读取所有的帧       
             if i &gt; 200:         #设置一共要显示多少帧图片
                 break
-            cv2.putText(frame, str(i), (5, 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)  # 显示当前播放的是第几帧
+            cv2.putText(frame, str(i), (5, 15), cv2.FONT_HERSHEY_SIMPLEX, 
+                        0.5, (0, 255, 0), 1)  # 显示当前播放的是第几帧
             tmp = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)       # 转换色彩模式
             _,ret = cv2.imencode(&#39;.jpg&#39;, frame)
             img = Image(data=ret)
