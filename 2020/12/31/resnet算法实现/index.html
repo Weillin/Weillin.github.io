@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-18 20:29:24'>2020-12-31 19:52</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:34:15'>2020-12-31 19:52</time>
         
     </div>
     <div class="article-meta">
@@ -924,7 +924,8 @@ epochs = 5</code></pre>
         self.strides = strides
         self.residual_path = residual_path
 
-        self.c1 = Conv2D(filters, (3, 3), strides=strides, padding=&#39;same&#39;, use_bias=False)
+        self.c1 = Conv2D(filters, (3, 3), strides=strides, padding=&#39;same&#39;, 
+                         use_bias=False)
         self.b1 = BatchNormalization()
         self.a1 = Activation(&#39;relu&#39;)
 

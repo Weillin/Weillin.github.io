@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:46:42'>2020-12-31 19:49</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:47:34'>2020-12-31 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -866,7 +866,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">3.数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BC%BA%E5%A4%B1%E5%80%BC%E6%95%B0%E7%9B%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.1查看数据的缺失值数目和数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E5%B0%86%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BADataFrame%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.2将数据转化为DataFrame类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">3.3重新定义数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E6%9F%A5%E7%9C%8B%E5%90%84%E5%AD%97%E6%AE%B5%E6%95%B0%E6%8D%AE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="toc-text">3.4查看各字段数据的相关性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E6%9F%A5%E7%9C%8B%E5%90%84%E6%95%B0%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">3.5查看各数目出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E6%9F%A5%E7%9C%8B%E6%95%B0%E7%9B%AE%E7%9A%84%E5%8F%98%E5%8C%96%E6%83%85%E5%86%B5"><span class="toc-text">3.6查看数目的变化情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BB%9F%E8%AE%A1%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.7查看数据的统计性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8%E5%88%A0%E9%99%A4datetime%E8%BF%99%E4%B8%80%E5%88%97"><span class="toc-text">3.8删除datetime这一列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">切分训练集和测试集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">数据归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%92%8C%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.数据可视化和训练模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B0%86%E7%BB%93%E6%9E%9C%E5%86%99%E5%85%A5%E9%A2%84%E6%B5%8B%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">6.将结果写入预测文件中</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.导入数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">3.数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BC%BA%E5%A4%B1%E5%80%BC%E6%95%B0%E7%9B%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.1查看数据的缺失值数目和数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E5%B0%86%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BADataFrame%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.2将数据转化为DataFrame类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">3.3重新定义数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E6%9F%A5%E7%9C%8B%E5%90%84%E5%AD%97%E6%AE%B5%E6%95%B0%E6%8D%AE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="toc-text">3.4查看各字段数据的相关性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E6%9F%A5%E7%9C%8B%E5%90%84%E6%95%B0%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">3.5查看各数目出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E6%9F%A5%E7%9C%8B%E6%95%B0%E7%9B%AE%E7%9A%84%E5%8F%98%E5%8C%96%E6%83%85%E5%86%B5"><span class="toc-text">3.6查看数目的变化情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BB%9F%E8%AE%A1%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.7查看数据的统计性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8%E5%88%A0%E9%99%A4datetime%E8%BF%99%E4%B8%80%E5%88%97"><span class="toc-text">3.8删除datetime这一列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9%E5%88%87%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="toc-text">3.9切分训练集和测试集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10%E6%95%B0%E6%8D%AE%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.10数据归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%92%8C%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.数据可视化和训练模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B0%86%E7%BB%93%E6%9E%9C%E5%86%99%E5%85%A5%E9%A2%84%E6%B5%8B%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">6.将结果写入预测文件中</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -982,13 +982,13 @@ print(train_wind.head(3))</code></pre>
                                                   &#39;week&#39;]].astype(&#39;category&#39;)
 test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, 
       &#39;week&#39;]] = test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;year&#39;, 
-                               &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;,&#39;week&#39;]].astype(&#39;category&#39;)
+                       &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;,&#39;week&#39;]].astype(&#39;category&#39;)
 print(train_wind.info())</code></pre>
 <pre><code class="python">X = train_wind[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;, 
                 &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]]
 y = train_wind[&#39;count&#39;]</code></pre>
-<h3 id="切分训练集和测试集"><a href="#切分训练集和测试集" class="headerlink" title="切分训练集和测试集"></a>切分训练集和测试集</h3><pre><code class="python">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</code></pre>
-<h3 id="数据归一化"><a href="#数据归一化" class="headerlink" title="数据归一化"></a>数据归一化</h3><pre><code class="python">y_train = y_train.values.reshape(-1, 1)
+<h3 id="3-9切分训练集和测试集"><a href="#3-9切分训练集和测试集" class="headerlink" title="3.9切分训练集和测试集"></a>3.9切分训练集和测试集</h3><pre><code class="python">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</code></pre>
+<h3 id="3-10数据归一化"><a href="#3-10数据归一化" class="headerlink" title="3.10数据归一化"></a>3.10数据归一化</h3><pre><code class="python">y_train = y_train.values.reshape(-1, 1)
 y_test = y_test.values.reshape(-1, 1)
 
 sc_X = MinMaxScaler()
@@ -1022,9 +1022,14 @@ print(&#39;MSE:&#39;, metrics.mean_squared_error(y_test, dt_prediction))</code><
 <pre><code class="python">plt.scatter(y_test, dt_prediction)
 print(test.head(3))</code></pre>
 <pre><code class="python">test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;, 
-      &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]] = sc_X.fit_transform(test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;,
-      &#39;atemp&#39;, &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]])
-test_pred = rf.predict(test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;,             &#39;atemp&#39;, &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]])
+      &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;week&#39;, 
+      &#39;wind&#39;]] =sc_X.fit_transform(test[[&#39;season&#39;, &#39;holiday&#39;, 
+                                         &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;, &#39;atemp&#39;,
+                                         &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, 
+                                         &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]])
+test_pred = rf.predict(test[[&#39;season&#39;, &#39;holiday&#39;, &#39;workingday&#39;, &#39;weather&#39;, &#39;temp&#39;,
+                             &#39;atemp&#39;, &#39;humidity&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, 
+                             &#39;hour&#39;, &#39;week&#39;, &#39;wind&#39;]])
 print(test_pred)</code></pre>
 <pre><code class="python">test_pred = test_pred.reshape(-1, 1)
 test_pred = sc_y.inverse_transform(test_pred)

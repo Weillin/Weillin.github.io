@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-18 20:14:31'>2021-01-02 15:20</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:27:29'>2021-01-02 15:20</time>
         
     </div>
     <div class="article-meta">
@@ -895,7 +895,8 @@ def threshold_demo(image):
 
 def local_demo(image):
     gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    binary = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 25, 10)   #25必须奇数
+    binary = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                  cv.THRESH_BINARY, 25, 10)   #25必须奇数
     cv.imshow(&#39;binary&#39;, binary)
 
 def custom_threshold(image):

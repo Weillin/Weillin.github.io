@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-18 20:26:44'>2021-01-02 15:17</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:29:52'>2021-01-02 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -906,7 +906,8 @@ def contours_demo(image):
 
     binary = edge_demo(image)
 
-    contours, heriachy = cv.findContours(binary, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    contours, heriachy = cv.findContours(binary, cv.RETR_EXTERNAL,
+                                         cv.CHAIN_APPROX_SIMPLE)
     for i, contour in enumerate(contours):
         cv.drawContours(image, contours, i, (0,0,255), 2)
         print(i)

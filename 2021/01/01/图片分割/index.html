@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:40:42'>2021-01-01 17:28</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:32:22'>2021-01-01 17:28</time>
         
     </div>
     <div class="article-meta">
@@ -920,7 +920,8 @@ batch_size = 64
 buffer_size = 1000
 steps_per_epoch = train_length // batch_size
 
-train = dataset[&#39;train&#39;].map(load_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+train = dataset[&#39;train&#39;].map(load_image_train, 
+                             num_parallel_calls=tf.data.experimental.AUTOTUNE)
 test = dataset[&#39;test&#39;].map(load_image_test)
 
 train_dataset = train.cache().shuffle(buffer_size).batch(batch_size).repeat()

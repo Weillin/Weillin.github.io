@@ -833,7 +833,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-19 19:37:31'>2020-12-31 19:49</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:58:27'>2020-12-31 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -1025,8 +1025,10 @@ all_features[&#39;MoSold&#39;] = all_features[&#39;MoSold&#39;].astype(str)</cod
     features[&#39;Functional&#39;] = features[&#39;Functional&#39;].fillna(&#39;Typ&#39;)
     features[&#39;Electrical&#39;] = features[&#39;Electrical&#39;].fillna(&#39;SBrkr&#39;)
     features[&#39;KitchenQual&#39;] = features[&#39;KitchenQual&#39;].fillna(&#39;TA&#39;)
-    features[&#39;Exterior1st&#39;] = features[&#39;Exterior1st&#39;].fillna(features[&#39;Exterior1st&#39;].mode()[0])
-    features[&#39;Exterior2nd&#39;] = features[&#39;Exterior2nd&#39;].fillna(features[&#39;Exterior2nd&#39;].mode()[0])
+    features[&#39;Exterior1st&#39;] = features[&#39;Exterior\
+    1st&#39;].fillna(features[&#39;Exterior1st&#39;].mode()[0])
+    features[&#39;Exterior2nd&#39;] = features[&#39;Exterior2nd&#39;].fillna(features[&#39;Exter\
+    ior2nd&#39;].mode()[0])
     features[&#39;SaleType&#39;] = features[&#39;SaleType&#39;].fillna(features[&#39;Sale\
     Type&#39;].mode()[0])
     features[&#39;MSZoning&#39;] = features.groupby(&#39;MSSubClass&#39;)[&#39;MSZon\
@@ -1099,11 +1101,13 @@ all_features[&#39;HasOpenPorch&#39;] = (all_features[&#39;OpenPorchSF&#39;] == 0
 all_features[&#39;HasEnclosedPorch&#39;] = (all_features[&#39;EnclosedPorch&#39;] == 0) * 1
 all_features[&#39;Has3SsnPorch&#39;] = (all_features[&#39;3SsnPorch&#39;] == 0) * 1
 all_features[&#39;HasScreenPorch&#39;] = (all_features[&#39;ScreenPorch&#39;] == 0) * 1
-all_features[&#39;YearsSinceRemodel&#39;] = all_features[&#39;YrSold&#39;].astype(int) - all_features[&#39;YearRemodAdd&#39;].astype(int)
-all_features[&#39;Total_Home_Quality&#39;] = all_features[&#39;OverallQual&#39;] + all_features[&#39;OverallCond&#39;]
+all_features[&#39;YearsSinceRemodel&#39;] = all_features[&#39;YrSo\
+ld&#39;].astype(int) - all_features[&#39;YearRemodAdd&#39;].astype(int)
+all_features[&#39;Total_Home_Quality&#39;] = all_features[&#39;Overal\
+lQual&#39;] + all_features[&#39;OverallCond&#39;]
 all_features = all_features.drop([&#39;Utilities&#39;, &#39;Street&#39;, &#39;PoolQC&#39;, ], axis=1)
-all_features[&#39;TotalSF&#39;] = all_features[&#39;TotalBsmtSF&#39;] + all_features[&#39;1stFl\
-rSF&#39;] + all_features[&#39;2ndFlrSF&#39;]
+all_features[&#39;TotalSF&#39;] = all_features[&#39;TotalB\
+smtSF&#39;] + all_features[&#39;1stFlrSF&#39;] + all_features[&#39;2ndFlrSF&#39;]
 all_features[&#39;YrBltAndRemod&#39;] = all_features[&#39;YearBu\
 ilt&#39;] + all_features[&#39;YearRemodAdd&#39;]
 
