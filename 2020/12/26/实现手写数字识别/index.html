@@ -841,7 +841,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-22 20:01:22'>2020-12-26 20:51</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-26 18:42:05'>2020-12-26 20:51</time>
         
     </div>
     <div class="article-meta">
@@ -895,7 +895,8 @@
 from tensorflow.keras.layers import Flatten, Dense
 import numpy as np</code></pre>
 <h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><p>使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签</p>
-<pre><code class="python">(train_images,train_labels),(test_images,test_labels)=keras.datasets.mnist.load_data()</code></pre>
+<pre><code class="python">(train_images, train_labels),(test_images, test_labels) = keras.datasets.\
+mnist.load_data()</code></pre>
 <h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><p>图片每个像素的数值都是在[0, 255]之间，所以归一化要除以255，数据要是浮点数，所以要添加一个小数点</p>
 <pre><code class="python">train_images, test_images = train_images / 255.0, test_images / 255.0</code></pre>
 <h3 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h3><p>搭建一个顺序模型，第一层先将数据展平，原始图片是28x28的灰度图，所以输入尺寸是（28，28），第二层节点数可以自己选择一个合适值，这里用128个节点，激活函数用relu，第三层有多少个种类就写多少，[0, 9]一共有10个数字,所以必须写10，激活函数用softmax</p>

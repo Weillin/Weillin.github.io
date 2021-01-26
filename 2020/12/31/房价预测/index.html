@@ -841,7 +841,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:58:27'>2020-12-31 19:49</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-26 18:46:57'>2020-12-31 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -1086,7 +1086,8 @@ ax.set(ylabel=&#39;Feature names&#39;)
 ax.set(xlabel=&#39;Numeric values&#39;)
 ax.set(title=&#39;Numeric Distribution of Features&#39;)
 sns.despine(trim=True, left=True)</code></pre>
-<h3 id="4-21找出偏度大于0-5的特征"><a href="#4-21找出偏度大于0-5的特征" class="headerlink" title="4.21找出偏度大于0.5的特征"></a>4.21找出偏度大于0.5的特征</h3><pre><code class="python">skew_features = all_features[numeric].apply(lambda x: skew(x)).sort_values(ascending=False)
+<h3 id="4-21找出偏度大于0-5的特征"><a href="#4-21找出偏度大于0-5的特征" class="headerlink" title="4.21找出偏度大于0.5的特征"></a>4.21找出偏度大于0.5的特征</h3><pre><code class="python">skew_features = all_features[numeric].apply(lambda x: skew(x)).\
+sort_values(ascending=False)
 high_skew = skew_features[skew_features &gt; 0.5]
 skew_index = high_skew.index
 print(&#39;Skew &gt; 0.5 :&#39;.format(high_skew.shape[0]))

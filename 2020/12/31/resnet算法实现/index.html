@@ -841,7 +841,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-22 19:34:15'>2020-12-31 19:52</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-26 18:43:27'>2020-12-31 19:52</time>
         
     </div>
     <div class="article-meta">
@@ -985,7 +985,8 @@ model = tf.keras.models.Sequential([
     Activation(&#39;relu&#39;),
     blocks,
     tf.keras.layers.GlobalAveragePooling2D(),
-    tf.keras.layers.Dense(10, activation=&#39;softmax&#39;,                                          kernel_regularizer=tf.keras.regularizers.l2())
+    tf.keras.layers.Dense(10, activation=&#39;softmax&#39;,
+                          kernel_regularizer=tf.keras.regularizers.l2())
 ])</code></pre>
 <h2 id="5-定义优化器、损失函数和评价指标"><a href="#5-定义优化器、损失函数和评价指标" class="headerlink" title="5.定义优化器、损失函数和评价指标"></a>5.定义优化器、损失函数和评价指标</h2><pre><code class="python">model.compile(optimizer=&#39;adam&#39;,
               loss=&#39;categorical_crossentropy&#39;,
