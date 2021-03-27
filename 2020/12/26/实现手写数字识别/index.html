@@ -841,7 +841,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-26 18:42:05'>2020-12-26 20:51</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-27 19:53:59'>2020-12-26 20:51</time>
         
     </div>
     <div class="article-meta">
@@ -874,7 +874,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化器、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">6.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%94%A8%E6%B5%8B%E8%AF%95%E9%9B%86%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><span class="toc-text">7.用测试集验证模型效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%B0%86%E5%9B%BE%E7%89%87%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%BF%94%E5%9B%9E%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">8.将图片输入模型，返回预测结果</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">指定优化器、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B5%8B%E8%AF%95%E9%9B%86%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><span class="toc-text">用测试集验证模型效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%9B%BE%E7%89%87%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%BF%94%E5%9B%9E%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">将图片输入模型，返回预测结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E5%87%86%E7%A1%AE%E7%8E%87%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">显示模型准确率的变化过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">显示模型损失的变化过程</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -890,34 +890,137 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><p>将tensorflow和numpy导入</p>
-<pre><code class="python">from tensorflow import keras
+        <h3 id="导入依赖包"><a href="#导入依赖包" class="headerlink" title="导入依赖包"></a>导入依赖包</h3><p>将tensorflow、numpy和matplotlib导入，如果已经安装tensorflow则可以不用执行下面这一行代码，如果没有安装tensorflow需要执行下面这一行代码</p>
+<pre><code class="python">! pip install tensorflow-cpu==2.4.0 -i https://pypi.douban.com/simple/</code></pre>
+<pre><code>Looking in indexes: https://pypi.douban.com/simple/
+Requirement already satisfied: tensorflow-cpu==2.4.0 in c:\anaconda\lib\site-packages (2.4.0)
+Requirement already satisfied: protobuf&gt;=3.9.2 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (3.15.6)
+Requirement already satisfied: opt-einsum~=3.3.0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (3.3.0)
+Requirement already satisfied: typing-extensions~=3.7.4 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (3.7.4.3)
+Requirement already satisfied: termcolor~=1.1.0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.1.0)
+Requirement already satisfied: wrapt~=1.12.1 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.12.1)
+Requirement already satisfied: wheel~=0.35 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (0.35.1)
+Requirement already satisfied: absl-py~=0.10 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (0.12.0)
+Requirement already satisfied: grpcio~=1.32.0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.32.0)
+Requirement already satisfied: h5py~=2.10.0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (2.10.0)
+Requirement already satisfied: keras-preprocessing~=1.1.2 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.1.2)
+Requirement already satisfied: gast==0.3.3 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (0.3.3)
+Requirement already satisfied: tensorflow-estimator&lt;2.5.0,&gt;=2.4.0rc0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (2.4.0)
+Requirement already satisfied: numpy~=1.19.2 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.19.2)
+Requirement already satisfied: astunparse~=1.6.3 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.6.3)
+Requirement already satisfied: tensorboard~=2.4 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (2.4.1)
+Requirement already satisfied: google-pasta~=0.2 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (0.2.0)
+Requirement already satisfied: six~=1.15.0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.15.0)
+Requirement already satisfied: flatbuffers~=1.12.0 in c:\anaconda\lib\site-packages (from tensorflow-cpu==2.4.0) (1.12)
+Requirement already satisfied: setuptools&gt;=41.0.0 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (50.3.1.post20201107)
+Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (0.4.3)
+Requirement already satisfied: werkzeug&gt;=0.11.15 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (1.0.1)
+Requirement already satisfied: google-auth&lt;2,&gt;=1.6.3 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (1.27.1)
+Requirement already satisfied: markdown&gt;=2.6.8 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (3.3.4)
+Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (1.8.0)
+Requirement already satisfied: requests&lt;3,&gt;=2.21.0 in c:\anaconda\lib\site-packages (from tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (2.24.0)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in c:\anaconda\lib\site-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (1.3.0)
+Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in c:\anaconda\lib\site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (4.2.1)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4; python_version &gt;= &quot;3.6&quot; in c:\anaconda\lib\site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (4.7.2)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in c:\anaconda\lib\site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (0.2.8)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in c:\anaconda\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (2.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in c:\anaconda\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in c:\anaconda\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (1.25.11)
+Requirement already satisfied: certifi&gt;=2017.4.17 in c:\anaconda\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (2020.6.20)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\anaconda\lib\site-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (3.1.0)
+Requirement already satisfied: pyasn1&gt;=0.1.3 in c:\anaconda\lib\site-packages (from rsa&lt;5,&gt;=3.1.4; python_version &gt;= &quot;3.6&quot;-&gt;google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.4-&gt;tensorflow-cpu==2.4.0) (0.4.8)</code></pre>
+<pre><code class="python">import tensorflow as tf
 from tensorflow.keras.layers import Flatten, Dense
-import numpy as np</code></pre>
-<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><p>使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签</p>
-<pre><code class="python">(train_images, train_labels),(test_images, test_labels) = keras.datasets.\
-mnist.load_data()</code></pre>
-<h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><p>图片每个像素的数值都是在[0, 255]之间，所以归一化要除以255，数据要是浮点数，所以要添加一个小数点</p>
+import numpy as np
+import matplotlib.pyplot as plt
+print(tf.__version__)</code></pre>
+<pre><code>2.4.0</code></pre>
+<h3 id="加载数据集"><a href="#加载数据集" class="headerlink" title="加载数据集"></a>加载数据集</h3><p>使用tensorflow内置的mnist数据集，返回训练集图片、训练集标签、测试集图片、测试集标签</p>
+<pre><code class="python">(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
+print(train_images.shape, train_labels.shape)
+print(test_images.shape, test_labels.shape)</code></pre>
+<pre><code>(60000, 28, 28) (60000,)
+(10000, 28, 28) (10000,)</code></pre>
+<pre><code class="python">fig, ax = plt.subplots(nrows=4, ncols=5, sharex=&#39;all&#39;, sharey=&#39;all&#39;)
+ax = ax.flatten()
+for i in range(20):
+    img = train_images[i]
+    ax[i].imshow(img)
+ax[0].set_xticks([])
+ax[0].set_yticks([])
+plt.tight_layout()
+plt.show()</code></pre>
+<h3 id="对图片进行归一化"><a href="#对图片进行归一化" class="headerlink" title="对图片进行归一化"></a>对图片进行归一化</h3><p>图片每个像素的数值都是在[0, 255]之间，所以归一化要除以255，数据要是浮点数，所以要添加一个小数点</p>
 <pre><code class="python">train_images, test_images = train_images / 255.0, test_images / 255.0</code></pre>
-<h3 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.定义模型"></a>4.定义模型</h3><p>搭建一个顺序模型，第一层先将数据展平，原始图片是28x28的灰度图，所以输入尺寸是（28，28），第二层节点数可以自己选择一个合适值，这里用128个节点，激活函数用relu，第三层有多少个种类就写多少，[0, 9]一共有10个数字,所以必须写10，激活函数用softmax</p>
-<pre><code class="python">model = keras.Sequential([
+<h3 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h3><p>搭建一个顺序模型，第一层先将数据展平，原始图片是28x28的灰度图，所以输入尺寸是（28，28），第二层节点数可以自己选择一个合适值，这里用128个节点，激活函数用relu，第三层有多少个种类就写多少，[0, 9]一共有10个数字，所以必须写10，激活函数用softmax</p>
+<pre><code class="python">model = tf.keras.Sequential([
     Flatten(input_shape=(28, 28)),
-    Dense(128, activation=&#39;relu&#39;),
+    Dense(1000, activation=&#39;relu&#39;),
     Dense(10, activation=&#39;softmax&#39;)
 ])</code></pre>
-<h3 id="5-指定优化器、损失函数、评价指标"><a href="#5-指定优化器、损失函数、评价指标" class="headerlink" title="5.指定优化器、损失函数、评价指标"></a>5.指定优化器、损失函数、评价指标</h3><p>优化器使用adam，损失函数使用交叉熵损失函数，评价指标用精确率</p>
+<h3 id="指定优化器、损失函数、评价指标"><a href="#指定优化器、损失函数、评价指标" class="headerlink" title="指定优化器、损失函数、评价指标"></a>指定优化器、损失函数、评价指标</h3><p>优化器使用adam，损失函数使用交叉熵损失函数，评价指标用准确率</p>
 <pre><code class="python">model.compile(optimizer=&#39;adam&#39;,
               loss=&#39;sparse_categorical_crossentropy&#39;,
               metrics=[&#39;acc&#39;])</code></pre>
-<h3 id="6-训练模型"><a href="#6-训练模型" class="headerlink" title="6.训练模型"></a>6.训练模型</h3><p>将训练集输入模型进行训练，一共训练10次</p>
-<pre><code class="python">model.fit(train_images, train_labels, epochs=10)</code></pre>
-<h3 id="7-用测试集验证模型效果"><a href="#7-用测试集验证模型效果" class="headerlink" title="7.用测试集验证模型效果"></a>7.用测试集验证模型效果</h3><p>用测试集去验证训练好的模型，日志等级设置为2</p>
+<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>将训练集输入模型进行训练，一共训练10次</p>
+<pre><code class="python">history = model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels), verbose=2)</code></pre>
+<pre><code>Epoch 1/10
+1875/1875 - 19s - loss: 0.1837 - acc: 0.9451 - val_loss: 0.0900 - val_acc: 0.9714
+Epoch 2/10
+1875/1875 - 16s - loss: 0.0751 - acc: 0.9771 - val_loss: 0.0696 - val_acc: 0.9782
+Epoch 3/10
+1875/1875 - 16s - loss: 0.0513 - acc: 0.9835 - val_loss: 0.0774 - val_acc: 0.9760
+Epoch 4/10
+1875/1875 - 16s - loss: 0.0335 - acc: 0.9893 - val_loss: 0.0782 - val_acc: 0.9785
+Epoch 5/10
+1875/1875 - 16s - loss: 0.0260 - acc: 0.9916 - val_loss: 0.0746 - val_acc: 0.9790
+Epoch 6/10
+1875/1875 - 16s - loss: 0.0206 - acc: 0.9930 - val_loss: 0.0773 - val_acc: 0.9792
+Epoch 7/10
+1875/1875 - 16s - loss: 0.0180 - acc: 0.9941 - val_loss: 0.0699 - val_acc: 0.9819
+Epoch 8/10
+1875/1875 - 16s - loss: 0.0146 - acc: 0.9953 - val_loss: 0.0757 - val_acc: 0.9816
+Epoch 9/10
+1875/1875 - 16s - loss: 0.0128 - acc: 0.9958 - val_loss: 0.0749 - val_acc: 0.9810
+Epoch 10/10
+1875/1875 - 16s - loss: 0.0128 - acc: 0.9961 - val_loss: 0.0845 - val_acc: 0.9813</code></pre>
+<pre><code class="python">model.summary()</code></pre>
+<pre><code>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten (Flatten)            (None, 784)               0         
+_________________________________________________________________
+dense (Dense)                (None, 1000)              785000    
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                10010     
+=================================================================
+Total params: 795,010
+Trainable params: 795,010
+Non-trainable params: 0
+_________________________________________________________________</code></pre>
+<h3 id="用测试集验证模型效果"><a href="#用测试集验证模型效果" class="headerlink" title="用测试集验证模型效果"></a>用测试集验证模型效果</h3><p>用测试集去验证训练好的模型，日志等级设置为2</p>
 <pre><code class="python">test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
+print(&#39;Test loss:&#39;, test_loss)
 print(&#39;Test acc:&#39;, test_acc)</code></pre>
-<h3 id="8-将图片输入模型，返回预测结果"><a href="#8-将图片输入模型，返回预测结果" class="headerlink" title="8.将图片输入模型，返回预测结果"></a>8.将图片输入模型，返回预测结果</h3><p>将测试集中的第一张图片输入模型，看是哪个数字的概率最大，并输出真实值</p>
+<pre><code>313/313 - 1s - loss: 0.0845 - acc: 0.9813
+Test loss: 0.08445072919130325
+Test acc: 0.9812999963760376</code></pre>
+<h3 id="将图片输入模型，返回预测结果"><a href="#将图片输入模型，返回预测结果" class="headerlink" title="将图片输入模型，返回预测结果"></a>将图片输入模型，返回预测结果</h3><p>将测试集中的第一张图片输入模型，看是哪个数字的概率最大，并输出真实值</p>
 <pre><code class="python">predictions = model.predict(test_images)
 print(&#39;预测值:&#39;, np.argmax(predictions[0]))
 print(&#39;真实值:&#39;, test_labels[0])</code></pre>
+<pre><code>预测值: 7
+真实值: 7</code></pre>
+<h3 id="显示模型准确率的变化过程"><a href="#显示模型准确率的变化过程" class="headerlink" title="显示模型准确率的变化过程"></a>显示模型准确率的变化过程</h3><pre><code class="python">#横坐标、纵坐标、标签
+plt.plot(history.epoch, history.history.get(&#39;acc&#39;), label=&#39;acc&#39;)
+plt.plot(history.epoch, history.history.get(&#39;val_acc&#39;), label=&#39;val_acc&#39;)
+plt.legend()       #绘图
+plt.show()         #显示图像</code></pre>
+<h3 id="显示模型损失的变化过程"><a href="#显示模型损失的变化过程" class="headerlink" title="显示模型损失的变化过程"></a>显示模型损失的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;loss&#39;), label=&#39;loss&#39;)
+plt.plot(history.epoch, history.history.get(&#39;val_loss&#39;), label=&#39;val_loss&#39;)
+plt.legend()
+plt.show()</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
