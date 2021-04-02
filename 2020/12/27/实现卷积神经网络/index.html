@@ -841,7 +841,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-18 20:16:39'>2020-12-27 13:12</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-02 16:25:33'>2020-12-27 13:12</time>
         
     </div>
     <div class="article-meta">
@@ -874,7 +874,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">1.导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">2.加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">3.对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%90%AD%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.搭建模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%87%BD%E6%95%B0%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">5.指定优化函数、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E5%87%86%E7%A1%AE%E7%8E%87%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">6.显示模型准确率的变化过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">7.显示模型损失的变化过程</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-text">导入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">加载数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%AD%E7%BB%83%E9%9B%86%E5%9B%BE%E7%89%87"><span class="toc-text">查看训练集图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%A0%87%E7%AD%BE%E7%B1%BB%E5%88%AB"><span class="toc-text">查看标签类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">对图片进行归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">搭建模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E4%BC%98%E5%8C%96%E5%99%A8%E3%80%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E3%80%81%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">指定优化器、损失函数、评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">查看模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E5%87%86%E7%A1%AE%E7%8E%87%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">显示模型准确率的变化过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E7%9A%84%E5%8F%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">显示模型损失的变化过程</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -890,36 +890,102 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-导入依赖包"><a href="#1-导入依赖包" class="headerlink" title="1.导入依赖包"></a>1.导入依赖包</h3><pre><code class="python">import tensorflow as tf
-import matplotlib.pyplot as plt</code></pre>
-<h3 id="2-加载数据集"><a href="#2-加载数据集" class="headerlink" title="2.加载数据集"></a>2.加载数据集</h3><pre><code class="python">(x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()</code></pre>
-<h3 id="3-对图片进行归一化"><a href="#3-对图片进行归一化" class="headerlink" title="3.对图片进行归一化"></a>3.对图片进行归一化</h3><pre><code class="python">x_train, x_test = x_train / 255.0, x_test / 255.0</code></pre>
-<h3 id="4-搭建模型"><a href="#4-搭建模型" class="headerlink" title="4.搭建模型"></a>4.搭建模型</h3><pre><code class="python">model = tf.keras.models.Sequential([
-    #Flatten：对图片进行展平    input_shape: 输入图片的尺寸
-    tf.keras.layers.Flatten(input_shape=(28, 28)),
-    #Dense: 全连接层    128：神经元个数    activation：激活函数
-    tf.keras.layers.Dense(128, activation=&#39;relu&#39;),
-    #Dropout：随机失活神经元，防止过拟合
-    tf.keras.layers.Dropout(0.4),
-    #10：一共有几个分类
-    tf.keras.layers.Dense(10, activation=&#39;softmax&#39;)
+        <h3 id="导入依赖包"><a href="#导入依赖包" class="headerlink" title="导入依赖包"></a>导入依赖包</h3><pre><code class="python">import tensorflow as tf
+from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, MaxPool2D, Dropout, Flatten, Dense
+import numpy as np
+import matplotlib.pyplot as plt
+print(tf.__version__)</code></pre>
+<pre><code>2.4.0</code></pre>
+<h3 id="加载数据集"><a href="#加载数据集" class="headerlink" title="加载数据集"></a>加载数据集</h3><pre><code class="python">(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.fashion_mnist.load_data()
+print(train_images.shape, train_labels.shape)
+print(test_images.shape, test_labels.shape)</code></pre>
+<pre><code>(60000, 28, 28) (60000,)
+(10000, 28, 28) (10000,)</code></pre>
+<h3 id="查看训练集图片"><a href="#查看训练集图片" class="headerlink" title="查看训练集图片"></a>查看训练集图片</h3><pre><code class="python">fig, ax = plt.subplots(nrows=4, ncols=5, sharex=&#39;all&#39;, sharey=&#39;all&#39;)
+ax = ax.flatten()
+for i in range(20):
+    img = train_images[i]
+    ax[i].imshow(img)
+ax[0].set_xticks([])
+ax[0].set_yticks([])
+plt.tight_layout()
+plt.show()</code></pre>
+<h3 id="查看标签类别"><a href="#查看标签类别" class="headerlink" title="查看标签类别"></a>查看标签类别</h3><pre><code class="python">labels = np.unique(train_labels)
+print(labels)</code></pre>
+<pre><code>[0 1 2 3 4 5 6 7 8 9]</code></pre>
+<h3 id="对图片进行归一化"><a href="#对图片进行归一化" class="headerlink" title="对图片进行归一化"></a>对图片进行归一化</h3><pre><code class="python">train_images, test_images = train_images / 255.0, test_images / 255.0
+train_images = train_images.reshape(-1, 28, 28, 1)
+test_images = test_images.reshape(-1, 28, 28, 1)
+print(train_images.shape, test_images.shape)</code></pre>
+<pre><code>(60000, 28, 28, 1) (10000, 28, 28, 1)</code></pre>
+<h3 id="搭建模型"><a href="#搭建模型" class="headerlink" title="搭建模型"></a>搭建模型</h3><pre><code class="python">model = tf.keras.models.Sequential([
+    Conv2D(filters=6, kernel_size=(3, 3), padding=&#39;valid&#39;),
+    BatchNormalization(),
+    Activation(&#39;relu&#39;),
+
+    Conv2D(filters=6, kernel_size=(3, 3), padding=&#39;valid&#39;),
+    BatchNormalization(),
+    Activation(&#39;relu&#39;),
+    MaxPool2D(pool_size=(2, 2), strides=2, padding=&#39;same&#39;),
+    Dropout(0.4),
+    Flatten(),
+    Dense(10, activation=&#39;softmax&#39;)
 ])</code></pre>
-<h3 id="5-指定优化函数、损失函数、评价指标"><a href="#5-指定优化函数、损失函数、评价指标" class="headerlink" title="5.指定优化函数、损失函数、评价指标"></a>5.指定优化函数、损失函数、评价指标</h3><pre><code class="python">model.compile(optimizer=&#39;adam&#39;,                              #optimizer：优化器
-              loss=&#39;sparse_categorical_crossentropy&#39;,        #loss：损失函数
-              metrics=[&#39;accuracy&#39;])                          #评价指标</code></pre>
-<h3 id="5-训练模型"><a href="#5-训练模型" class="headerlink" title="5.训练模型"></a>5.训练模型</h3><pre><code class="python">history = model.fit(x_train, y_train,                      #训练数据
-                    epochs=10,                             #epochs: 训练次数
-                    validation_data=(x_test, y_test),      #validation_data: 验证集
-                    verbose=2)                             #verbose：显示日志等级</code></pre>
-<h3 id="6-显示模型准确率的变化过程"><a href="#6-显示模型准确率的变化过程" class="headerlink" title="6.显示模型准确率的变化过程"></a>6.显示模型准确率的变化过程</h3><pre><code class="python">#横坐标、纵坐标、标签
-plt.plot(history.epoch, history.history.get(&#39;accuracy&#39;), label=&#39;accuracy&#39;)
+<h3 id="指定优化器、损失函数、评价指标"><a href="#指定优化器、损失函数、评价指标" class="headerlink" title="指定优化器、损失函数、评价指标"></a>指定优化器、损失函数、评价指标</h3><pre><code class="python">model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])</code></pre>
+<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><pre><code class="python">history = model.fit(train_images, train_labels,
+                    epochs=5,
+                    validation_data=(test_images, test_labels),
+                    verbose=2)</code></pre>
+<pre><code>Epoch 1/5
+1875/1875 - 44s - loss: 0.5619 - accuracy: 0.7976 - val_loss: 0.3965 - val_accuracy: 0.8561
+Epoch 2/5
+1875/1875 - 41s - loss: 0.4037 - accuracy: 0.8546 - val_loss: 0.3772 - val_accuracy: 0.8620
+Epoch 3/5
+1875/1875 - 41s - loss: 0.3713 - accuracy: 0.8656 - val_loss: 0.3355 - val_accuracy: 0.8835
+Epoch 4/5
+1875/1875 - 41s - loss: 0.3556 - accuracy: 0.8733 - val_loss: 0.3280 - val_accuracy: 0.8824
+Epoch 5/5
+1875/1875 - 48s - loss: 0.3433 - accuracy: 0.8756 - val_loss: 0.3199 - val_accuracy: 0.8871</code></pre>
+<h3 id="查看模型结构"><a href="#查看模型结构" class="headerlink" title="查看模型结构"></a>查看模型结构</h3><pre><code class="python">model.summary()</code></pre>
+<pre><code>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 26, 26, 6)         60        
+_________________________________________________________________
+batch_normalization (BatchNo (None, 26, 26, 6)         24        
+_________________________________________________________________
+activation (Activation)      (None, 26, 26, 6)         0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 24, 24, 6)         330       
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 24, 24, 6)         24        
+_________________________________________________________________
+activation_1 (Activation)    (None, 24, 24, 6)         0         
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 12, 12, 6)         0         
+_________________________________________________________________
+dropout (Dropout)            (None, 12, 12, 6)         0         
+_________________________________________________________________
+flatten (Flatten)            (None, 864)               0         
+_________________________________________________________________
+dense (Dense)                (None, 10)                8650      
+=================================================================
+Total params: 9,088
+Trainable params: 9,064
+Non-trainable params: 24
+_________________________________________________________________</code></pre>
+<h3 id="显示模型准确率的变化过程"><a href="#显示模型准确率的变化过程" class="headerlink" title="显示模型准确率的变化过程"></a>显示模型准确率的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;accuracy&#39;), label=&#39;accuracy&#39;)
 plt.plot(history.epoch, history.history.get(&#39;val_accuracy&#39;), label=&#39;val_accuracy&#39;)
-plt.legend()       #绘图
-plt.show()         #显示图像</code></pre>
-<h3 id="7-显示模型损失的变化过程"><a href="#7-显示模型损失的变化过程" class="headerlink" title="7.显示模型损失的变化过程"></a>7.显示模型损失的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;loss&#39;), label=&#39;loss&#39;)
+plt.legend()
+plt.show()</code></pre>
+<h3 id="显示模型损失的变化过程"><a href="#显示模型损失的变化过程" class="headerlink" title="显示模型损失的变化过程"></a>显示模型损失的变化过程</h3><pre><code class="python">plt.plot(history.epoch, history.history.get(&#39;loss&#39;), label=&#39;loss&#39;)
 plt.plot(history.epoch, history.history.get(&#39;val_loss&#39;), label=&#39;val_loss&#39;)
 plt.legend()
 plt.show()</code></pre>
+<p>​    </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2621041184@qq.com </span>
